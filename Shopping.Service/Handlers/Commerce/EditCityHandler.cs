@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Shopping.Service.Handlers.Commerce
+namespace Shopping.Service.Handlers
 {
     public class EditCityHandler : CommandHandler<Commands.EditCity>
     {
