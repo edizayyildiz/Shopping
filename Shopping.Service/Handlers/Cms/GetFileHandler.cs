@@ -1,5 +1,5 @@
 ﻿using Shopping.Data;
-using Shopping.Service.Queries.Cms;
+using Shopping.Service.Queries;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
