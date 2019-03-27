@@ -1,7 +1,6 @@
 ﻿using Shopping.Data;
 using Shopping.Model.Entities;
 using Shopping.Service.Queries;
-using Shopping.Service.Queries.Commerce;
 using AutoMapper;
 using System;
 using System.Collections.Generic;

@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Shopping.Service.Queries
 {
-    public class AdvertisementQuery
+    public class AdvertisementQuery:Query
     {
-        public string Id { get; set; }
         public string Title { get; set; }
         public string SubTitle { get; set; }
         public string Html { get; set; }

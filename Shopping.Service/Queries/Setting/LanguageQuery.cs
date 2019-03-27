@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Shopping.Service.Queries
 {
-    public class LanguageQuery
+    public class LanguageQuery:Query
     {
-        public string Id { get; set; }
         public string Name { get; set; }
         public bool? IsActive { get; set; }
         public string NativeName { get; set; }

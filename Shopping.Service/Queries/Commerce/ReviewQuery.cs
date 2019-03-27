@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Shopping.Service.Queries
 {
-    public class ReviewQuery
+    public class ReviewQuery:Query
     {
-        public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Body { get; set; }
