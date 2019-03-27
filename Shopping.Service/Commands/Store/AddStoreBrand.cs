@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shopping.Service.Queries.Cms
+namespace Shopping.Service.Commands
 {
-    public class StoreBrandQuery
+    [Describe(CommandType.Store, Authorities.Create, "Yeni mağaza markası oluşturur.")]
+    public class AddStoreBrand : Command
     {
-        public string Id { get; set; }
         public string StoreId { get; set; }
         public string BrandId { get; set; }
+
+
     }
 }

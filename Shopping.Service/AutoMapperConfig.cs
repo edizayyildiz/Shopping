@@ -5,6 +5,7 @@ using AutoMapper.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Shopping.Service.Queries;
 
 namespace Shopping.Service
 {
@@ -15,7 +16,7 @@ namespace Shopping.Service
             var cfg = new MapperConfigurationExpression();
 
             // create all maps here
-            /*cfg.CreateMap<Brand, AddBrand>().ReverseMap();
+            cfg.CreateMap<Brand, AddBrand>().ReverseMap();
             cfg.CreateMap<Brand, EditBrand>().ReverseMap();
             cfg.CreateMap<Brand, BrandQuery>().ReverseMap();
 
@@ -56,9 +57,9 @@ namespace Shopping.Service
             cfg.CreateMap<Color, AddColor>().ReverseMap();
             cfg.CreateMap<Color, EditColor>().ReverseMap();
             cfg.CreateMap<Color, ColorQuery>().ReverseMap();
-            */
+            
             cfg.CreateMap<Product, AddProduct>().ReverseMap();
-            /*
+            
             cfg.CreateMap<Product, EditProduct>().ReverseMap();
             cfg.CreateMap<Product, ProductQuery>()
             .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(x => x.Category.Name))
@@ -181,7 +182,7 @@ namespace Shopping.Service
 
             cfg.CreateMap<QuestionCategory, AddQuestionCategory>().ReverseMap();
             cfg.CreateMap<QuestionCategory, EditQuestionCategory>().ReverseMap();
-            cfg.CreateMap<QuestionCategory, QuestionCategoryQuery>().ReverseMap();*/
+            cfg.CreateMap<QuestionCategory, QuestionCategoryQuery>().ReverseMap();
 
 
 
