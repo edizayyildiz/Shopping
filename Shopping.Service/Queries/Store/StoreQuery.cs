@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shopping.Service.Queries.Store
+namespace Shopping.Service.Queries
 {
     public class StoreQuery:Query
     {

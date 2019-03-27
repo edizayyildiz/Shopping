@@ -1,11 +1,11 @@
 ﻿using Shopping.Data;
 using Shopping.Model.Entities;
-using Shopping.Service.Queries.Cms;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Shopping.Service.Queries;
 
 namespace Shopping.Service.Handlers
 {
