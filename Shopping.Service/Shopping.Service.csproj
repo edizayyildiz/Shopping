@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\Customer\" />
+    <Folder Include="Handlers\Customer\" />
+    <Folder Include="Handlers\System\" />
+    <Folder Include="Queries\Customer\" />
+    <Folder Include="Queries\System\" />
+    <Folder Include="Queries\User\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shopping.Data\Shopping.Data.csproj" />
+    <ProjectReference Include="..\Shopping.Model\Shopping.Model.csproj" />
+  </ItemGroup>
+
+</Project>
