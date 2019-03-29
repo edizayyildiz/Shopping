@@ -12,17 +12,17 @@ namespace Shopping.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private ICommandHandler<AddCountry> addCountryService;
-        public HomeController(ICommandHandler<AddCountry> addCountryService)
+        private ICommandHandler<SearchCountrys> searchCountrysService;
+        public HomeController(ICommandHandler<SearchCountrys> searchCountrysService)
         {
-            this.addCountryService = addCountryService;
+            this.searchCountrysService = searchCountrysService;
         }
         public async Task<IActionResult> Index()
         {
-            var addCountry = new AddCountry();
-            addCountry.Name = "Türkiye";
-            await addCountryService.HandleAsync(addCountry);
-            return View();
+            var searchCountrys = new SearchCountrys();
+            searchCountrys.Name = "G";
+            Result result = await searchCountrysService.HandleAsync(searchCountrys);
+            return View(result.Value);
         }
 
         public IActionResult Privacy()
