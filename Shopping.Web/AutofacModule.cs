@@ -13,7 +13,7 @@ namespace Shopping.Web
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterAssemblyTypes(Assembly.Load("Shopping.Service"))
-                .AsClosedTypesOf(typeof(ICommandHandler<>)).InstancePerDependency();
+                .AsClosedTypesOf(typeof(ICommandHandler<>));
         }
     }
 }

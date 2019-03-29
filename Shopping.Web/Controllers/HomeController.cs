@@ -4,14 +4,24 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Shopping.Service;
+using Shopping.Service.Commands;
 using Shopping.Web.Models;
 
 namespace Shopping.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private ICommandHandler<AddCountry> addCountryService;
+        public HomeController(ICommandHandler<AddCountry> addCountryService)
         {
+            this.addCountryService = addCountryService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var addCountry = new AddCountry();
+            addCountry.Name = "Türkiye";
+            await addCountryService.HandleAsync(addCountry);
             return View();
         }
 

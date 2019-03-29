@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-
+using Autofac.Extensions.DependencyInjection;
 namespace Shopping.Web
 {
     public class Program
@@ -19,6 +19,7 @@ namespace Shopping.Web
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            .ConfigureServices(services => services.AddAutofac())
                 .UseStartup<Startup>();
     }
 }

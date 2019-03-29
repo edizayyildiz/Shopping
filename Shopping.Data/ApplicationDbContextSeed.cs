@@ -1435,7 +1435,9 @@ namespace Shopping.Data
                 OrderId = "51c16d53-3f56-4b7f-b652-37d546811f6b",
                 ProductId = "4330ef04-db35-4358-936a-d4db324d4fed",
                 Quantity = 2,
-                ShipperId = "8a8f0d2c-cc86-4d11-98d8-eb30847859a7"
+                ShipperId = "8a8f0d2c-cc86-4d11-98d8-eb30847859a7",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem1);
 
@@ -1445,7 +1447,9 @@ namespace Shopping.Data
                 OrderId = "cb93a8b3-c1d6-4c2c-8878-ea91e7e6864c",
                 ProductId = "7b4ff888-2e18-4490-b01a-76c4a7b3095b",
                 Quantity = 1,
-                ShipperId = "5a240eef-d844-4341-811e-3b2377920a5d"
+                ShipperId = "5a240eef-d844-4341-811e-3b2377920a5d",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem2);
 
@@ -1455,7 +1459,9 @@ namespace Shopping.Data
                 OrderId = "3349a57f-2dcb-4b9b-922f-7c134517bd47",
                 ProductId = "4330ef04-db35-4358-936a-d4db324d4fed",
                 Quantity = 2,
-                ShipperId = "dc20a22d-51d7-439c-9898-1015954cdbbd"
+                ShipperId = "dc20a22d-51d7-439c-9898-1015954cdbbd",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem3);
 
@@ -1465,7 +1471,9 @@ namespace Shopping.Data
                 OrderId = "3f6a2da6-f4c8-48c3-a42c-f0e71e37ee4f",
                 ProductId = "4330ef04-db35-4358-936a-d4db324d4fed",
                 Quantity = 1,
-                ShipperId = "a54ae47b-f94b-4bf8-ab1c-fffabd092012"
+                ShipperId = "a54ae47b-f94b-4bf8-ab1c-fffabd092012",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem4);
 
@@ -1475,7 +1483,9 @@ namespace Shopping.Data
                 OrderId = "3f6a2da6-f4c8-48c3-a42c-f0e71e37ee4f",
                 Quantity = 3,
                 ProductId = "7b4ff888-2e18-4490-b01a-76c4a7b3095b",
-                ShipperId = "8a8f0d2c-cc86-4d11-98d8-eb30847859a7"
+                ShipperId = "8a8f0d2c-cc86-4d11-98d8-eb30847859a7",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem5);
 
@@ -1485,7 +1495,9 @@ namespace Shopping.Data
                 OrderId = "e4c732da-9f37-4015-b12b-d2d858dfa03a",
                 ProductId = "fe01d29b-f753-4b89-a6e8-a502de6cfbe1",
                 Quantity = 2,
-                ShipperId = "5a240eef-d844-4341-811e-3b2377920a5d"
+                ShipperId = "5a240eef-d844-4341-811e-3b2377920a5d",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem6);
 
@@ -1495,7 +1507,9 @@ namespace Shopping.Data
                 OrderId = "3f6a2da6-f4c8-48c3-a42c-f0e71e37ee4f",
                 ProductId = "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d",
                 Quantity = 1,
-                ShipperId = "dc20a22d-51d7-439c-9898-1015954cdbbd"
+                ShipperId = "dc20a22d-51d7-439c-9898-1015954cdbbd",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem7);
 
@@ -1505,7 +1519,9 @@ namespace Shopping.Data
                 OrderId = "51c16d53-3f56-4b7f-b652-37d546811f6b",
                 ProductId = "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0",
                 Quantity = 1,
-                ShipperId = "a54ae47b-f94b-4bf8-ab1c-fffabd092012"
+                ShipperId = "a54ae47b-f94b-4bf8-ab1c-fffabd092012",
+                Name = "Deneme",
+                ShortDescription = "Açıklama"
             };
             builder.HasData(orderItem8);
         }
@@ -1681,7 +1697,8 @@ namespace Shopping.Data
                 StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                 Title = "Kargo firmanız hale ürünü getirmedi.",
                 ShareDate = new DateTime(2019, 02, 21),
-                IsPublic = true
+                IsPublic = true,
+                Description = "Açıklama"
             };
             builder.HasData(productQuestion1);
         }
