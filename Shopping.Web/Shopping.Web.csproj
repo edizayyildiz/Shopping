@@ -22,11 +22,6 @@
 
 
   <ItemGroup>
-    <None Include="wwwroot\js\site.js" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <ProjectReference Include="..\Shopping.Data\Shopping.Data.csproj" />
     <ProjectReference Include="..\Shopping.Model\Shopping.Model.csproj" />
     <ProjectReference Include="..\Shopping.Service\Shopping.Service.csproj" />
