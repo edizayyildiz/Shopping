@@ -6,8 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Shopping.Web.Controllers
 {
-    public class ShopController : Controller
+    public class ShopController : BaseController
     {
+        public ShopController() : base()
+        {
+        }
         public IActionResult Index()
         {
             return View();
