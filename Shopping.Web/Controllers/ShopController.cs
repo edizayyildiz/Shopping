@@ -21,9 +21,9 @@ namespace Shopping.Web.Controllers
             return View();
         }
         public async Task<IActionResult> ProductsGrid()
-        {
-            var searchProducts = new SearchProducts();
-            searchProducts.SortField = "Name";           
+        { 
+            var searchProducts = new SearchProducts();          
+            //searchProducts.SortField = "name";           
             Result result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }

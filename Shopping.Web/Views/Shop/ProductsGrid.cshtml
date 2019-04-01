@@ -50,11 +50,11 @@
                                         </select>
                                     </div>
                                     <div class="modes">
-                                        <a href="grid-product.html" class="active modes-mode mode-grid" title="Grid">
+                                        <a href="@Url.Action("ProductsGrid","Shop")" class="active modes-mode mode-grid" title="Grid">
                                             <i class="flaticon-squares"></i>
                                             <span>Grid</span>
                                         </a>
-                                        <a href="list-product.html" title="List" class="modes-mode mode-list">
+                                        <a href="@Url.Action("ProductsList","Shop")" title="List" class="modes-mode mode-list">
                                             <i class="flaticon-interface"></i>
                                             <span>List</span>
                                         </a>
@@ -62,435 +62,44 @@
                                 </div>
                             </div>
                             <div class="products products-list products-grid equal-container">
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p8.jpg" alt="p8"></a>
+                                @foreach (var item in Model)
+                                {
+                                    <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
+                                        <div class="product-inner">
+                                            <div class="product-thumb">
+                                                <div class="thumb-inner">
+                                                    <a href=""><img src="/images/product/p8.jpg" alt="p8"></a>
+                                                </div>
+                                                <span class="onsale">-50%</span>
+                                                <a href="" class="quick-view">Quick View</a>
                                             </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Acer's Aspire S7 is a thin and portable laptop</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Weigh:  8.25 kg</p>
-                                                <p>Size:  One Size Fits All </p>
-                                                <p>Guarantee:  2 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p9.jpg" alt="p9"></a>
-                                            </div>
-                                            <span class="onnew">new</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">VR-BOX - Imported Virtual Reality 3D Glasses</a></div>
-                                            <span class="price price-dark">
-                                                <ins>$229.00</ins>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Display Size:  6</p>
-                                                <p>Display Type:  Linux</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
+                                            <div class="product-innfo">
+                                                <div class="product-name"><a href="">Acer's Aspire S7 is a thin and portable laptop</a></div>
+                                                <span class="price">
+                                                    <ins>@item.NewPrice</ins>
+                                                    <del>@item.OldPrice</del>
+                                                </span>
+                                                <span class="star-rating">
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    <span class="review">5 Review(s)</span>
+                                                </span>
+                                                <div class="info-product">
+                                                    @item.ShortDescription
+                                                </div>
+                                                <div class="single-add-to-cart">
+                                                    <a href="" class="btn-add-to-cart">Add to cart</a>
+                                                    <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
+                                                    <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p10.jpg" alt="p10"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Xbox One S Halo Collection Bund</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Color: White</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p11.jpg" alt="p11"></a>
-                                            </div>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Smartphone MTK6737 Quad Core.</a></div>
-                                            <span class="price price-dark">
-                                                <ins>$229.00</ins>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p12.jpg" alt="p12"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p13.jpg" alt="p13"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p14.jpg" alt="p14"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p15.jpg" alt="p15"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p16.jpg" alt="p16"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p17.jpg" alt="p17"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p18.jpg" alt="p18"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p19.jpg" alt="p19"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">Quick View</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">Skullcandy Headphone Grind Wireless (White)</a></div>
-                                            <span class="price">
-                                                <ins>$229.00</ins>
-                                                <del>$259.00</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">5 Review(s)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>Hight precision lens provided</p>
-                                                <p>Android Supported</p>
-                                                <p>Guarantee:  1 Year</p>
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                }
+
                             </div>
                             <div class="pagination">
                                 <ul class="nav-links">
@@ -980,5 +589,5 @@
         </a> -->
 
     </div>
-   
+
 </body>
