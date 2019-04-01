@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Shopping.Service;
 using Shopping.Service.Commands;
-using Shopping.Service.Queries;
 
 namespace Shopping.Web.Controllers
 {
@@ -18,11 +17,15 @@ namespace Shopping.Web.Controllers
         }
         public IActionResult Index()
         {
+            
             return View();
         }
-        public IActionResult ProductsGrid()
-        {
-            return View();
+        public async Task<IActionResult> ProductsGrid()
+        { 
+            var searchProducts = new SearchProducts();          
+            //searchProducts.SortField = "name";           
+            Result result = await searchProductsService.HandleAsync(searchProducts);
+            return View(result.Value);
         }
         public async Task<IActionResult> ProductsList()
         {
