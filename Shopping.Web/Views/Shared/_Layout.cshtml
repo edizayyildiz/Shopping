@@ -145,30 +145,21 @@
                             <!-- block search -->
                             <div class="block-search">
                                 <div class="block-content">
+                                   
                                     <div class="categori-search  ">
-                                        <select data-placeholder="All Categories" class="chosen-select categori-search-option">
-                                            <option value="">All Categories</option>
-                                            <optgroup label="- Electronics">
-                                                <option>Batteries & Chargens</option>
-                                                <option>Headphone & Headsets</option>
-                                                <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Smartphone & Table">
-                                                <option>Batteries & Chargens</option>
-                                                <option>Headphone & Headsets</option>
-                                                <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Electronics">
-                                                <option>Batteries & Chargens</option>
-                                                <option>Headphone & Headsets</option>
-                                                <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                            <optgroup label="- Smartphone & Table">
-                                                <option>Batteries & Chargens</option>
-                                                <option>Headphone & Headsets</option>
-                                                <option>Mp3 Player & Acessories</option>
-                                            </optgroup>
-                                        </select>
+                                        <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
+                                            <option value="">Tüm Kategoriler</option>
+                                            @foreach (var item in ViewBag.Categories)
+                                            {
+                                               
+                                            
+                                                <option>@item.Name</option>
+
+
+
+                                                }
+
+</select>
                                     </div>
                                     <div class="form-search">
                                         <form>
