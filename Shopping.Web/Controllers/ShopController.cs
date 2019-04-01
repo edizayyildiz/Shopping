@@ -17,5 +17,17 @@ namespace Shopping.Web.Controllers
         {
             return View();
         }
+        public IActionResult ProductsGrid()
+        {
+            return View();
+        }
+        public IActionResult ProductsList()
+        {
+            return View();
+        }
+        public IActionResult ProductsDetails()
+        {
+            return View();
+        }
     }
 }
