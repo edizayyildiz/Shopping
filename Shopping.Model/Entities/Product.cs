@@ -15,6 +15,7 @@ namespace Shopping.Model.Entities
             Wishlists = new HashSet<Wishlist>();
             OrderItems = new HashSet<OrderItem>();
             ProductQuestions = new HashSet<ProductQuestion>();
+            CartItems = new HashSet<CartItem>();
             Condition = Condition.NotSpecified;
         }
         public string Name { get; set; }
@@ -39,20 +40,25 @@ namespace Shopping.Model.Entities
         public string MetaTitle { get; set; }
         public string MetaDescription { get; set; }
         public string MetaKeywords { get; set; }
-        public virtual ICollection<ProductPhoto> Images { get; set; }
-        public virtual ICollection<Review> Reviews { get; set; }
+
         public string CategoryId { get; set; }
         public ProductCategory Category { get; set; }
+
         public string BrandId { get; set; }
         public Brand Brand { get; set; }
+
         public string StoreId { get; set; }
         public Store Store { get; set; }
+       
 
+        public virtual ICollection<ProductPhoto> Images { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
         public virtual ICollection<ProductColor> ProductColors { get; set; }
         public virtual ICollection<Wishlist> Wishlists { get; set; }
+        public virtual ICollection<RecentlyDisplayedProduct> RecentlyDisplayedProducts { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<ProductQuestion> ProductQuestions { get; set; }
-
+        public virtual ICollection<CartItem> CartItems { get; set; }
 
     }
 }
