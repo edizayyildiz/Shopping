@@ -30,7 +30,9 @@ namespace Shopping.Web.Controllers
         public async Task<IActionResult> ProductsList()
         {
             var searchProduct = new SearchProducts();
+            searchProduct.IsPagedSearch = true;
             Result result = await searchProductsService.HandleAsync(searchProduct);
+
             return View(result.Value);
         }
         public IActionResult ProductsDetails()
