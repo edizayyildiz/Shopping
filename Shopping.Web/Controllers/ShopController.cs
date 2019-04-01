@@ -5,13 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Shopping.Service;
 using Shopping.Service.Commands;
+using Shopping.Service.Queries;
 
 namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
-        public ShopController(ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        private ICommandHandler<SearchProducts> searchProductsService;
+        public ShopController(ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         {
+            this.searchProductsService = searchProductsService;
         }
         public IActionResult Index()
         {
@@ -21,9 +24,11 @@ namespace Shopping.Web.Controllers
         {
             return View();
         }
-        public IActionResult ProductsList()
+        public async Task<IActionResult> ProductsList()
         {
-            return View();
+            var searchProduct = new SearchProducts();
+            Result result = await searchProductsService.HandleAsync(searchProduct);
+            return View(result.Value);
         }
         public IActionResult ProductsDetails()
         {
