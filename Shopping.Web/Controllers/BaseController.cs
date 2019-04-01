@@ -4,11 +4,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Shopping.Service;
+using Shopping.Service.Commands;
 
 namespace Shopping.Web.Controllers
 {
     public class BaseController : Controller
     {
+        private ICommandHandler<SearchProductCategories> SearchProductCategoriesService;
+
+        public BaseController(ICommandHandler<SearchProductCategories> searchProductCategoriesService)
+        {
+            this.SearchProductCategoriesService = searchProductCategoriesService;
+
+        }
+
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
@@ -16,6 +26,8 @@ namespace Shopping.Web.Controllers
         // Bu method tüm action lardan sonra çalışır.
         public override void OnActionExecuted(ActionExecutedContext context)
         {
+            var searchProductCategoryCommand = new SearchProductCategories();
+            ViewBag.Cateogories = SearchProductCategoriesService.HandleAsync(searchProductCategoryCommand).Result;
             base.OnActionExecuted(context);
         }
     }

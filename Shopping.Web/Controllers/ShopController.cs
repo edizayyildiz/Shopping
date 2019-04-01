@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Shopping.Service;
+using Shopping.Service.Commands;
 
 namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
-        public ShopController() : base()
+        public ShopController(ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         {
         }
         public IActionResult Index()

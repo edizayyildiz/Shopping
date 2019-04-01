@@ -13,7 +13,7 @@ namespace Shopping.Web.Controllers
     public class HomeController : BaseController
     {
         private ICommandHandler<SearchCountrys> searchCountrysService;
-        public HomeController(ICommandHandler<SearchCountrys> searchCountrysService) : base()
+        public HomeController(ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         {
             this.searchCountrysService = searchCountrysService;
         }
