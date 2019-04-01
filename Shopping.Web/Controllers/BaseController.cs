@@ -24,10 +24,11 @@ namespace Shopping.Web.Controllers
             base.OnActionExecuting(context);
         }
         // Bu method tüm action lardan sonra çalışır.
-        public override void OnActionExecuted(ActionExecutedContext context)
+        public override void  OnActionExecuted(ActionExecutedContext context)
         {
             var searchProductCategoryCommand = new SearchProductCategories();
-            ViewBag.Cateogories = SearchProductCategoriesService.HandleAsync(searchProductCategoryCommand).Result;
+            var sonuc = SearchProductCategoriesService.HandleAsync(searchProductCategoryCommand).Result;
+            ViewBag.Categories = sonuc.Value;
             base.OnActionExecuted(context);
         }
     }
