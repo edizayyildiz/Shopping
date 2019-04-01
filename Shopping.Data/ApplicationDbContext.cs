@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Shopping.Data
 {
-   
+
 
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Role, string>
@@ -48,6 +48,8 @@ namespace Shopping.Data
         public DbSet<ProductQuestion> ProductQuestions { get; set; }
         public DbSet<QuestionCategory> QuestionCategories { get; set; }
         public DbSet<Shipper> Shippers { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -85,6 +87,8 @@ namespace Shopping.Data
             var productQuestionBuilder = new ProductQuestionBuilder(builder.Entity<ProductQuestion>());
             var questionCategoryBuilder = new QuestionCategoryBuilder(builder.Entity<QuestionCategory>());
             var shipperBuilder = new ShipperBuilder(builder.Entity<Shipper>());
+            var cartBuilder = new CartBuilder(builder.Entity<Cart>());
+            var cartItemBuilder = new CartItemBuilder(builder.Entity<CartItem>());
 
             // data seeding
             ApplicationDbContextSeed.Seed(builder);

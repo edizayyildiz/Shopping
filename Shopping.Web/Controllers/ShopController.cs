@@ -15,5 +15,9 @@ namespace Shopping.Web.Controllers
         {
             return View();
         }
+        public IActionResult Cart()
+        {
+            return View();
+        }
     }
 }
