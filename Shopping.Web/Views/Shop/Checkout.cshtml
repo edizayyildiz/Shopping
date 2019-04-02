@@ -1,8 +1,10 @@
 ﻿@model Shopping.Model.Entities.Address
+
 @{
     ViewData["Title"] = "Checkout";
 }
 
+<!-- MAIN -->
 <main class="site-main checkout">
     <div class="container">
         <ol class="breadcrumb-page">
@@ -11,132 +13,123 @@
         </ol>
     </div>
     <div class="container">
-        @using (Html.BeginForm())
-        {
-
-            @Html.AntiForgeryToken()
-
-            
-
-                <h4 class="title-checkout">Fatura Adresi</h4>
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="row">
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Adınız*</label>
-                                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Adınız" } })
-                                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
 
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Soyadınız*</label>
-                                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Soyadınız" } })
-                                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
+        <form asp-action="Checkout" asp-controller="Shop" class="checkout" method="post" name="checkout">
+            <h4 class="title-checkout">Fatura Adresi</h4>
 
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">E-Posta:</label>
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "E-posta Adresiniz" } })
-                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Telefon Numarası*</label>
-                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", @placeholder = "Telefon numaranızı lütfen 10 Hane olarak giriniz." } })
-                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Adres:</label>
-                                @Html.EditorFor(model => model.AddressDescription, new { htmlAttributes = new { @class = "form-control", @placeholder = "Adınız" } })
-                                @Html.ValidationMessageFor(model => model.AddressDescription, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Ülke*</label>
-                                @Html.DropDownList("CountryId", (IEnumerable<SelectListItem>)ViewBag.Countries, "Seçiniz", htmlAttributes: new { @class = "form-control" })
-                                @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Posta Kodu:</label>
-                                <input type="text" class="form-control" placeholder="Posta Kodunuz">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group col-md-6">
-                                <label class="title">Şehir*</label>
-                                <input type="text" class="form-control" placeholder="Şehir">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group shipping col-md-6">
-                        <ul>
-                            <li><label class="inline"><input type="checkbox"><span class="input"></span>Hesap Oluştur</label></li>
-                            <li><label class="inline"><input type="checkbox"><span class="input"></span>Kargo adresiniz farklı mı ?</label></li>
-                        </ul>
-                        <h4 class="title-checkout">Gönderim Şekli</h4>
-                        <p>Flat Rate</p>
-                        <p>Fixed $50.00</p>
-                        <h4 class="discount">İndirim Kuponu</h4>b
-                        <label class="title">Kupon kodunu giriniz:</label>
-                        <input type="text" class="form-control">
-                        <button type="submit" class="btn-apply">Kaydet</button>
-                    </div>
-
-
-                    <div class="form-group payment col-md-6">
-                        <h4 class="title-checkout">Ödeme Şekli</h4>
-                        <ul>
-                            <li><label class="inline"><input type="checkbox"><span class="input"></span>Havale/EFT</label></li>
-                            <li><label class="inline"><input type="checkbox"><span class="input"></span>Kapıda Ödeme</label></li>
-                        </ul>
-                        <span class="grand-total">Toplam Tutar<span>$100.00</span></span>
-                        <button type="submit" class="btn-order">Sipariş ver</button>
-                    </div>
-
-
-
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="title">Adınız*</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Adınız" />
                 </div>
-           
-         }
+
+                <div class="form-group col-md-6">
+                    <label class="title">Soyadınız*</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Soyadınız" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="title">E-posta Adresi:</label>
+                    <input asp-for="Email" class="form-control" placeholder="E-Posta" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="title">Telefon Numarası*</label>
+                    <input asp-for="Phone" class="form-control" placeholder="Lütfen 10 hane olarak giriniz" />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="title">Adres:</label>
+                    <input asp-for="AddressDescription" class="form-control" placeholder="Adresiniz" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="title">Ülke*</label>
+                    <select asp-for="CountryId" asp-items="@ViewBag.Countries" name="CountryId" class="form-control"></select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label class="title">Posta Kodu:</label>
+                    <input asp-for="PostalCode" class="form-control" placeholder="Posta Kodunuz" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label class="title">Şehir*</label>
+                    <select asp-for="CityId" asp-items="@ViewBag.Cities" name="CityId" class="form-control"></select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="form-group shipping col-md-6">
+                    <br />
+                    <h4 class="title-checkout">Gönderim Tipi</h4>
+                    <p>Flat Rate</p>
+                    <p>Fixed $50.00</p>
+                    <h4 class="discount">İndirim Kuponu</h4>
+                    <label class="title">Kupon Kodunuzu Giriniz:</label>
+                    <input type="text" class="form-control">
+                    <button type="submit" class="btn-apply">Kaydet</button>
+                </div>
+
+                <div class="form-group payment col-md-6">
+                    <h4 class="title-checkout">Ödeme Tipi</h4>
+                    <ul>
+                        <li><label class="inline"><input type="radio" name="paymentType"><span class="input"></span>Havale/Eft</label></li>
+                        <li><label class="inline"><input type="radio" name="paymentType"><span class="input"></span>Kapıda Ödeme</label></li>
+                    </ul>
+                    <span class="grand-total">Toplam Tutar<span>$100.00</span></span>
+                    <button type="submit" class="btn-order" formaction="Checkout">Siparişi Ver</button>
+                </div>
+            </div>
+
+        </form>
+
+
     </div>
-</main>
+</main><!-- end MAIN -->
+
+<script>
+       $(document).ready(function () {
+            // ülke değiştiğinde..
+            $("#CountryId").change(function () {
+                LoadCities();
+            });
+            $("#CityId").change(function () {
+                LoadDistricts();
+            });
+            function LoadCities() {
+                // seçili ülkenin şehirleri getir
+                $.post("@Url.Action("GetCities")", { countryId: $("#CountryId").val() },
+                    function (data) {
+                        // gelen şehirleri selecte aktar
+                        // önce şehir selectini temizle
+                        $("#CityId").empty();
+                        $("#CityId").append('<option value="">Şehir seçiniz</option>');
+                        // döngüyle gelen şehir datasına şehir selectine ekle
+                        $.each(data, function (index, value) {
+                            $("#CityId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                        });
+                        LoadDistricts();
+                });
+            }
+            function LoadDistricts() {
+                $.post("@Url.Action("GetDistricts")", { cityId: $("#CityId").val() },
+                    function (data) {
+                        // önce ilçe selectini temizle
+                        $("#DistrictId").empty();
+                        $("#DistrictId").append('<option value="">İlçe seçiniz</option>');
+                        // döngüyle gelen ilçe datasına ilçe selectine ekle
+                        $.each(data, function (index, value) {
+                            $("#DistrictId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                        });
+                    });
+            }
+       });
+</script>
