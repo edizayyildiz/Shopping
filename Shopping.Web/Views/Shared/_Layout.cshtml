@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Checkout</title>
+    <title>Index2</title>
     <link rel="stylesheet" type="text/css" href="/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
@@ -14,8 +14,9 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,700i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
 </head>
-<body class="page-product">
+<body class="index-opt-2">
     <div class="wrapper">
         <form id="block-search-mobile" method="get" class="block-search-mobile">
             <div class="form-content">
@@ -28,6 +29,54 @@
                 </div>
             </div>
         </form>
+        <div id="block-quick-view-popup" class="block-quick-view-popup">
+            <div class="quick-view-content">
+                <a class="popup-btn-close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <div class="slide-quick">
+                    <div class="product-thumbs">
+                        <a href="#" class="img-product-thumb"><img src="/images/s-pop1.jpg" alt="p1"></a>
+                        <a href="#" class="img-product-thumb"><img src="/images/s-pop2.jpg" alt="p1"></a>
+                        <a href="#" class="img-product-thumb"><img src="/images/s-pop3.jpg" alt="p1"></a>
+                        <a href="#" class="img-product-thumb"><img src="/images/s-pop4.jpg" alt="p1"></a>
+                    </div>
+                </div>
+                <div class="product-items">
+                    <div class="product-image">
+                        <a href=""><img src="/images/popup-pro.jpg" alt="p1"></a>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name"><a href="">Acer's Aspire S7 is a thin and portable laptop</a></div>
+                        <span class="star-rating">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <span class="review">5 Review(s)</span>
+                        </span>
+                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Add to Wishlist</a>
+                        <div class="product-infomation">
+                            Description Our new HPB12 / A12 battery is rated at 2000mAh and designed to power up Black and Decker FireStorm line of 12V tools allowing...
+                        </div>
+                    </div>
+                    <div class="product-info-price">
+                        <span class="price">
+                            <ins>$229.00</ins>
+                            <del>$259.00</del>
+                        </span>
+                        <div class="quantity">
+                            <h6 class="quantity-title">Quantity:</h6>
+                            <div class="buttons-added">
+                                <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
+                                <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
+                            </div>
+                        </div>
+                        <a href="" class="btn-add-to-cart">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- HEADER -->
         <header class="site-header header-opt-1">
             <!-- header-top -->
@@ -96,32 +145,30 @@
                             <!-- block search -->
                             <div class="block-search">
                                 <div class="block-content">
-                                    <form action="/Shop/Products" method="get" id="Kategori">
-                                        <div class="categori-search  ">
 
-                                            <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option" name="CategoryId">
-                                                <option value="">Tüm Kategoriler</option>
-                                                @foreach (var item in ViewBag.Categories)
-                                                {
-
-
-                                                    <option value="@item.Id">@item.Name</option>
+                                    <div class="categori-search  ">
+                                        <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
+                                            <option value="">Tüm Kategoriler</option>
+                                            @foreach (var item in ViewBag.Categories)
+                                            {
 
 
+                                                <option>@item.Name</option>
 
-                                                }
 
-                                            </select>
-                                        </div>
-                                        <div class="form-search">
 
+                                            }
+
+                                        </select>
+                                    </div>
+                                    <div class="form-search">
+                                        <form>
                                             <div class="box-group">
-                                                <input type="text" class="form-control" placeholder="Searh entire store here..." name="q">
-                                                <button class="btn btn-search" type="submit"><span>search</span></button>
+                                                <input type="text" class="form-control" placeholder="Searh entire store here...">
+                                                <button class="btn btn-search" type="button"><span>search</span></button>
                                             </div>
-
-                                        </div>
-                                    </form>
+                                        </form>
+                                    </div>
                                 </div>
                             </div><!-- block search -->
                         </div>
@@ -449,171 +496,106 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <a href="#"><img src="/images/home2/menu-banner-3.jpg" alt="banner3"></a>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <a href="#"><img src="/images/home2/menu-banner-4.jpg" alt="banner3"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-has-children arrow">
-                                        <a href="#" class="dropdown-toggle">Sub Menu</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <ul class="submenu parent-megamenu">
-                                            <li class="menu-item">
-                                                <a href="checkout.html">Checkout</a>
+
                                             </li>
-                                            <li class="menu-item">
-                                                <a href="shopping-cart.html">Shopping Cart</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="contact-us.html">Contact Us</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="login.html">Login</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="contact-us.html" class="dropdown-toggle">Contact Us</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                    </li>
-                                    <li class="menu-item-has-children arrow">
-                                        <a href="#" class="dropdown-toggle">Blog</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <ul class="submenu parent-megamenu">
-                                            <li class="menu-item">
-                                                <a href="blog-grid.html">Blog Grid</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="blog-list.html">Blog List</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="blog-single.html">Blog Single</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="https://localhost:44302/Shop/Stores" class="dropdown-toggle">Mağazalar</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                    </li>
-                                </ul>
+
+                                        }
+                                     
+                                            </ul>
+                                </div>
                             </div>
-                            <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
-                                <span class="btn-open-mobile home-page">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span class="title-menu-mobile">Main menu</span>
-                            </span>
                         </div>
                     </div>
-                </div>
-            </div>
-
         </header><!-- end HEADER -->
-
         @RenderBody()
-
-
         <!-- FOOTER -->
-        <footer class="site-footer footer-opt-2">
+        <footer class="site-footer footer-opt-1 ">
             <div class="footer-top full-width">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <div class="newsletter-title">
-                                <h3 class="h3-newsletter">Sign up to Newsletter</h3>
-                                <span class="span-newsletter">Recevie $50 Coupon for fist Shopping.</span>
+                                <h3 class="h3-newsletter">Sign up for newsletter</h3>
+                                <span class="span-newsletter">Receive $50 Coupon for fist shopping...</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="newsletter-form">
                                 <form id="newsletter-validate-detail" class="form subscribe">
                                     <div class="control">
-                                        <input type="email" placeholder="Enter your email address" id="newsletter" name="email" class="input-subscribe">
-                                        <button type="submit" title="Subscribe" class="btn subscribe">
-                                            <span>Sign Up</span>
+                                        <input type="email" placeholder="Mail adresinizi giriniz" id="newsletter" name="email" class="input-subscribe">
+                                        <button type="submit" title="subscribe" class="btn subscribe">
+                                            <span>Abone Ol</span>
                                         </button>
                                     </div>
                                 </form>
                             </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="socials">
+                                <a href="" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="" class="social"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="footer-column equal-container">
+            <div class="footer-column">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 equal-elem">
-                            <h3 class="title-of-section">About Us</h3>
+                        <div class="col-md-3 col-sm-3">
+                            <h3 class="title-of-section">İletişim Blgileri</h3>
                             <div class="contacts">
-                                <p class="contacts-info">Nullam tristique tortor nibh, in viverra libero sollicitudin ac. Suspendisse quis lacinia ipsum. Etiam scelerisque sit amet lectus quis lacinia. Sed condimentum auctor.</p>
-                                <span class="contacts-info info-address ">218 Fifth Avenue, HeavenTower NewYork City</span>
-                                <span class="contacts-info info-phone">(+68) 123 456 7890</span>
-                                <span class="contacts-info info-support">Hot-Support@Krystal.com</span>
-                                <div class="socials">
-                                    <a href="" class="social"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    <a href="" class="social"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    <a href="" class="social"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                    <a href="" class="social"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    <a href="" class="social"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
-                                    <a href="" class="social"><i class="fa fa-youtube" aria-hidden="true"></i></a>
-                                </div>
+                                <h3 class="contacts-title">Adres</h3>
+                                <span class="contacts-info">Barbaros bulvarı Beşiktaş, İstanbul</span>
+                                <h3 class="contacts-title">Telefon</h3>
+                                <span class="contacts-info">(+68) 123 456 7890</span>
+                                <h3 class="contacts-title">Email</h3>
+                                <span class="contacts-info">Hot-Support@Krystal.com</span>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 equal-elem">
+                        <div class="col-md-3 col-sm-3">
                             <div class="links">
-                                <h3 class="title-of-section">My account</h3>
+                                <h3 class="title-of-section">Hesabım</h3>
                                 <ul>
-                                    <li><a href="">Sign In</a></li>
-                                    <li><a href="">View Cart</a></li>
-                                    <li><a href="">My Wishlist</a></li>
-                                    <li><a href="">Terms & Conditions</a></li>
-                                    <li><a href="">Contact us</a></li>
-                                    <li><a href="">Track My Order</a></li>
-                                    <li><a href="">Help</a></li>
+                                    <li><a href="">Oturum Aç</a></li>
+                                    <li><a href="">Sepeti Göster</a></li>
+                                    <li><a href="">Favorilerim</a></li>
+                                    <li><a href="">Siparişimi Takip Et</a></li>
+                                    <li><a href="">Yardım</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-6 equal-elem">
+                        <div class="col-md-3 col-sm-3">
                             <div class="links">
-                                <h3 class="title-of-section">Information</h3>
+                                <h3 class="title-of-section">Bilgi</h3>
                                 <ul>
-                                    <li><a href="">Specials</a></li>
-                                    <li><a href="">New products</a></li>
-                                    <li><a href="">Best sellers</a></li>
-                                    <li><a href="">Our stores</a></li>
-                                    <li><a href="">Contact us</a></li>
-                                    <li><a href="">Sitemap</a></li>
-                                    <li><a href="">Blog</a></li>
+                                    <li><a href="">Teslimat Bilgileri</a></li>
+                                    <li><a href="">Gizlilik Politikası</a></li>
+                                    <li><a href="">Şartlar ve Koşullar</a></li>
+                                    <li><a href="">Bizimle İletişime Geçin</a></li>
+                                    <li><a href="">Site Hartası</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-md-4 col-sm-6 equal-elem">
-                            <div class="links links-ins">
-                                <h3 class="title-of-section">Instagram</h3>
-                                <div class="content-ins">
-                                    <a href=""><img src="/images/detail/ins1.jpg" alt="ins1"></a>
-                                    <a href=""><img src="/images/detail/ins2.jpg" alt="ins2"></a>
-                                    <a href=""><img src="/images/detail/ins3.jpg" alt="ins3"></a>
-                                    <a href=""><img src="/images/detail/ins4.jpg" alt="ins4"></a>
-                                    <a href=""><img src="/images/detail/ins5.jpg" alt="ins5"></a>
-                                    <a href=""><img src="/images/detail/ins6.jpg" alt="ins6"></a>
-                                    <a href=""><img src="/images/detail/ins7.jpg" alt="ins7"></a>
-                                    <a href=""><img src="/images/detail/ins8.jpg" alt="ins8"></a>
-                                    <a href=""><img src="/images/detail/ins9.jpg" alt="ins9"></a>
-                                    <a href=""><img src="/images/detail/ins10.jpg" alt="ins10"></a>
-                                </div>
-                                <a href="" class="view-more">View More<!-- <i class="fa fa-arrow-circle-right" aria-hidden="true"></i> --></a>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="links">
+                                <h3 class="title-of-section">Müşteri Hizmetleri</h3>
+                                <ul>
+                                    <li><a href="">Kargo & İade</a></li>
+                                    <li><a href="">Güvenli Alışveiş</a></li>
+                                    <li><a href="">Uluslararası Nakliyat</a></li>
+                                    <li><a href="">Satış Ortaklığı</a></li>
+                                    <li><a href="">İletişim</a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+           
             <div class="copyright full-width">
                 <div class="container">
                     <div class="copyright-right">
@@ -621,9 +603,9 @@
                     </div>
                     <div class="pay-men">
                         <a href=""><img src="/images/home1/pay1.jpg" alt="pay1"></a>
-                        <a href=""><img src="/images/home1/pay2.jpg" alt="pay2"></a>
-                        <a href=""><img src="/images/home1/pay3.jpg" alt="pay3"></a>
-                        <a href=""><img src="/images/home1/pay4.jpg" alt="pay4"></a>
+                        <a href=""><img src="/images/home1/pay2.jpg" alt="pay1"></a>
+                        <a href=""><img src="/images/home1/pay3.jpg" alt="pay1"></a>
+                        <a href=""><img src="/images/home1/pay4.jpg" alt="pay1"></a>
                     </div>
                 </div>
             </div>
@@ -632,7 +614,6 @@
         <!-- <a href="#" class="back-to-top">
             <i aria-hidden="true" class="fa fa-angle-up"></i>
         </a> -->
-
     </div>
     <a href="#" id="scrollup" title="Scroll to Top">Scroll</a>
     <!-- jQuery -->
@@ -654,5 +635,6 @@
     <script type="text/javascript" src="/js/Modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.plugin.js"></script>
     <script type="text/javascript" src="/js/jquery.countdown.js"></script>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
