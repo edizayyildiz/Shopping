@@ -27,16 +27,6 @@ namespace Shopping.Service.Handlers.Commerce
                 result = new Result(false, command.Id, "Id gereklidir.", true, null);
                 return await Task.FromResult(result);
             }
-            if (string.IsNullOrWhiteSpace(command.UserName))
-            {
-                result = new Result(false, command.UserName, "Adı gereklidir.", true, null);
-                return await Task.FromResult(result);
-            }
-            if (command.UserName.Length > 100)
-            {
-                result = new Result(false, command.UserName, "Kullanıcı adı 100 karakterden uzun olamaz.", true, null);
-                return await Task.FromResult(result);
-            }
 
             // map command to the model
             var model = Mapper.Map<Cart>(command);
