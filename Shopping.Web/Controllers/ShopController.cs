@@ -17,22 +17,22 @@ namespace Shopping.Web.Controllers
         }
         public IActionResult Index()
         {
-            
+
             return View();
         }
         public async Task<IActionResult> ProductsGrid()
-        { 
-            var searchProducts = new SearchProducts();          
+        {
+            var searchProducts = new SearchProducts();
             //searchProducts.SortField = "name";           
             Result result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
-        public async Task<IActionResult> ProductsList()
+        public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
         {
-            var searchProduct = new SearchProducts();
-            searchProduct.IsPagedSearch = true;
-            Result result = await searchProductsService.HandleAsync(searchProduct);
-
+            ViewBag.Page = searchProducts.PageNumber;
+            searchProducts.IsPagedSearch = true;
+            Result result = await searchProductsService.HandleAsync(searchProducts);
+            ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
             return View(result.Value);
         }
         public IActionResult ProductsDetails()
