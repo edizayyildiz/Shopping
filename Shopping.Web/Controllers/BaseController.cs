@@ -11,7 +11,7 @@ namespace Shopping.Web.Controllers
 {
     public class BaseController : Controller
     {
-        private  ICommandHandler<SearchProductCategories> SearchProductCategoriesService;
+        public ICommandHandler<SearchProductCategories> SearchProductCategoriesService;
 
         public BaseController(ICommandHandler<SearchProductCategories> searchProductCategoriesService)
         {

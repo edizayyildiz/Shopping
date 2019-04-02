@@ -58,7 +58,7 @@ namespace Shopping.Service.Handlers
             // select the results by doing filtering, sorting and optionally paging, and map them
             if (command.IsPagedSearch)
             {
-                var value = cityRepository.GetManyPaged(skip, take, out int totalRecordCount, where, orderby, desc, "Country", "District")
+                var value = cityRepository.GetManyPaged(skip, take, out int totalRecordCount, where, orderby, desc, "Country", "Districts")
                 .Select(x => Mapper.Map<CityQuery>(x)).ToList();
                 // return the paged query
                 result= new Result(true, value, $"Bulunan {totalRecordCount} şehirin {command.PageNumber}. sayfasındaki kayıtlar.", true, totalRecordCount);
@@ -66,7 +66,7 @@ namespace Shopping.Service.Handlers
             }
             else
             {
-                var value = cityRepository.GetMany(where, orderby, desc, "Country", "District")
+                var value = cityRepository.GetMany(where, orderby, desc, "Country", "Districts")
                 .Select(x => Mapper.Map<CityQuery>(x)).ToList();
                 // return the query
                 result= new Result(true, value, $"{value.Count()} adet şehir bulundu.", false, value.Count());
