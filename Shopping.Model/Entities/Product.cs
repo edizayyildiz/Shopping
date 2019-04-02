@@ -15,6 +15,7 @@ namespace Shopping.Model.Entities
             Wishlists = new HashSet<Wishlist>();
             OrderItems = new HashSet<OrderItem>();
             ProductQuestions = new HashSet<ProductQuestion>();
+            CartItems = new HashSet<CartItem>();
             Condition = Condition.NotSpecified;
         }
         public string Name { get; set; }
@@ -57,7 +58,7 @@ namespace Shopping.Model.Entities
         public virtual ICollection<RecentlyDisplayedProduct> RecentlyDisplayedProducts { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<ProductQuestion> ProductQuestions { get; set; }
-
+        public virtual ICollection<CartItem> CartItems { get; set; }
 
     }
 }

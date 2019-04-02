@@ -11,7 +11,7 @@ namespace Shopping.Web.Controllers
     public class ShopController : BaseController
     {
         private ICommandHandler<SearchProducts> searchProductsService;
-        public ShopController(ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchProducts> searchProductsService) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         {
             this.searchProductsService = searchProductsService;
         }
@@ -20,19 +20,26 @@ namespace Shopping.Web.Controllers
             
             return View();
         }
-        public async Task<IActionResult> ProductsGrid()
+        public async Task<IActionResult> Products()
         { 
-            var searchProducts = new SearchProducts();          
-            //searchProducts.SortField = "name";           
+            var searchProducts = new SearchProducts();
+            searchProducts.SortField = "name";           
             Result result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
-        public IActionResult ProductsList()
+        public async Task<IActionResult> ProductsList()
         {
-           
-            return View();
+            var searchProduct = new SearchProducts();
+            searchProduct.IsPagedSearch = true;
+            Result result = await searchProductsService.HandleAsync(searchProduct);
+
+            return View(result.Value);
         }
         public IActionResult ProductsDetails()
+        {
+            return View();
+        }
+        public IActionResult Cart()
         {
             return View();
         }
