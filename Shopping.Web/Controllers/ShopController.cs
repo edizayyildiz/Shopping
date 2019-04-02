@@ -27,10 +27,10 @@ namespace Shopping.Web.Controllers
             
             return View();
         }
-        public async Task<IActionResult> Products()
-        { 
-            var searchProducts = new SearchProducts();
-            searchProducts.SortField = "name";           
+        
+        public async Task<IActionResult> Products(SearchProducts searchProducts)
+        {
+         
             Result result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
