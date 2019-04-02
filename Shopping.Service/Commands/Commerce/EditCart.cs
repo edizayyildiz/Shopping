@@ -8,6 +8,6 @@ namespace Shopping.Service.Commands
     public class EditCart : Command
     {
         public string Id { get; set; }
-        public string UserName { get; set; }
+        // UserName service'te alıyor, verilmedi.
     }
 }
