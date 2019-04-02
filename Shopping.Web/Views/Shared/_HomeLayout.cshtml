@@ -145,21 +145,21 @@
                             <!-- block search -->
                             <div class="block-search">
                                 <div class="block-content">
-                                   
+
                                     <div class="categori-search  ">
                                         <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
                                             <option value="">Tüm Kategoriler</option>
                                             @foreach (var item in ViewBag.Categories)
                                             {
-                                               
-                                            
+
+
                                                 <option>@item.Name</option>
 
 
 
-                                                }
+                                            }
 
-</select>
+                                        </select>
                                     </div>
                                     <div class="form-search">
                                         <form>
@@ -255,287 +255,44 @@
                                         <span></span>
                                         <span></span>
                                     </span>
-                                    <span class="title-menu">All Departments</span>
+                                    <span class="title-menu">Tüm Kategoriler</span>
                                 </h4>
                                 <div class="vertical-menu-content">
                                     <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
                                     <ul class="vertical-menu-list">
-                                        <li><a href="">Erkek</a></li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">Kadın</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Deri Ceketler</a></li>
-                                                                        <li class="menu-item"><a href="#">Çantalar</a></li>
-                                                                        <li class="menu-item"><a href="#">Ayakkabılar</a></li>
-                                                                        <li class="menu-item"><a href="#">Takılar</a></li>
-                                                                        <li class="menu-item"><a href="#">Kıyafeler</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
+                                        @foreach (var item in ViewBag.Categories)
+                                        {
+                                            <li class="menu-item-has-children arrow item-megamenu">
+                                                <a href="#" class="dropdown-toggle">@item.Name</a>
+                                                <span class="toggle-submenu hidden-md"></span>
+                                                <div class="submenu parent-megamenu megamenu">
+                                                    <div class="row">
+                                                        <div class="submenu-banner submenu-banner-menu-1">
+                                                            <div class="col-md-4">
+                                                                <div class="dropdown-menu-info">
+
+
+                                                                    <h6 class="dropdown-menu-title">@item.Name</h6>
+
+
                                                                 </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Aksesuarlar</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Saç Aksesuarları</a></li>
-                                                                        <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-                                                                        <li class="menu-item"><a href="#">Şapkalar</a></li>
-                                                                        <li class="menu-item"><a href="#">Teknik Aksesuarlar</a></li>
-                                                                        <li class="menu-item"><a href="#">Kulaklık</a></li>
-                                                                        <li class="menu-item"><a href="#">Yazılım</a></li>
-                                                                    </ul>
+                                                                <div class="col-md-4">
+
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">El Çantaları</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Deri Ceketler</a></li>
-                                                                        <li class="menu-item"><a href="#">El çantaları</a></li>
-                                                                        <li class="menu-item"><a href="#">Ayakkabılar</a></li>
-                                                                        <li class="menu-item"><a href="#">Takılar</a></li>
-                                                                        <li class="menu-item"><a href="#">Kıyafetler</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Accessories</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Saç Aksesuarları</a></li>
-                                                                        <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-                                                                        <li class="menu-item"><a href="#">Şapkalar</a></li>
-                                                                        <li class="menu-item"><a href="#">Teknoloji Aksesuarları</a></li>
-                                                                        <li class="menu-item"><a href="#">Kulaklık</a></li>
-                                                                        <li class="menu-item"><a href="#">Yazılım</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="">Aksesuarlar</a>
-                                        </li>
-                                        <li><a href="">Shoes</a></li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">Laptop & Computers</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Laptop & computers</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Dizüstü, Masaüstü & Monitörler</a></li>
-                                                                        <li class="menu-item"><a href="#">Yazılı &Aacute; Mürekkep</a></li>
-                                                                        <li class="menu-item"><a href="#">Bilgisayar Aksesuarları</a></li>
-                                                                        <li class="menu-item"><a href="#">Yazılım</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Accessories</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Aksesuarlar</a></li>
-                                                                        <li class="menu-item"><a href="#">Telefon Bataryaları</a></li>
-                                                                        <li class="menu-item"><a href="#">Telefon Şarj Aletleri</a></li>
-                                                                        <li class="menu-item"><a href="#">Telefon Ekranı</a></li>
-                                                                        <li class="menu-item"><a href="#">Kulaklık</a></li>
-                                                                        <li class="menu-item"><a href="#">Yazılım</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="">Oyun Konsolları</a></li>
-                                        <li><a href="">Kulaklık</a></li>
-                                        <li><a href="">Oyunlar & Konsollar</a></li>
-                                        <li><a href="">Elektonik Araç</a></li>
-                                        <li><a href="">Sanal Gerçeklik</a></li>
+
+                                            </li>
+
+                                        }
+
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="header-menu header-menu-resize">
-
-                                <ul class="header-nav krystal-nav">
-                                    <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
-                                    <li class="menu-item-has-children arrow">
-                                        <a href="index2.html" class="dropdown-toggle">Ana Sayfa</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <ul class="submenu parent-megamenu">
-                                            <li class="menu-item">
-                                                <a href="index.html">Home 1</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="index2.html">Home 2</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="index3.html">Home 3</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="index4.html">Home 4</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="index5.html">Home 5</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                   
-                                    <li class="menu-item-has-children arrow item-megamenu item-megamenu-sub">
-                                        <a href="#" class="dropdown-toggle">Giyim</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <div class="submenu parent-megamenu megamenu">
-                                            <div class="row">
-                                                <div class="submenu-banner submenu-banner-menu-3">
-                                                    <div class="col-md-4">
-                                                        <div class="dropdown-menu-info">
-                                                            <h6 class="dropdown-menu-title">Fashion Clothing</h6>
-                                                            <div class="dropdown-menu-content">
-                                                                <ul class="menu">
-                                                                    <li class="menu-item"><a href="#">Deri Ceketler</a></li>
-                                                                    <li class="menu-item"><a href="#">Kıyafetler</a></li>
-                                                                    <li class="menu-item"><a href="#">Şortlar</a></li>
-                                                                    <li class="menu-item"><a href="#">Mayo</a></li>
-                                                                    <li class="menu-item"><a href="#">Spor Giyim</a></li>
-                                                                    <li class="menu-item"><a href="#">Ceket & Mont</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="dropdown-menu-info">
-                                                            <h6 class="dropdown-menu-title">Çantalar</h6>
-                                                            <div class="dropdown-menu-content">
-                                                                <ul class="menu">
-                                                                    <li class="menu-item"><a href="#">Sırt Çantaları</a></li>
-                                                                    <li class="menu-item"><a href="#">Seyahat Çantaları</a></li>
-                                                                    <li class="menu-item"><a href="#">El çantaları</a></li>
-                                                                    <li class="menu-item"><a href="#">Askılı Çanta</a></li>
-                                                                    <li class="menu-item"><a href="#">Bucket</a></li>
-                                                                    <li class="menu-item"><a href="#">Wallets</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="dropdown-menu-info">
-                                                            <h6 class="dropdown-menu-title">Shoes</h6>
-                                                            <div class="dropdown-menu-content">
-                                                                <ul class="menu">
-                                                                    <li class="menu-item"><a href="#">Shoes Sport</a></li>
-                                                                    <li class="menu-item"><a href="#">Sneakers</a></li>
-                                                                    <li class="menu-item"><a href="#">Sandals</a></li>
-                                                                    <li class="menu-item"><a href="#">Booties</a></li>
-                                                                    <li class="menu-item"><a href="#">Heels</a></li>
-                                                                </ul>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <a href="#"><img src="/images/home2/menu-banner-3.jpg" alt="banner3"></a>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <a href="#"><img src="/images/home2/menu-banner-4.jpg" alt="banner3"></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="menu-item-has-children arrow">
-                                        <a href="#" class="dropdown-toggle">Sub Menu</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <ul class="submenu parent-megamenu">
-                                            <li class="menu-item">
-                                                <a href="checkout.html">Checkout</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="shopping-cart.html">Shopping Cart</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="contact-us.html">Contact Us</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="login.html">Login</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="contact-us.html" class="dropdown-toggle">Contact Us</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                    </li>
-                                    <li class="menu-item-has-children arrow">
-                                        <a href="#" class="dropdown-toggle">Blog</a>
-                                        <span class="toggle-submenu hidden-md"></span>
-                                        <ul class="submenu parent-megamenu">
-                                            <li class="menu-item">
-                                                <a href="blog-grid.html">Blog Grid</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="blog-list.html">Blog List</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="blog-single.html">Blog Single</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
-                                <span class="btn-open-mobile home-page">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span class="title-menu-mobile">Main menu</span>
-                            </span>
                         </div>
                     </div>
-                </div>
-            </div>
+
         </header><!-- end HEADER -->
         @RenderBody()
         <!-- FOOTER -->
