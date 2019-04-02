@@ -32,6 +32,9 @@ namespace Shopping.Web.Controllers
             return View();
         }
         public async Task<IActionResult> ProductsGrid()
+        {
+            return View();
+        }
         public async Task<IActionResult> Products()
         { 
             var searchProducts = new SearchProducts();
