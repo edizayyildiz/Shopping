@@ -12,7 +12,11 @@ namespace Shopping.Service.Queries
         public string Description { get; set; }
         public string Photo { get; set; }
         public string ParentId { get; set; }
+        public ProductCategoryQuery Parent { get; set; }
         public bool HasSubCategory { get; set; }
+
+        public IList<ProductCategoryQuery> Childs { get; set; }
+
 
     }
 }
