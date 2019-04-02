@@ -27,6 +27,10 @@ namespace Shopping.Web.Controllers
             
             return View();
         }
+        public IActionResult Stores()
+        {
+            return View();
+        }
         
         public async Task<IActionResult> Products(SearchProducts searchProducts)
         {
