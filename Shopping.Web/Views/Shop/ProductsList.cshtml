@@ -44,9 +44,23 @@
                                         </div>
                                         <div class="toolbar-per">
                                             <select id="pageSizeSelect" class="chosen-select limiter-options form-control" name="pageSize">
-                                                <option selected="selected">Ürün Sayısı</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                                <option id="ten" value="">Ürün Sayısı</option>
+                                                @if (ViewBag.PageSize == 5)
+                                                {
+                                                    <option id="five" value="5" selected>5</option>
+                                                }
+                                                else
+                                                {
+                                                    <option id="five" value="5">5</option>
+                                                }
+                                                @if (ViewBag.PageSize == 7)
+                                                {
+                                                    <option id="seven" value="7" selected>7</option>
+                                                }
+                                                else
+                                                {
+                                                    <option id="seven" value="7">7</option>
+                                                }
                                             </select>
                                         </div>
                                         <div class="modes">
@@ -108,40 +122,114 @@
                                         <li class="back-next"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = (ViewBag.Page>1?ViewBag.Page - 1:1) })">Önceki Sayfa</a></li>
 
                                         @*@for (int i = Math.Min((ViewBag.PageCount - 4 < 1 ? 1 : ViewBag.PageCount - 4), Math.Max(1, ViewBag.Page - 2)); i <= Math.Min(ViewBag.PageCount, Math.Max(5, ViewBag.Page + 2)); i++)
-                                        {
-                                            <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                        }*@
+        {
+            <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
+        }*@
 
 
                                         @if (ViewBag.PageCount >= 5)
                                         {
-                                            if (ViewBag.Page >= 3 && ViewBag.Page <= ViewBag.PageCount - 2)
+                                            if (ViewBag.PageSize == 5)
                                             {
-                                                for (int i = ViewBag.Page - 2; i <= ViewBag.Page + 2; i++)
+                                                if (ViewBag.Page >= 3 && ViewBag.Page <= ViewBag.PageCount - 2)
                                                 {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
+                                                    for (int i = ViewBag.Page - 2; i <= ViewBag.Page + 2; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 5})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+                                                else if (ViewBag.PageCount - 2 < ViewBag.Page)
+                                                {
+                                                    for (int i = ViewBag.PageCount - 4; i <= ViewBag.PageCount; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 5})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+
+
+                                                else
+                                                {
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 5})" class="page-link">@i</a></li>
+                                                    }
                                                 }
                                             }
-                                            else if (ViewBag.PageCount - 2 < ViewBag.Page)
+                                            else if (ViewBag.PageSize == 7 )
                                             {
-                                                for (int i = ViewBag.PageCount - 4; i <= ViewBag.PageCount; i++)
+                                                if (ViewBag.Page >= 3 && ViewBag.Page <= ViewBag.PageCount - 2)
                                                 {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
+                                                    for (int i = ViewBag.Page - 2; i <= ViewBag.Page + 2; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 7})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+                                                else if (ViewBag.PageCount - 2 < ViewBag.Page)
+                                                {
+                                                    for (int i = ViewBag.PageCount - 4; i <= ViewBag.PageCount; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 7})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+
+
+                                                else
+                                                {
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 7})" class="page-link">@i</a></li>
+                                                    }
                                                 }
                                             }
                                             else
                                             {
-                                                for (int i = 1; i <= 5; i++)
+                                                if (ViewBag.Page >= 3 && ViewBag.Page <= ViewBag.PageCount - 2)
                                                 {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
+                                                    for (int i = ViewBag.Page - 2; i <= ViewBag.Page + 2; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 10})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+                                                else if (ViewBag.PageCount - 2 < ViewBag.Page)
+                                                {
+                                                    for (int i = ViewBag.PageCount - 4; i <= ViewBag.PageCount; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 10})" class="page-link">@i</a></li>
+                                                    }
+                                                }
+
+
+                                                else
+                                                {
+                                                    for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i, PageSize = 10})" class="page-link">@i</a></li>
+                                                    }
                                                 }
                                             }
                                         }
                                         else
                                         {
-                                            for (int i = 1; i <= ViewBag.PageCount; i++)
+                                            if (ViewBag.PageSize == 5)
                                             {
-                                                <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
+                                                for (int i = 1; i <= ViewBag.PageCount; i++)
+                                                {
+                                                    <li class="page-item"><a href="@Url.Action("ProductsList", "Shop", new { PageNumber = i, PageSize = 5})" class="page-link">@i</a></li>
+                                                }
+                                            }
+                                            else if (ViewBag.PageSize == 7)
+                                            {
+                                                for (int i = 1; i <= ViewBag.PageCount; i++)
+                                                {
+                                                    <li class="page-item"><a href="@Url.Action("ProductsList", "Shop", new { PageNumber = i, PageSize = 7})" class="page-link">@i</a></li>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                for (int i = 1; i <= ViewBag.PageCount; i++)
+                                                {
+                                                    <li class="page-item"><a href="@Url.Action("ProductsList", "Shop", new { PageNumber = i, PageSize = 10})" class="page-link">@i</a></li>
+                                                }
                                             }
                                         }
 
@@ -632,11 +720,11 @@
 
 @section scripts
     {
-    <script>
+<script>
         $(document).ready(function () {
             $('#pageSizeSelect').change(function () {
                 $('#pageSizeForm').submit();
             });
         });
-    </script>
+</script>
 }

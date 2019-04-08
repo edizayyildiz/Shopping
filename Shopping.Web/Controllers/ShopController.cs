@@ -40,6 +40,7 @@ namespace Shopping.Web.Controllers
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
         {
+            ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
             Result result = await searchProductsService.HandleAsync(searchProducts);
