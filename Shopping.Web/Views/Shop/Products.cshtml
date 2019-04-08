@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<Shopping.Service.Queries.ProductQuery>
 
 @{
-    ViewData["Title"] = "ProductsList";
+    ViewData["Title"] = "Products";
 }
 
-<body class="page-product list-view">
+<body class="page-product grid-view">
     <div class="wrapper">
         <form id="block-search-mobile" method="get" class="block-search-mobile">
             <div class="form-content">
@@ -17,15 +17,16 @@
                 </div>
             </div>
         </form>
-        <main class="site-main product-list">
+        <!-- MAIN -->
+        <main class="site-main product-list product-grid">
             <div class="container">
                 <ol class="breadcrumb-page">
                     <li><a href="#">Home </a></li>
-                    <li class="active"><a href="#">List Categorys  </a></li>
+                    <li class="active"><a href="#">Grid Kategori  </a></li>
                 </ol>
             </div>
             <div class="container">
-                <form asp-action="ProductsList" method="get" id="pageSizeForm">
+                <form asp-action="Products" method="get" id="productsForm" name="searchProducts">
                     <div class="row">
                         <div class="col-md-9 col-sm-8 float-none float-right padding-left-5">
                             <div class="main-content">
@@ -33,119 +34,81 @@
                                     <a href="" class="banner-img"><img src="/images/product/banner-product.jpg" alt="banner-product"></a>
                                 </div>
                                 <div class="toolbar-products">
-                                    <h4 class="title-product">Grid Category</h4>
+                                    <h4 class="title-product">Grid Kategori</h4>
                                     <div class="toolbar-option">
                                         <div class="toolbar-sort">
-                                            <select class="chosen-select sorter-options form-control">
-                                                <option selected="selected" value="position">Sort by popularity</option>
-                                                <option value="name">Name</option>
-                                                <option value="price">Price</option>
+                                            <select id="sortFieldSelect" class="chosen-select sorter-options form-control" name="sortField">
+                                                <option selected="selected" value="position;" style="width:auto">Sırala Popülerliğine Göre</option>
+                                                <option value="name">Ad</option>
+                                                <option value="Lowest first">Artan</option>
+                                                <option value="Highest first">Azalan</option>
                                             </select>
                                         </div>
                                         <div class="toolbar-per">
-                                            <select id="pageSizeSelect" class="chosen-select limiter-options form-control" name="pageSize">
-                                                <option selected="selected">Ürün Sayısı</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
+                                            <select class="chosen-select limiter-options form-control">
+                                                <option selected="selected" value="">20-Ürün</option>
+                                                <option value="15">15</option>
+                                                <option value="30">30</option>
                                             </select>
                                         </div>
                                         <div class="modes">
-                                            <a href="@Url.Action("Products","Shop")" class="modes-mode  mode-grid" title="Grid">
+                                            <a href="@Url.Action("Products","Shop")" class="active modes-mode mode-grid" title="Grid">
                                                 <i class="flaticon-squares"></i>
                                                 <span>Grid</span>
                                             </a>
-                                            <a href="@Url.Action("ProductsList","Shop")" title="List" class="active modes-mode mode-list">
+                                            <a href="@Url.Action("ProductsList","Shop")" title="List" class="modes-mode mode-list">
                                                 <i class="flaticon-interface"></i>
                                                 <span>List</span>
                                             </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="products products-list">
+                                <div class="products products-list products-grid equal-container">
                                     @foreach (var item in Model)
                                     {
-                                        <div class="product-items">
-                                            <div class="product-image">
-                                                <a href=""><img src="/images/product/p1.jpg" alt="p1"></a>
-                                                <span class="onsale">-50%</span>
-                                                <a href="" class="quick-view">Quick View</a>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-name"><a href="">@item.Name</a></div>
-                                                <span class="star-rating">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <span class="review">5 Review(s)</span>
-                                                </span>
-                                                <div class="product-infomation">
-                                                    @item.ShortDescription
-                                                </div>
-                                            </div>
-                                            <div class="product-info-price">
-                                                <div class="product-info-stock-sku">
-                                                    <div class="stock available">
-                                                        <span class="label-stock">Avability:</span> In Stock
+                                        <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
+                                            <div class="product-inner">
+                                                <div class="product-thumb">
+                                                    <div class="thumb-inner">
+                                                        <a href=""><img src="/images/product/p8.jpg" alt="p8"></a>
                                                     </div>
+                                                    <span class="onsale">-50%</span>
+                                                    <a href="" class="quick-view">Quick View</a>
                                                 </div>
-                                                <span class="price">
-                                                    <ins>@item.NewPrice</ins>
-                                                    <del>@item.OldPrice</del>
-                                                </span>
-                                                <div class="single-add-to-cart">
-                                                    <a href="" class="btn-add-to-cart">Add to cart</a>
-                                                    <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
-                                                    <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
+                                                <div class="product-innfo">
+                                                    <div class="product-name"><a href="">@item.Name</a></div>
+                                                    <span class="price">
+                                                        <ins>@item.NewPrice</ins>
+                                                        <del>@item.OldPrice</del>
+                                                    </span>
+                                                    <span class="star-rating">
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                        <span class="review">5 Review(s)</span>
+                                                    </span>
+                                                    <div class="info-product">
+                                                        @item.ShortDescription
+                                                    </div>
+                                                    <div class="single-add-to-cart">
+                                                        <a href="" class="btn-add-to-cart">Karta Ekle</a>
+                                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
+                                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i>Wishlist</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     }
+
                                 </div>
                                 <div class="pagination">
                                     <ul class="nav-links">
-                                        <li class="back-next"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = (ViewBag.Page>1?ViewBag.Page - 1:1) })">Önceki Sayfa</a></li>
-
-                                        @*@for (int i = Math.Min((ViewBag.PageCount - 4 < 1 ? 1 : ViewBag.PageCount - 4), Math.Max(1, ViewBag.Page - 2)); i <= Math.Min(ViewBag.PageCount, Math.Max(5, ViewBag.Page + 2)); i++)
-                                        {
-                                            <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                        }*@
-
-
-                                        @if (ViewBag.PageCount >= 5)
-                                        {
-                                            if (ViewBag.Page >= 3 && ViewBag.Page <= ViewBag.PageCount - 2)
-                                            {
-                                                for (int i = ViewBag.Page - 2; i <= ViewBag.Page + 2; i++)
-                                                {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                                }
-                                            }
-                                            else if (ViewBag.PageCount - 2 < ViewBag.Page)
-                                            {
-                                                for (int i = ViewBag.PageCount - 4; i <= ViewBag.PageCount; i++)
-                                                {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                for (int i = 1; i <= 5; i++)
-                                                {
-                                                    <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                                }
-                                            }
-                                        }
-                                        else
-                                        {
-                                            for (int i = 1; i <= ViewBag.PageCount; i++)
-                                            {
-                                                <li class="page-item"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = i })" class="page-link">@i</a></li>
-                                            }
-                                        }
-
-                                        <li class="back-next"><a href="@Url.Action("ProductsList","Shop", new { PageNumber = ViewBag.Page<ViewBag.PageCount?ViewBag.Page + 1:ViewBag.PageCount })">Sanraki Sayfa</a></li>
+                                        <li class="active"><a href="">1</a></li>
+                                        <li><a href="">2</a></li>
+                                        <li><a href="">3</a></li>
+                                        <li class="back-next"><a href="">Next</a></li>
                                     </ul>
                                     <span class="show-resuilt">Showing 1-8 of 12 result</span>
                                 </div>
@@ -623,19 +586,19 @@
                 </div>
             </div>
         </main><!-- end MAIN -->
-        <a href="#" class="back-to-top">
+        <!--back-to-top  -->
+        <!-- <a href="#" class="back-to-top">
             <i aria-hidden="true" class="fa fa-angle-up"></i>
-        </a>
+        </a> -->
 
     </div>
-</body>
 
-@section scripts
-    {
+</body>
+@section scripts{
     <script>
         $(document).ready(function () {
-            $('#pageSizeSelect').change(function () {
-                $('#pageSizeForm').submit();
+            $('#sortFieldSelect').change(function () {
+                $('#productsForm').submit();
             });
         });
     </script>
