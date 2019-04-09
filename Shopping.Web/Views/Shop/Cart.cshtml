@@ -4,51 +4,6 @@
     ViewData["Title"] = "Cart";
 }
 
-<h2>Cart</h2>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CartTotal)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    @*<tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CartTotal)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
-}
-    </tbody>*@
-</table>
-
-
-
-
 <main class="site-main shopping-cart">
     <div class="container">
         <ol class="breadcrumb-page">
@@ -73,30 +28,33 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="tb-image"><a href="" class="item-photo"><img src="images/cart1.jpg" alt="cart"></a></td>
-                                    <td class="tb-product">
-                                        <div class="product-name"><a href="">Smartphone MTK6737 Quad Core.</a></div>
-                                    </td>
-                                    <td class="tb-price">
-                                        <span class="price">$229.00</span>
-                                    </td>
-                                    <td class="tb-qty">
-                                        <div class="quantity">
-                                            <div class="buttons-added">
-                                                <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
-                                                <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
-                                                <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
+                                @foreach (var item in Model.CartItems)
+                                {
+                                    <tr>
+                                        <td class="tb-image"><a href="" class="item-photo"><img src="~/images/cart1.jpg" alt="cart"></a></td>
+                                        <td class="tb-product">
+                                            <div class="product-name"><a href="">@item.Product.Name</a></div>
+                                        </td>
+                                        <td class="tb-price">
+                                            <span class="price">@item.Product.NewPrice</span>
+                                        </td>
+                                        <td class="tb-qty">
+                                            <div class="quantity">
+                                                <div class="buttons-added">
+                                                    <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                                    <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
+                                                    <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td class="tb-total">
-                                        <span class="price">$229.00</span>
-                                    </td>
-                                    <td class="tb-remove">
-                                        <a href="" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td class="tb-total">
+                                            <span class="price">@(item.UnitPrice * item.Quantity)</span>
+                                        </td>
+                                        <td class="tb-remove">
+                                            <a href="" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
