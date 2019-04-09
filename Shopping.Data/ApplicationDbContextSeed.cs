@@ -1247,7 +1247,6 @@ namespace Shopping.Data
                 ContactEmail = "emir.dmrc57@gmail.com",
                 Address = "Üsküdar",
                 Description = "",
-
             };
             builder.HasData(store1);
 
@@ -1278,8 +1277,8 @@ namespace Shopping.Data
                 ContactPhone = "05678954567",
                 ContactEmail = "edmrc57@gmail.com",
                 Address = "Eyüp",
-                Description = "Teknosa Herkes İçin Teknoloji"
-
+                Description = "Teknosa Herkes İçin Teknoloji",
+                IsFeatured = true,
             };
             builder.HasData(store3);
 

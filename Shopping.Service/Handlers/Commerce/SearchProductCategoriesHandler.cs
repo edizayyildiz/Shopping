@@ -65,7 +65,7 @@ namespace Shopping.Service.Handlers
             // select the results by doing filtering, sorting and optionally paging, and map them
             if (command.IsPagedSearch)
             {
-                var value = productcategoryRepository.GetManyPaged(skip, take, out int totalRecordCount, where, orderby, desc)
+                var value = productcategoryRepository.GetManyPaged(skip, take, out int totalRecordCount, where, orderby, desc, "Parent", "Childs")
                 .Select(x => Mapper.Map<ProductCategoryQuery>(x)).ToList();
                 // return the paged query
                 result = new Result(true, value, $"Bulunan {totalRecordCount} ürün kategorisinin {command.PageNumber}. sayfasındaki kayıtlar.", false, totalRecordCount);
@@ -73,7 +73,7 @@ namespace Shopping.Service.Handlers
             }
             else
             {
-                var value = productcategoryRepository.GetMany(where, orderby, desc)
+                var value = productcategoryRepository.GetMany(where, orderby, desc, "Parent", "Childs")
                 .Select(x => Mapper.Map<ProductCategoryQuery>(x)).ToList();
                 // return the query
                 result = new Result(true, value, $"{value.Count()} adet ürün kategorisi bulundu.", false, value.Count());

@@ -12,7 +12,7 @@ namespace Shopping.Service.Commands
         public SearchProducts()
         {
             IsAdvancedSearch = false;
-            SortField = "createdAt";
+            SortField = "name";
             SortOrder = "desc";
             IsPagedSearch = false;
             PageNumber = 1;

@@ -14,9 +14,11 @@ namespace Shopping.Service.Handlers
     public class SearchOrdersHandler : CommandHandler<Commands.SearchOrders>
     {
         private readonly IRepository<Order> orderRepository;
-        public SearchOrdersHandler(IRepository<Order> orderRepository)
+        private readonly ApplicationIdentity identity;
+        public SearchOrdersHandler(IRepository<Order> orderRepository, ApplicationIdentity identity)
         {
             this.orderRepository = orderRepository;
+            this.identity=identity;
         }
         public override async Task<dynamic> HandleAsync(Commands.SearchOrders command)
         {
@@ -40,7 +42,7 @@ namespace Shopping.Service.Handlers
             bool desc = (command.SortOrder == "desc" ? true : false);
 
             // define the filter
-            string userName = "emir";
+            string userName = identity.FullName;
             Expression<Func<Order, bool>> where;
             if (command.IsAdvancedSearch)
             {

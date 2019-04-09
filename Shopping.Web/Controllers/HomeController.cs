@@ -14,19 +14,39 @@ namespace Shopping.Web.Controllers
 {
     public class HomeController : BaseController
     {
+        private ICommandHandler<SearchAdvertisements> searchAdvertisementsService;
         private  ICommandHandler<SearchCountrys> searchCountrysService;
+        private ICommandHandler<SearchSlides> searchSlidesService;
+        private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchNewsletter> newsletterService;
-        public HomeController(ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchNewsletter> newsletterService) : base(SearchProductCategoriesService)
+        public HomeController(ICommandHandler<SearchNewsletter> newsletterService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        
+        
         {
             this.searchCountrysService = searchCountrysService;
+            this.searchSlidesService = searchSlidesService;
+            this.searchAdvertisementsService = searchAdvertisementsService;
+            this.searchProductsService = searchProductsService;
             this.newsletterService = newsletterService;
         }
         public async Task<IActionResult> Index()
         {
-            var searchCountrys = new SearchCountrys();
-            searchCountrys.Name = "G";
-            Result result = await searchCountrysService.HandleAsync(searchCountrys);
-            return View(result.Value);
+            //    var searchCountrys = new SearchCountrys();
+            //    searchCountrys.Name = "G";
+            //    Result result = await searchCountrysService.HandleAsync(searchCountrys);
+            var searchSlides = new SearchSlides();
+            Result result = await searchSlidesService.HandleAsync(searchSlides);
+            ViewBag.Slides = result.Value;
+
+            var searchAdvertisements = new SearchAdvertisements();
+            Result result1 = await searchAdvertisementsService.HandleAsync(searchAdvertisements);
+            ViewBag.Banners = result1.Value;
+
+            var searchProducts = new SearchProducts();
+            searchProducts.IsFeatured = true;
+            Result result2 = await searchProductsService.HandleAsync(searchProducts);
+            ViewBag.Products = result2.Value;
+            return View();
         }
 
         public IActionResult Privacy()
