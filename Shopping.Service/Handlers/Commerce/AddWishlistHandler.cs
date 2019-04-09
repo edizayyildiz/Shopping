@@ -32,7 +32,7 @@ namespace Shopping.Service.Handlers
             // map command to the model
             var model = Mapper.Map<Wishlist>(command);
 
-            model.UserName = "emir"; //httpContextAccessor.HttpContext.Session.Id; // Session Id
+            model.UserName = command.UserName; //httpContextAccessor.HttpContext.Session.Id; // Session Id
 
             // mark the model to insert
             wishlistRepository.Insert(model);

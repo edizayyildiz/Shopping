@@ -12,11 +12,12 @@ namespace Shopping.Web.Controllers
     public class BaseController : Controller
     {
         public ICommandHandler<SearchProductCategories> SearchProductCategoriesService;
+        protected ICommandHandler<GetCart> getCartService;
 
-        public BaseController(ICommandHandler<SearchProductCategories> searchProductCategoriesService)
+        public BaseController(ICommandHandler<SearchProductCategories> searchProductCategoriesService, ICommandHandler<GetCart> getCartService)
         {
             this.SearchProductCategoriesService = searchProductCategoriesService;
-
+            this.getCartService = getCartService;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -28,7 +29,13 @@ namespace Shopping.Web.Controllers
         {
             var searchProductCategoryCommand = new SearchProductCategories();
             var sonuc = SearchProductCategoriesService.HandleAsync(searchProductCategoryCommand).Result;
+
+            //var cart = new GetCart();
+            //cart.UserName = User.Identity.Name;
+            //var result = getCartService.HandleAsync(cart).Result;
+
             ViewBag.Categories = sonuc.Value;
+            
             base.OnActionExecuted(context);
         }
     }

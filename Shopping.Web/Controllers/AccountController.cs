@@ -26,7 +26,7 @@ namespace Shopping.Web.Controllers
                                  SignInManager<ApplicationUser> signInManager,
                                  IEmailSender emailSender,
                                  ILogger<AccountController> logger,
-                                 ICommandHandler<SearchProductCategories> SearchProductCategoriesService): base(SearchProductCategoriesService)
+                                 ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService, getCartService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
