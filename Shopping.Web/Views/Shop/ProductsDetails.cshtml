@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Shopping.Service.Queries.ProductQuery>
+﻿@model Shopping.Service.Queries.ProductQuery
 
 @{
     ViewData["Title"] = "ProductsDetails";
@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-md-5 col-sm-6">
                             <div class="product-info-main">
-                                <div class="product-name"><a href="">UHD 22-inch Screen lit Monitorss Burds</a></div>
+                                <div class="product-name"><a href="">@Model.Name</a></div>
                                 <span class="star-rating">
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                     <i class="fa fa-star" aria-hidden="true"></i>
@@ -66,11 +66,7 @@
                                     <span class="review">5 Review(s)</span>
                                 </span>
                                 <div class="product-infomation">
-                                    22” class screen full LED TV<br>
-                                    Hight precision lens provides a clearer picture and a better view.<br>
-                                    With stand: 50.23”W x 30.1”H x 15.5”D<br>
-                                    Dispay type: Resolution: 1170 x 768<br>
-                                    Motion Rate: 130
+                                    @Model.ShortDescription
                                 </div>
                                 <div class="group-btn-share">
                                     <a href="#"><img src="/images/detail/btn1.png" alt="btn1"></a>
@@ -94,13 +90,13 @@
                                     <span>item with Free Delivery</span>
                                 </div>
                                 <span class="price">
-                                    <ins>$229.00</ins>
-                                    <del>$259.00</del>
+                                    <ins>@Model.NewPrice</ins>
+                                    <del>@(Model.NewPrice < Model.OldPrice ? Model.OldPrice : null)</del>
                                 </span>
                                 <div class="quantity">
                                     <h6 class="quantity-title">Quantity:</h6>
                                     <div class="buttons-added">
-                                        <input type="text" value="1" title="Qty" class="input-text qty text" size="1">
+                                        <input id="QtyForCart" type="text" value="1" title="Qty" class="input-text qty text" size="1">
                                         <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
                                         <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
                                     </div>
@@ -475,6 +471,5 @@
         </a> -->
 
     </div>
-   
-</body>
 
+</body>

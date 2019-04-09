@@ -19,6 +19,7 @@ namespace Shopping.Web.Controllers
     {
         private ICommandHandler<AddProduct> addProductService;
         private ICommandHandler<SearchProducts> searchProductsService;
+        private ICommandHandler<GetProduct> getProductService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
         private ICommandHandler<SearchStores> searchStoresService;
@@ -26,10 +27,11 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<GetCart> getCartService;
 
         
-        public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<AddProduct>addProductService, ICommandHandler<GetProduct> getProductService, ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
             //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
+            this.getProductService = getProductService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
             //this.searchStoresService = searchStoresService;
@@ -75,10 +77,17 @@ namespace Shopping.Web.Controllers
         
             return View(result.Value);
         }
-        public IActionResult ProductsDetails()
+        public async Task<IActionResult> ProductsDetails(GetProduct getProduct)
+        {
+            Result result = await getProductService.HandleAsync(getProduct);
+            return View(result.Value);
+        }
+
+        public async Task<IActionResult> AddToCart(AddCartItem addCartItem)
         {
             return View();
         }
+
         public async Task<IActionResult> Cart()
         {
             // ilk ürün eklendiğinde kullanıcının sepeti yoksa yeni cart oluşturacak
