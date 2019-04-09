@@ -12,6 +12,7 @@ namespace Shopping.Service.Handlers
     {
         private readonly IRepository<Page> pageRepository;
         private readonly IUnitOfWork unitOfWork;
+        
         public AddPageHandler(IUnitOfWork unitOfWork, IRepository<Page> pageRepository)
         {
             this.unitOfWork = unitOfWork;
