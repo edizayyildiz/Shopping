@@ -21,18 +21,18 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
-        private readonly ICommandHandler<SearchStores> searchStoresService;
-        private readonly ICommandHandler<SearchCarts> searchCartService;
-        private readonly ICommandHandler<GetCart> getCartService;
+        private ICommandHandler<SearchStores> searchStoresService;
+        private ICommandHandler<SearchCarts> searchCartService;
+        private ICommandHandler<GetCart> getCartService;
 
         
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
-            this.addProductService = addProductService;
+            //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
-            this.searchStoresService = searchStoresService;
+            //this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
         }
@@ -81,7 +81,7 @@ namespace Shopping.Web.Controllers
         }
         public async Task<IActionResult> Cart()
         {
-            // ilk ürün eklendiğinde kullanıcının kartı yoksa yeni cart oluşturacak
+            // ilk ürün eklendiğinde kullanıcının sepeti yoksa yeni cart oluşturacak
 
             var cart = new GetCart();
             cart.UserName = User.Identity.Name;
