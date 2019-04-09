@@ -42,7 +42,7 @@ namespace Shopping.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, Role>()
-       .AddEntityFrameworkStores<ApplicationDbContext>();
+       .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {

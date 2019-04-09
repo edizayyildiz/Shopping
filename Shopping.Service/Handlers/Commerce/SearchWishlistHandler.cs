@@ -44,7 +44,7 @@ namespace Shopping.Service.Handlers
             bool desc = (command.SortOrder == "desc" ? true : false);
 
             // define the filter
-            string userName = "emir";
+            string userName = command.UserName;
             Expression<Func<Wishlist, bool>> where;
             if (command.IsAdvancedSearch)
             {
@@ -74,6 +74,8 @@ namespace Shopping.Service.Handlers
                 // return the query
 
                 result = new Result(true, value,  $"{value.Count()} adet dilek bulundu.", true, value.Count());
+
+
                 return await Task.FromResult(result);
             }
         }
