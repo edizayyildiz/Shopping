@@ -21,9 +21,9 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
-        private readonly ICommandHandler<SearchStores> searchStoresService;
-        private readonly ICommandHandler<SearchCarts> searchCartService;
-        private readonly ICommandHandler<GetCart> getCartService;
+        private ICommandHandler<SearchStores> searchStoresService;
+        private ICommandHandler<SearchCarts> searchCartService;
+        private ICommandHandler<GetCart> getCartService;
 
         
         public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
