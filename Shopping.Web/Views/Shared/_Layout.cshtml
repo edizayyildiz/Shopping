@@ -127,7 +127,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="@Url.Action("Index","Account")"><i class="fa fa-user" aria-hidden="true"></i>Register / Sign in</a></li>
+                        <li><i class="fa fa-user" aria-hidden="true"></i><a href="/Identity/Account/Register">Kayıt Ol</a> / <a href="/Identity/Account/Login">Giriş</a></li>
                     </ul><!-- heder links -->
                 </div>
             </div> <!-- header-top -->
@@ -138,8 +138,8 @@
                         <div class="col-md-2 nav-left">
                             <!-- logo -->
                             <strong class="logo">
-                                <a href="">
-                                    <img src="~/images/home1/Ekran Alıntısı3.PNG"  alt="logo">
+                                <a asp-action="Index" asp-controller="Home">
+                                    <img src="~/images/home1/Ekran Alıntısı3.PNG" alt="logo">
                                 </a>
                             </strong><!-- logo -->
                         </div>
@@ -151,11 +151,12 @@
                                     <div class="categori-search  ">
                                         <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
                                             <option value="">Tüm Kategoriler</option>
-                                            @if (ViewBag.Categories != null) { 
-                                            foreach (var item in ViewBag.Categories)
+                                            @if (ViewBag.Categories != null)
                                             {
-                                                <option>@item.Name</option>
-                                            }
+                                                foreach (var item in ViewBag.Categories)
+                                                {
+                                                    <option>@item.Name</option>
+                                                }
                                             }
                                         </select>
                                     </div>
@@ -255,7 +256,7 @@
                                     </span>
                                     <span class="title-menu">Tüm Kategoriler</span>
                                 </h4>
-                                <div class="vertical-menu-content">
+                                <div class="vertical-menu-content is-home">
                                     <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
                                     <ul class="vertical-menu-list">
                                         @if (ViewBag.Categories != null)
@@ -306,7 +307,7 @@
                     </div>
                 </div>
             </div>
-        
+
         </header><!-- end HEADER -->
         @RenderBody()
         <!-- FOOTER -->
@@ -363,7 +364,7 @@
                                 <ul>
                                     <li><a href="">Oturum Aç</a></li>
                                     <li><a href="">Sepeti Göster</a></li>
-                                    <li><a href="">Favorilerim</a></li>
+                                    <li><a href="@Url.Action("WishList","Shop")">Favorilerim</a></li>
                                     <li><a href="">Siparişimi Takip Et</a></li>
                                     <li><a href="">Yardım</a></li>
                                 </ul>
@@ -413,8 +414,8 @@
         </footer><!-- end FOOTER -->
         <!--back-to-top  -->
         <!-- <a href="#" class="back-to-top">
-        <i aria-hidden="true" class="fa fa-angle-up"></i>
-    </a> -->
+            <i aria-hidden="true" class="fa fa-angle-up"></i>
+        </a> -->
     </div>
     <a href="#" id="scrollup" title="Scroll to Top">Scroll</a>
     <!-- jQuery -->
@@ -432,7 +433,7 @@
     <script src="/js/fancybox/source/jquery.fancybox.pack.js"></script>
     <script src="/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
     <script src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-    <script type="text/javascript" src="/js/function.min.js"></script>
+    <script type="text/javascript" src="/js/function2.js"></script>
     <script type="text/javascript" src="/js/Modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.plugin.js"></script>
     <script type="text/javascript" src="/js/jquery.countdown.js"></script>

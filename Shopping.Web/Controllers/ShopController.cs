@@ -25,16 +25,18 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchCarts> searchCartService;
         private ICommandHandler<GetCart> getCartService;
 
-        
-        public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
+            ICommandHandler<SearchWishlists> searchWishListsService ) : base(SearchProductCategoriesService)
         {
-            this.addProductService = addProductService;
+            //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
-            this.searchStoresService = searchStoresService;
+            //this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
+            this.searchWishListsService = searchWishListsService;
+           
         }
         public IActionResult Index()
         {
@@ -81,7 +83,7 @@ namespace Shopping.Web.Controllers
         }
         public async Task<IActionResult> Cart()
         {
-            // ilk ürün eklendiğinde kullanıcının kartı yoksa yeni cart oluşturacak
+            // ilk ürün eklendiğinde kullanıcının sepeti yoksa yeni cart oluşturacak
 
             var cart = new GetCart();
             cart.UserName = User.Identity.Name;
@@ -102,5 +104,24 @@ namespace Shopping.Web.Controllers
 
             return View();
         }
+        public async Task<IActionResult> WishList()
+
+        {
+
+            var searchWishlist = new SearchWishlists();
+
+            //Result resultWishList = await searchWishListsService.HandleAsync(searchWishlist);      
+
+            searchWishlist.UserName = "Mehmet";
+
+            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);
+            
+
+            return View(resultGetWishList.Value);
+
+
+        }
+
+
     }
 }
