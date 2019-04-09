@@ -85,7 +85,7 @@
                                                 <a href="" class="quick-view">Quick View</a>
                                             </div>
                                             <div class="product-info">
-                                                <div class="product-name"><a href="">@item.Name</a></div>
+                                                <div class="product-name"><a asp-action="ProductsDetails" asp-controller="Shop" asp-route-id="@item.Id">@item.Name</a></div>
                                                 <span class="star-rating">
                                                     @for (var i = 1; i <= item.RatingsValue; i++)
                                                     {

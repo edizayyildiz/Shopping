@@ -19,6 +19,7 @@ namespace Shopping.Web.Controllers
     {
 
         private ICommandHandler<SearchProducts> searchProductsService;
+        private ICommandHandler<GetProduct> getProductService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
         private ICommandHandler<SearchStores> searchStoresService;
@@ -31,6 +32,7 @@ namespace Shopping.Web.Controllers
         {
 
             this.searchProductsService = searchProductsService;
+            this.getProductService = getProductService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
             this.searchStoresService = searchStoresService;
@@ -82,7 +84,13 @@ namespace Shopping.Web.Controllers
 
             return View(result.Value);
         }
-        public IActionResult ProductsDetails()
+        public async Task<IActionResult> ProductsDetails(GetProduct getProduct)
+        {
+            Result result = await getProductService.HandleAsync(getProduct);
+            return View(result.Value);
+        }
+
+        public async Task<IActionResult> AddToCart(AddCartItem addCartItem)
         {
             return View();
         }
