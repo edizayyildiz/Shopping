@@ -11,11 +11,8 @@ namespace Shopping.Web.Models
         [Display(Name = "Ad")]
         [Required(ErrorMessage = "{0} alanı gereklidir.")]
         [MaxLength(50, ErrorMessage = "{0} alanı en fazla {1} karakter uzunluğunda olabilir.")]
-        public string FirstName { get; set; }
-        [Display(Name = "Soyad")]
-        [Required]
-        [MaxLength(50)]
-        public string LastName { get; set; }
+        public string Name { get; set; }
+       
         [Display(Name = "E-posta")]
         [Required]
         [EmailAddress]
@@ -26,5 +23,9 @@ namespace Shopping.Web.Models
         [Phone]
         [MaxLength(20)]
         public string Phone { get; set; }
+        [Display(Name = "Yorum")]
+        [Required(ErrorMessage = "{0} alanı gereklidir.")]
+        [DataType(DataType.MultilineText)]
+        public string Comment { get; set; }
     }
 }
