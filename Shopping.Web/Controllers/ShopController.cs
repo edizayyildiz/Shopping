@@ -24,7 +24,7 @@ namespace Shopping.Web.Controllers
         private readonly ICommandHandler<SearchCarts> searchCartService;
         private readonly ICommandHandler<GetCart> getCartService;
 
-        public ShopController(ICommandHandler<SearchStores> searchStoresService, ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
             this.searchProductsService = searchProductsService;
