@@ -1,9 +1,5 @@
 ﻿@model Shopping.Service.Queries.Commerce.CartQuery
 
-@{
-    ViewData["Title"] = "Cart";
-}
-
 <main class="site-main shopping-cart">
     <div class="container">
         <ol class="breadcrumb-page">
@@ -20,10 +16,10 @@
                             <thead>
                                 <tr>
                                     <th class="tb-image"></th>
-                                    <th class="tb-product">Product Name</th>
-                                    <th class="tb-price">Unit Price</th>
-                                    <th class="tb-qty">Qty</th>
-                                    <th class="tb-total">SubTotal</th>
+                                    <th class="tb-product">Ürün Adı</th>
+                                    <th class="tb-price">Birim Fiyatı</th>
+                                    <th class="tb-qty">Adet</th>
+                                    <th class="tb-total">Ara Toplam</th>
                                     <th class="tb-remove"></th>
                                 </tr>
                             </thead>
@@ -71,22 +67,24 @@
                     </div>
                 </form>
             </div>
+
             <div class="col-md-3 padding-left-5">
                 <div class="order-summary">
-                    <h4 class="title-shopping-cart">Order Summary</h4>
+                    <h4 class="title-shopping-cart">Sipariş Özeti</h4>
                     <div class="checkout-element-content">
-                        <span class="order-left">Subtotal:<span>$458.00</span></span>
-                        <span class="order-left">Shipping:<span>Free Shipping</span></span>
-                        <span class="order-left">Total:<span>$458.00</span></span>
+                        <span class="order-left">Subtotal:<span>@Model.CartTotal</span></span>
+                        <span class="order-left">Shipping:<span>Ücretsiz Kargo</span></span>
+                        <span class="order-left">Total:<span>@Model.CartTotal</span></span>
                         <ul>
-                            <li><label class="inline"><input type="checkbox"><span class="input"></span>I have promo code</label></li>
+                            <li><label class="inline"><input type="checkbox"><span class="input"></span>Promosyon kodum var</label></li>
                         </ul>
                         <button type="submit" class="btn-checkout">
-                            <span>Check Out</span>
+                            <span>Sipariş Ver</span>
                         </button>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <div class="block-recent-view">

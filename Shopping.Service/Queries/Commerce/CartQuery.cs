@@ -8,7 +8,7 @@ namespace Shopping.Service.Queries.Commerce
 {
     public class CartQuery : Query
     {
-        public virtual ICollection<CartItem> CartItems { get; set; }
+        public IList<CartItem> CartItems { get; set; }
         public string UserName { get; set; }
         public decimal? CartTotal { get { return CartItems.Sum(s => s.Quantity * s.UnitPrice); } }
     }

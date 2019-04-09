@@ -17,7 +17,7 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchSlides> searchSlidesService;
         private ICommandHandler<SearchProducts> searchProductsService;
 
-        public HomeController(ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        public HomeController(ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService, getCartService)
         {
             this.searchCountrysService = searchCountrysService;
             this.searchSlidesService = searchSlidesService;

@@ -23,10 +23,10 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchCountrys> searchCountriesService;
         private ICommandHandler<SearchStores> searchStoresService;
         private ICommandHandler<SearchCarts> searchCartService;
-        private ICommandHandler<GetCart> getCartService;
+        //private ICommandHandler<GetCart> getCartService;
+        private ICommandHandler<SearchWishlists> searchWishListsService;
 
-        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
-            ICommandHandler<SearchWishlists> searchWishListsService ) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<GetCart> getCartService, ICommandHandler<SearchCarts> searchCartService) : base(SearchProductCategoriesService, getCartService)
         {
             //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
@@ -34,7 +34,6 @@ namespace Shopping.Web.Controllers
             this.searchCountriesService = searchCountriesService;
             //this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
-            this.getCartService = getCartService;
             this.searchWishListsService = searchWishListsService;
            
         }
@@ -81,7 +80,7 @@ namespace Shopping.Web.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Cart()
+        public async Task<IActionResult> GetCart()
         {
             // ilk ürün eklendiğinde kullanıcının sepeti yoksa yeni cart oluşturacak
 

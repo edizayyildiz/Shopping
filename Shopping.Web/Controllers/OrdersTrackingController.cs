@@ -19,7 +19,7 @@ namespace Shopping.Web.Controllers
 
         //private readonly ApplicationIdentity identity;
         private readonly IHttpContextAccessor contextAccessor;
-        public OrdersTrackingController(ICommandHandler<GetOrder> orderTrackingService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchOrderItems> orderItemService, IHttpContextAccessor contextAccessor, ICommandHandler<SearchOrders> searchOrdersService) : base(SearchProductCategoriesService)
+        public OrdersTrackingController(ICommandHandler<GetOrder> orderTrackingService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchOrderItems> orderItemService, IHttpContextAccessor contextAccessor, ICommandHandler<SearchOrders> searchOrdersService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService, getCartService)
         {
             this.orderTrackingService = orderTrackingService;
             this.searchOrdersService = searchOrdersService;

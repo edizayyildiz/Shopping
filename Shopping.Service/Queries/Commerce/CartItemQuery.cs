@@ -11,7 +11,7 @@ namespace Shopping.Service.Queries.Commerce
         public string CartId { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get { return Product.NewPrice; } }
-        public virtual Product Product { get; set; }
+        public Product Product { get; set; }
         public virtual Cart Cart { get; set; }
     }
 }
