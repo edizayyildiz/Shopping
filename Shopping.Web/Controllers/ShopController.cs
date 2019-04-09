@@ -15,12 +15,16 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
+        private ICommandHandler<SearchWishlists> searchWishListsService;       
 
-        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
+            ICommandHandler<SearchWishlists> searchWishListsService ) : base(SearchProductCategoriesService)
         {
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
+            this.searchWishListsService = searchWishListsService;
+           
         }
         public IActionResult Index()
         {
@@ -68,5 +72,24 @@ namespace Shopping.Web.Controllers
 
             return View();
         }
+        public async Task<IActionResult> WishList()
+
+        {
+
+            var searchWishlist = new SearchWishlists();
+
+            //Result resultWishList = await searchWishListsService.HandleAsync(searchWishlist);      
+
+            searchWishlist.UserName = "Mehmet";
+
+            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);
+            
+
+            return View(resultGetWishList.Value);
+
+
+        }
+
+
     }
 }
