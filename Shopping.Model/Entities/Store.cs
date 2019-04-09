@@ -24,6 +24,7 @@ namespace Shopping.Model.Entities
         public string ContactEmail { get; set; }
         public string Address { get; set; }
         public string Description { get; set; }
+        public bool IsFeatured { get; set; }
 
         public virtual ICollection<OrderItem> OrderItems { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

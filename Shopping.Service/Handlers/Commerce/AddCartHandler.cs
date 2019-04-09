@@ -20,16 +20,6 @@ namespace Shopping.Service.Handlers.Commerce
         public override async Task<dynamic> HandleAsync(Commands.AddCart command)
         {
             Result result;
-            if (string.IsNullOrEmpty(command.UserName))
-            {
-                result = new Result(false, null, "Kullanıcı adı alanı gereklidir.", false, null);
-                return await Task.FromResult(result);
-            }
-            if (command.UserName.Length > 100)
-            {
-                result = new Result(false, null, "Kullanıcı adı alanı 100 karakterden fazla olamaz.", false, null);
-                return await Task.FromResult(result);
-            }
 
             var model = Mapper.Map<Cart>(command);
 

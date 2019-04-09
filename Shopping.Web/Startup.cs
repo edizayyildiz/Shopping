@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Shopping.Data;
 using Autofac;
 using Shopping.Model.Entities;
+using Shopping.Web.Areas.Identity.Services;
 
 namespace Shopping.Web
 {
@@ -41,7 +42,7 @@ namespace Shopping.Web
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, Role>()
-       .AddEntityFrameworkStores<ApplicationDbContext>();
+       .AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -83,6 +84,7 @@ namespace Shopping.Web
                 options.Cookie.Name = ".Shopping.Session";
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+            services.AddTransient<Microsoft.AspNetCore.Identity.UI.Services.IEmailSender, AuthMessageSender>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

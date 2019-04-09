@@ -20,13 +20,13 @@ namespace Shopping.Service.Handlers.Commerce
         {
             Result result;
             // get the model from database
-            var model = cartRepository.Get(command.Id);
+            var model = cartRepository.Get(command.UserName);
 
             // if nothing found
             if (model == null)
             {
                 // return the not found result
-                result = new Result(false, command.Id, "Sepet bulunamadı.", true, null);
+                result = new Result(false, command.UserName, "Sepet bulunamadı.", true, null);
                 return await Task.FromResult(result);
             }
             // map the model to query
