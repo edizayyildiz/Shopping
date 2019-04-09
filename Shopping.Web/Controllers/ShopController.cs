@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Shopping.Model.Entities;
 using Shopping.Service;
 using Shopping.Service.Commands;
 using Shopping.Service.Queries;
@@ -12,12 +13,14 @@ namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
+        private ICommandHandler<AddProduct> addProductService;
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
 
-        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<AddProduct> addProductService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         {
+            this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
@@ -40,11 +43,15 @@ namespace Shopping.Web.Controllers
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
         {
+            
             ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
             Result result = await searchProductsService.HandleAsync(searchProducts);
             ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
+            
+ 
+        
             return View(result.Value);
         }
         public IActionResult ProductsDetails()
