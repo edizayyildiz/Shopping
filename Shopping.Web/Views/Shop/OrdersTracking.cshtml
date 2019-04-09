@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Shopping.Service.Queries.OrderQuery>
+
+    @{
+        ViewData["Title"] = "OrdersTracking";
+    }
+
+    <h2>OrdersTracking</h2>
+
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DemandDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeliveryAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceAddress)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.Store)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderStatus)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IpAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Culture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsDeleted)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeletedAt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DeletedBy)
+                </th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DemandDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeliveryAddress.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceAddress.Id)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Store.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UpdatedBy)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IpAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Culture)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsDeleted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletedAt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeletedBy)
+                    </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
