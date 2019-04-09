@@ -24,9 +24,10 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchStores> searchStoresService;
         private ICommandHandler<SearchCarts> searchCartService;
         private ICommandHandler<GetCart> getCartService;
+        private readonly ICommandHandler<SearchOrders> searchOrdersService;
 
-        
-        public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
+
+        public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService, ICommandHandler<SearchOrders> searchOrdersService) : base(SearchProductCategoriesService)
         {
             //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
@@ -35,6 +36,7 @@ namespace Shopping.Web.Controllers
             //this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
+            this.searchOrdersService = searchOrdersService;
         }
         public IActionResult Index()
         {
@@ -101,6 +103,20 @@ namespace Shopping.Web.Controllers
             ViewBag.Countries = new SelectList(resultCountry.Value, "Id", "Name", deliveryAddress.CityId);
 
             return View();
+        }
+        public async Task<IActionResult> OrdersTracking()
+        {
+            //identity eklenmesi gerekiyor 
+            var searchOrder = new SearchOrders();
+            searchOrder.UserName = User.Identity.Name;
+            searchOrder.IsAdvancedSearch = true;
+             Result result = await searchOrdersService.HandleAsync(searchOrder);
+                return View(result.Value);
+            
+            //  searchOrder.IsPagedSearch = true;
+           
+
+
         }
     }
 }
