@@ -25,8 +25,9 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchCarts> searchCartService;
         private ICommandHandler<GetCart> getCartService;
         private ICommandHandler<SearchWishlists> searchWishListsService;
+        private ICommandHandler<AddWishlist> addWishListService;
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
-            ICommandHandler<SearchWishlists> searchWishListsService ) : base(SearchProductCategoriesService)
+            ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<AddWishlist> addWishListService) : base(SearchProductCategoriesService)
         {
             //this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
@@ -36,7 +37,9 @@ namespace Shopping.Web.Controllers
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
             this.searchWishListsService = searchWishListsService;
-           
+            this.addWishListService = addWishListService;
+
+
         }
         public IActionResult Index()
         {
@@ -105,23 +108,25 @@ namespace Shopping.Web.Controllers
             return View();
         }
         public async Task<IActionResult> WishList()
-
         {
-
             var searchWishlist = new SearchWishlists();
 
             //Result resultWishList = await searchWishListsService.HandleAsync(searchWishlist);      
 
             searchWishlist.UserName = "Mehmet";
 
-            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);
-            
+            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);            
 
             return View(resultGetWishList.Value);
-
-
         }
 
-
+        public async Task<IActionResult> AddWishList(string productId)
+        {
+            var addWishList = new AddWishlist();            
+            addWishList.ProductId = productId;
+            addWishList.UserName =  User.Identity.Name;
+            Result resultAddWishList = await addWishListService.HandleAsync(addWishList);
+            return RedirectToAction("WishList");
+        }
     }
 }
