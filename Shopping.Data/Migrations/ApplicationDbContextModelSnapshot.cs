@@ -480,7 +480,7 @@ namespace Shopping.Data.Migrations
                         new
                         {
                             Id = "e8840d39-abf2-4577-bfa5-a92144107b09",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3060),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2248),
                             CreatedBy = "username",
                             Image = "apple1.jpg",
                             IsActive = true,
@@ -488,13 +488,13 @@ namespace Shopping.Data.Migrations
                             Name = "Apple",
                             ShowInHome = false,
                             Slug = "apple",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3069),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2260),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "f3bf46ec-4135-4f13-b874-b6d0fea16ada",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3486),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2817),
                             CreatedBy = "username",
                             Image = "dell.jpg",
                             IsActive = true,
@@ -502,13 +502,13 @@ namespace Shopping.Data.Migrations
                             Name = "Dell",
                             ShowInHome = false,
                             Slug = "dell",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3489),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2820),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d85aacb-8f1b-4488-b5bd-5390b9cd76c6",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3495),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2830),
                             CreatedBy = "username",
                             Image = "hp1.jpg",
                             IsActive = true,
@@ -516,13 +516,13 @@ namespace Shopping.Data.Migrations
                             Name = "Hp",
                             ShowInHome = false,
                             Slug = "hp",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3498),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2833),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "c047e1e6-01d1-47d9-8087-ad1b3400ad0e",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3502),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2839),
                             CreatedBy = "username",
                             Image = "lenovo1.jpg",
                             IsActive = true,
@@ -530,13 +530,13 @@ namespace Shopping.Data.Migrations
                             Name = "Lenovo",
                             ShowInHome = false,
                             Slug = "lenovo",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3505),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2839),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "45ee14ef-d408-47e3-b104-01a9e23c5def",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3508),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2842),
                             CreatedBy = "username",
                             Image = "samsung1.jpg",
                             IsActive = true,
@@ -544,13 +544,13 @@ namespace Shopping.Data.Migrations
                             Name = "Samsung",
                             ShowInHome = false,
                             Slug = "samsung",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3508),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2845),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "109057a8-d4c0-40c5-bede-a238dcdf0245",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3517),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2854),
                             CreatedBy = "username",
                             Image = "asus.jpg",
                             IsActive = true,
@@ -558,13 +558,13 @@ namespace Shopping.Data.Migrations
                             Name = "Asus",
                             ShowInHome = false,
                             Slug = "asus",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3517),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2854),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "d228e627-feb9-4208-9a10-b3ac8dc866fa",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3520),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2861),
                             CreatedBy = "username",
                             Image = "sony.jpg",
                             IsActive = true,
@@ -572,13 +572,13 @@ namespace Shopping.Data.Migrations
                             Name = "Sony",
                             ShowInHome = false,
                             Slug = "sony",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3523),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2861),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "ff23d5c6-d2b6-4687-a715-299ee0c5dd25",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3526),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2864),
                             CreatedBy = "username",
                             Image = "huawei.jpg",
                             IsActive = true,
@@ -586,13 +586,13 @@ namespace Shopping.Data.Migrations
                             Name = "Huawei",
                             ShowInHome = false,
                             Slug = "huawei",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3526),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2864),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "be084f87-b383-4939-a1db-97c9d16ce295",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3533),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2870),
                             CreatedBy = "username",
                             Image = "acer.jpg",
                             IsActive = true,
@@ -600,7 +600,7 @@ namespace Shopping.Data.Migrations
                             Name = "Acer",
                             ShowInHome = false,
                             Slug = "acer",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 771, DateTimeKind.Local).AddTicks(3533),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 179, DateTimeKind.Local).AddTicks(2870),
                             UpdatedBy = "username"
                         });
                 });
@@ -1720,7 +1720,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(1651),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1008),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Stokta 15 adet bulunan MacBook Pro 2018 çeşitli hediyeler ile toplam alımlarda %45 indirim ile vitrinimizde.",
@@ -1740,7 +1740,7 @@ namespace Shopping.Data.Migrations
                             Slug = "MacBook Pro 2018 Silver ",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(1660),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1026),
                             UpdatedBy = "username"
                         },
                         new
@@ -1752,7 +1752,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2236),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1838),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "iMac Pro Uzay Grisi 256 GB SSD | 16 GB RAM DDR5 | İntel i7-9900 3.2 Ghz | Hediyelerimiz: Uzay Grisi Klavye-Fare, Usb Çoğaltıcı, Harici DVD Sürücü, JPL Bluetooth Hoparlör",
@@ -1772,7 +1772,7 @@ namespace Shopping.Data.Migrations
                             Slug = "imac pro uzay grisi",
                             StoreId = "f544e6dd-70c7-4c99-834e-8147e1bff9f1",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2239),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1838),
                             UpdatedBy = "username"
                         },
                         new
@@ -1784,7 +1784,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "4b64df99-8909-4fb4-bc23-9a84e5063f27",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2254),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1854),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "iPhone 6 S 64 GB Gümüş | Hediyelerimiz: Kulaklık, Orjinal Bataryalı Kılıf, İki Uçlu Usb Bellek ",
@@ -1804,7 +1804,7 @@ namespace Shopping.Data.Migrations
                             Slug = "iPhone 6 S 64 GB Gümüş",
                             StoreId = "5b843cf0-b7a5-475f-b22e-57054c54ba14",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2254),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1857),
                             UpdatedBy = "username"
                         },
                         new
@@ -1816,7 +1816,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "4b64df99-8909-4fb4-bc23-9a84e5063f27",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2264),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1866),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Samsung Galaxy Note 9 512 GB Okyanus Mavisi",
@@ -1836,7 +1836,7 @@ namespace Shopping.Data.Migrations
                             Slug = "Samsung Galaxy Note 9 Note 9 512 GB Okyanus Mavisi",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2264),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1866),
                             UpdatedBy = "username"
                         },
                         new
@@ -1848,7 +1848,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "8da13d65-1efb-40ea-b88f-08b06d0776ab",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2273),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1875),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Apple AirPods Kulaklık | Hediyelerimiz: Yedek Parçaları Orjinal, Yedek Şarjı",
@@ -1868,7 +1868,7 @@ namespace Shopping.Data.Migrations
                             Slug = "apple airpods kulaklık",
                             StoreId = "f544e6dd-70c7-4c99-834e-8147e1bff9f1",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2273),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1875),
                             UpdatedBy = "username"
                         },
                         new
@@ -1879,7 +1879,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2285),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1891),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Pembe Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ",
@@ -1899,7 +1899,7 @@ namespace Shopping.Data.Migrations
                             Slug = "Pembe Yasin-i Şerif ve Sureler Kitabı",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2285),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1891),
                             UpdatedBy = "username"
                         },
                         new
@@ -1910,7 +1910,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2295),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1897),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Mavi Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ",
@@ -1930,7 +1930,7 @@ namespace Shopping.Data.Migrations
                             Slug = "Mavi Yasin-i Şerif ve Sureler Kitabı",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2295),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1900),
                             UpdatedBy = "username"
                         },
                         new
@@ -1941,7 +1941,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2301),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1906),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Kırmızı Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ",
@@ -1961,7 +1961,7 @@ namespace Shopping.Data.Migrations
                             Slug = "Kırmızı Yasin-i Şerif ve Sureler Kitabı",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2301),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1906),
                             UpdatedBy = "username"
                         },
                         new
@@ -1972,7 +1972,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2310),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1916),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti",
@@ -1992,7 +1992,7 @@ namespace Shopping.Data.Migrations
                             Slug = "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2310),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(1916),
                             UpdatedBy = "username"
                         },
                         new
@@ -2003,7 +2003,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2382),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(2018),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk",
@@ -2023,7 +2023,7 @@ namespace Shopping.Data.Migrations
                             Slug = "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2382),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(2018),
                             UpdatedBy = "username"
                         },
                         new
@@ -2034,7 +2034,7 @@ namespace Shopping.Data.Migrations
                             CategoryId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Condition = 1,
                             Cost = 0m,
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2391),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(2028),
                             CreatedBy = "username",
                             Currency = 0,
                             Description = "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk",
@@ -2054,7 +2054,7 @@ namespace Shopping.Data.Migrations
                             Slug = "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk",
                             StoreId = "6ad3fd8a-9b43-440d-bd83-fcf033101d9d",
                             Tax = 0f,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 779, DateTimeKind.Local).AddTicks(2391),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 189, DateTimeKind.Local).AddTicks(2028),
                             UpdatedBy = "username"
                         });
                 });
@@ -2109,208 +2109,208 @@ namespace Shopping.Data.Migrations
                         new
                         {
                             Id = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 764, DateTimeKind.Local).AddTicks(4676),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 171, DateTimeKind.Local).AddTicks(5771),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Tüm Kategoriler",
                             Slug = "tum-kategoriler",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 765, DateTimeKind.Local).AddTicks(5249),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 172, DateTimeKind.Local).AddTicks(6921),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b1",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 765, DateTimeKind.Local).AddTicks(9961),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2062),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Prime Video",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "prime-video",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 765, DateTimeKind.Local).AddTicks(9973),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2074),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b2",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(222),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2342),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Music, CDs & Vinyl",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "music-cds-vinly",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(222),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2342),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b3",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(231),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2354),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kindle Store",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "kindle-store",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(235),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2354),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b4",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(238),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2361),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Arts & Crafts",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "arts-crafts",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(238),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2361),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b5",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(250),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2373),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Automotive",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "automotive",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(250),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2376),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b0",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(253),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2379),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Baby",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "baby",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(256),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2379),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b7",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(259),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2385),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Beauty & Personal Care",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "beauty-personal-care",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(259),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2389),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b8",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(340),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2494),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Books",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "books",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(343),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2494),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b9",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(350),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2504),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Computers",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "computers",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(350),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2504),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "6d8135c2-833f-42fc-900d-6eeeb1c607b6",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(353),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2507),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Elektronics",
                             ParentId = "2d53d8ef-0f19-42ed-9126-e03a0a1af060",
                             Slug = "elektronics",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(353),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2507),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(359),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2513),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Bilgisayar",
                             ParentId = "6d8135c2-833f-42fc-900d-6eeeb1c607b6",
                             Slug = "bilgisayar",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(359),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2513),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "ed515341-522e-4bfa-8f68-15c874fd77e9",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(362),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2519),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Dizüstü Notebook",
                             ParentId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Slug = "dizustu-notebook",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(362),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2519),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "1f2f8408-9ad2-4908-b310-92dbdabe5979",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(368),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2522),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "All-In-One",
                             ParentId = "42729bdd-3160-41f8-b1a6-c68ead8e314d",
                             Slug = "all-ın-one",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(368),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2522),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "4b64df99-8909-4fb4-bc23-9a84e5063f27",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(371),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2529),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Telefon",
                             ParentId = "6d8135c2-833f-42fc-900d-6eeeb1c607b6",
                             Slug = "telefon",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(371),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2529),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "8da13d65-1efb-40ea-b88f-08b06d0776ab",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(375),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2532),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Kulaklık",
                             ParentId = "6d8135c2-833f-42fc-900d-6eeeb1c607b6",
                             Slug = "kulaklık",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(378),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 173, DateTimeKind.Local).AddTicks(2535),
                             UpdatedBy = "username"
                         });
                 });
@@ -2409,7 +2409,7 @@ namespace Shopping.Data.Migrations
                         {
                             Id = "3e4cc993-9f23-4bb7-a943-59c3cf7fc166",
                             Alt = "MacBook Pro 2018 Silver ",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(8696),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 191, DateTimeKind.Local).AddTicks(9416),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2418,14 +2418,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d",
                             Small = "macBookPro2018.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(8709),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 191, DateTimeKind.Local).AddTicks(9431),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "cf363e7a-b99a-425f-8d07-50487081049b",
                             Alt = "iMac Pro Uzay Grisi",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9200),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(10),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2434,14 +2434,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "7b4ff888-2e18-4490-b01a-76c4a7b3095b",
                             Small = "iMacPro.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9203),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(10),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "12c5d0df-7ac8-4a6c-8f59-aa4037940c1b",
                             Alt = "iPhone 6 S 64 GB Gümüş",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9213),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(19),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2450,14 +2450,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0",
                             Small = "iPhone664.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9213),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(19),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "85dfb6e4-908d-45c1-b414-a488b6891197",
                             Alt = "Samsung Galaxy Note 9 512 GB Okyanus Mavisi",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9216),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(25),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2466,14 +2466,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "4330ef04-db35-4358-936a-d4db324d4fed",
                             Small = "samsungnote9.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9216),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(25),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "d5266161-dff1-4c09-9a36-d84ac5cc3b1b",
                             Alt = "Apple AirPods Kulaklık ",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9219),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(28),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2482,14 +2482,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "fe01d29b-f753-4b89-a6e8-a502de6cfbe1",
                             Small = "airpods.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9222),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(28),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "54a82e8b-de71-4f99-9841-4431e78b7552",
                             Alt = "Yasin-i Şerif ve Bazı Sureler Pembe Kitap ",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9228),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(41),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2498,14 +2498,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "7fdad843-e55c-4003-8b6a-486344e6d8cb",
                             Small = "duakitabıp.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9231),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(41),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "077e4e64-313e-4d4e-a340-5c84e0a3d748",
                             Alt = "Yasin-i Şerif ve Bazı Sureler Mavi Kitap ",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9235),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(44),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2514,14 +2514,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "cd9d729e-b245-4606-b480-4e90b94a3882",
                             Small = "duakitabım.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9235),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(47),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "df2bd20c-176a-4392-a918-f0e8509c9161",
                             Alt = "Yasin-i Şerif ve Bazı Sureler Kırmızı Kitap ",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9238),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(50),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2530,14 +2530,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "700fe299-bb99-47a1-acd5-d614016a374e",
                             Small = "duakitabık.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9238),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(50),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "7778feda-520c-4157-a80e-0bee5ee57511",
                             Alt = "Kabe Desenli Yasin ve Tül Keseli Tespih Seti",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9241),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(53),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2546,14 +2546,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "5e575e49-7724-4527-9ee9-15f4718c0778",
                             Small = "kurantesbih.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9244),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(53),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "f9a0eaa5-2934-4097-8c09-551d3cf8b48b",
                             Alt = "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9247),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(59),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2562,14 +2562,14 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "1db450c1-594b-4bed-b726-d4462a4d54f6",
                             Small = "50adettesbih.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9250),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(59),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "c7e447b9-fcbe-43e7-a46c-1a578400fa8e",
                             Alt = "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9253),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(63),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -2578,7 +2578,7 @@ namespace Shopping.Data.Migrations
                             Position = 0,
                             ProductId = "48ffccbf-b72e-4328-a5eb-cf487863589c",
                             Small = "50adettesbihs.jpg",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 781, DateTimeKind.Local).AddTicks(9253),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 192, DateTimeKind.Local).AddTicks(63),
                             UpdatedBy = "username"
                         });
                 });
@@ -2794,7 +2794,7 @@ namespace Shopping.Data.Migrations
                         {
                             Id = "86b27fee-aa1a-4552-9bcd-6c8100b11138",
                             Body = "Çok iyi bir telefon elimde şu an",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6610),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(7973),
                             CreatedBy = "username",
                             Email = "karmaillegal57@gmail.com",
                             IsActive = true,
@@ -2803,14 +2803,14 @@ namespace Shopping.Data.Migrations
                             Name = "Emir Demirci",
                             ProductId = "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0",
                             Rating = 0,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6617),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(7979),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "a93dffde-741e-45bc-8aab-8976e03c172d",
                             Body = "Çok iyi bir telefon elimde şu an",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6965),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8340),
                             CreatedBy = "username",
                             Email = "mdemirci@outlook.com",
                             IsActive = true,
@@ -2819,14 +2819,14 @@ namespace Shopping.Data.Migrations
                             Name = "Murat Demirci",
                             ProductId = "4330ef04-db35-4358-936a-d4db324d4fed",
                             Rating = 0,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6968),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8340),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "c35776e9-c002-4af9-8553-eb9e466b8910",
                             Body = "Çok iyi bir notebook.",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6977),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8349),
                             CreatedBy = "username",
                             Email = "ydemirci@outlook.com",
                             IsActive = true,
@@ -2835,14 +2835,14 @@ namespace Shopping.Data.Migrations
                             Name = "Yasin Demirci",
                             ProductId = "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d",
                             Rating = 0,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6977),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8349),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "a19e279f-65b3-4b9d-b658-037c9b763aac",
                             Body = "Çok iyi bir notebook.",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6980),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8355),
                             CreatedBy = "username",
                             Email = "cdemirci@outlook.com",
                             IsActive = true,
@@ -2851,14 +2851,14 @@ namespace Shopping.Data.Migrations
                             Name = "Cihan Demirci",
                             ProductId = "7b4ff888-2e18-4490-b01a-76c4a7b3095b",
                             Rating = 0,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6983),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8355),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "ad673d9a-ff2d-4cb0-bcac-5587f08d2ffc",
                             Body = "Çok iyi bir kulaklık.",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6987),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8358),
                             CreatedBy = "username",
                             Email = "medemirci@outlook.com",
                             IsActive = true,
@@ -2867,7 +2867,7 @@ namespace Shopping.Data.Migrations
                             Name = "Meryem Demirci",
                             ProductId = "fe01d29b-f753-4b89-a6e8-a502de6cfbe1",
                             Rating = 0,
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 783, DateTimeKind.Local).AddTicks(6987),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 193, DateTimeKind.Local).AddTicks(8361),
                             UpdatedBy = "username"
                         });
                 });
@@ -3037,7 +3037,7 @@ namespace Shopping.Data.Migrations
                         new
                         {
                             Id = "007f78d2-f4d5-413a-9a80-737bc6850d5d",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4227),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8326),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -3047,14 +3047,14 @@ namespace Shopping.Data.Migrations
                             SliderId = "b5616904-9304-40ab-9488-5d4809021445",
                             Text = "Çeşit Çeşit Paketlerdeki Orjinal Hediyeler",
                             Title = "Hediye Paketli Ürünlerimiz",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4233),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8336),
                             UpdatedBy = "username",
                             Url = "http://www.google.com.tr"
                         },
                         new
                         {
                             Id = "3a64713c-22b6-48ff-8d84-740dcefdbd37",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4618),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8836),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -3064,14 +3064,14 @@ namespace Shopping.Data.Migrations
                             SliderId = "b5616904-9304-40ab-9488-5d4809021445",
                             Text = "Bütün Avrupa ve Asya'daki ülkelerdeki ürünler",
                             Title = "Kaliteli ve Uygun Fiyatlarla",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4622),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8839),
                             UpdatedBy = "username",
                             Url = "http://www.apple.com.tr"
                         },
                         new
                         {
                             Id = "0c0d6d02-c99a-4537-9821-f2c90f21f451",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4631),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8933),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -3081,14 +3081,14 @@ namespace Shopping.Data.Migrations
                             SliderId = "b5616904-9304-40ab-9488-5d4809021445",
                             Text = "Bütün Markaların Ürünleri Vitrinlerimizde",
                             Title = "Her Türlü Ev Eşyaları Uygun Fiyatlarla",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4631),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8933),
                             UpdatedBy = "username",
                             Url = "http://www.evkur.com.tr"
                         },
                         new
                         {
                             Id = "cc3fc344-2141-40c5-be49-3b9c661d56b2",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4634),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8964),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -3098,14 +3098,14 @@ namespace Shopping.Data.Migrations
                             SliderId = "b5616904-9304-40ab-9488-5d4809021445",
                             Text = "Bütün Elektronik Cihazlar Vitrinlerimizde",
                             Title = "%40 İndirim ile Vitrinlerimizde",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4637),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8964),
                             UpdatedBy = "username",
                             Url = "http://www.apple.com.tr"
                         },
                         new
                         {
                             Id = "072df9fd-ef97-40f4-a10e-5b0e7dc3f08c",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4640),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8970),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
@@ -3115,7 +3115,7 @@ namespace Shopping.Data.Migrations
                             SliderId = "b5616904-9304-40ab-9488-5d4809021445",
                             Text = "Kaçırmayın",
                             Title = "Şubat 2019'da Vitrinlerimizde",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 768, DateTimeKind.Local).AddTicks(4640),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 175, DateTimeKind.Local).AddTicks(8970),
                             UpdatedBy = "username",
                             Url = "http://www.apple.com.tr"
                         });
@@ -3158,23 +3158,23 @@ namespace Shopping.Data.Migrations
                         new
                         {
                             Id = "b5616904-9304-40ab-9488-5d4809021445",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(8175),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 174, DateTimeKind.Local).AddTicks(1337),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Ana Kaydırıcı",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(8181),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 174, DateTimeKind.Local).AddTicks(1346),
                             UpdatedBy = "username"
                         },
                         new
                         {
                             Id = "d1689024-2cff-420d-a2aa-141e93cbbff7",
-                            CreatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(8461),
+                            CreatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 174, DateTimeKind.Local).AddTicks(1791),
                             CreatedBy = "username",
                             IsActive = true,
                             IsDeleted = false,
                             Name = "Orta Kaydırıcı",
-                            UpdatedAt = new DateTime(2019, 4, 8, 10, 48, 49, 766, DateTimeKind.Local).AddTicks(8461),
+                            UpdatedAt = new DateTime(2019, 4, 9, 10, 3, 42, 174, DateTimeKind.Local).AddTicks(1791),
                             UpdatedBy = "username"
                         });
                 });
@@ -3220,6 +3220,8 @@ namespace Shopping.Data.Migrations
 
                     b.Property<bool>("IsDeleted");
 
+                    b.Property<bool>("IsFeatured");
+
                     b.Property<string>("Logo");
 
                     b.Property<string>("Name")
@@ -3254,6 +3256,7 @@ namespace Shopping.Data.Migrations
                             Description = "",
                             IsActive = false,
                             IsDeleted = false,
+                            IsFeatured = false,
                             Logo = "vatan.jpg",
                             Name = "Vatan Bilgisayar",
                             Owner = "mdemirci01@outlook.com",
@@ -3271,6 +3274,7 @@ namespace Shopping.Data.Migrations
                             Description = "",
                             IsActive = false,
                             IsDeleted = false,
+                            IsFeatured = false,
                             Logo = "appstore1.jpg",
                             Name = "AppStore1",
                             Owner = "emirdemirci721@gmail.com",
@@ -3288,6 +3292,7 @@ namespace Shopping.Data.Migrations
                             Description = "Teknosa Herkes İçin Teknoloji",
                             IsActive = false,
                             IsDeleted = false,
+                            IsFeatured = true,
                             Logo = "teknosa.jpg",
                             Name = "Teknosa",
                             Owner = "karmaillegal57@gmail.com",

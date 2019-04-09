@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Index2</title>
+    <title>Shopping</title>
     <link rel="stylesheet" type="text/css" href="/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/font-awesome.css">
@@ -127,7 +127,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href=""><i class="fa fa-user" aria-hidden="true"></i>Register / Sign in</a></li>
+                        <li><i class="fa fa-user" aria-hidden="true"></i><a href="/Identity/Account/Register">Kayıt Ol</a> / <a href="/Identity/Account/Login">Giriş</a></li>
                     </ul><!-- heder links -->
                 </div>
             </div> <!-- header-top -->
@@ -138,8 +138,8 @@
                         <div class="col-md-2 nav-left">
                             <!-- logo -->
                             <strong class="logo">
-                                <a href="">
-                                    <img src="~/images/home1/Ekran Alıntısı3.PNG"  alt="logo">
+                                <a asp-action="Index" asp-controller="Home">
+                                    <img src="~/images/home1/Ekran Alıntısı3.PNG" alt="logo">
                                 </a>
                             </strong><!-- logo -->
                         </div>
@@ -151,16 +151,13 @@
                                     <div class="categori-search  ">
                                         <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
                                             <option value="">Tüm Kategoriler</option>
-                                            @foreach (var item in ViewBag.Categories)
+                                            @if (ViewBag.Categories != null)
                                             {
-
-
-                                                <option>@item.Name</option>
-
-
-
+                                                foreach (var item in ViewBag.Categories)
+                                                {
+                                                    <option>@item.Name</option>
+                                                }
                                             }
-
                                         </select>
                                     </div>
                                     <div class="form-search">
@@ -259,43 +256,47 @@
                                     </span>
                                     <span class="title-menu">Tüm Kategoriler</span>
                                 </h4>
-                                <div class="vertical-menu-content">
+                                <div class="vertical-menu-content is-home">
                                     <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
                                     <ul class="vertical-menu-list">
-                                        @foreach (var item in ViewBag.Categories)
+                                        @if (ViewBag.Categories != null)
                                         {
-                                            <li class="menu-item-has-children arrow item-megamenu">
-                                                <a href="#" class="dropdown-toggle">@item.Name</a>
-                                                <span class="toggle-submenu hidden-md"></span>
-                                                <div class="submenu parent-megamenu megamenu">
-                                                    <div class="row">
-                                                        <div class="submenu-banner submenu-banner-menu-1">
-                                                            <div class="col-md-4">
-                                                                <div class="dropdown-menu-info">
-
-
-                                                                    <h6 class="dropdown-menu-title">@item.Name</h6>
-                                                                    <div class="dropdown-menu-content">
-                                                                        <ul class="menu">
-                                                                            <li class="menu-item"><a href="#">@item.Childs</a></li>
-                                                                            <li class="menu-item"><a href="#">Çantalar</a></li>
-                                                                            <li class="menu-item"><a href="#">Ayakkabılar</a></li>
-                                                                            <li class="menu-item"><a href="#">Takılar</a></li>
-                                                                            <li class="menu-item"><a href="#">Kıyafeler</a></li>
-                                                                            <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                            <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                        </ul>
-                                                                    </div>
-
-                                                                </div>
+                                            foreach (var item in ViewBag.Categories)
+                                            {
+                                                <li class="menu-item-has-children arrow item-megamenu">
+                                                    <a href="#" class="dropdown-toggle">@item.Name</a>
+                                                    <span class="toggle-submenu hidden-md"></span>
+                                                    <div class="submenu parent-megamenu megamenu">
+                                                        <div class="row">
+                                                            <div class="submenu-banner submenu-banner-menu-1">
                                                                 <div class="col-md-4">
+                                                                    <div class="dropdown-menu-info">
 
+
+                                                                        <h6 class="dropdown-menu-title">@item.Name</h6>
+                                                                        <div class="dropdown-menu-content">
+                                                                            <ul class="menu">
+                                                                                <li class="menu-item"><a href="#">@item.Childs</a></li>
+                                                                                <li class="menu-item"><a href="#">Çantalar</a></li>
+                                                                                <li class="menu-item"><a href="#">Ayakkabılar</a></li>
+                                                                                <li class="menu-item"><a href="#">Takılar</a></li>
+                                                                                <li class="menu-item"><a href="#">Kıyafeler</a></li>
+                                                                                <li class="menu-item"><a href="#">Macbook Air</a></li>
+                                                                                <li class="menu-item"><a href="#">Laptop Pro</a></li>
+                                                                            </ul>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <div class="col-md-4">
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </li>
+                                                </li>
+
+                                            }
 
                                         }
 
@@ -306,7 +307,7 @@
                     </div>
                 </div>
             </div>
-        
+
         </header><!-- end HEADER -->
         @RenderBody()
         <!-- FOOTER -->
@@ -413,8 +414,8 @@
         </footer><!-- end FOOTER -->
         <!--back-to-top  -->
         <!-- <a href="#" class="back-to-top">
-        <i aria-hidden="true" class="fa fa-angle-up"></i>
-    </a> -->
+            <i aria-hidden="true" class="fa fa-angle-up"></i>
+        </a> -->
     </div>
     <a href="#" id="scrollup" title="Scroll to Top">Scroll</a>
     <!-- jQuery -->
@@ -432,7 +433,7 @@
     <script src="/js/fancybox/source/jquery.fancybox.pack.js"></script>
     <script src="/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
     <script src="/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-    <script type="text/javascript" src="/js/function.min.js"></script>
+    <script type="text/javascript" src="/js/function2.js"></script>
     <script type="text/javascript" src="/js/Modernizr.js"></script>
     <script type="text/javascript" src="/js/jquery.plugin.js"></script>
     <script type="text/javascript" src="/js/jquery.countdown.js"></script>
