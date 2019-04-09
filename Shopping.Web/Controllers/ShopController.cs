@@ -17,7 +17,7 @@ namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
-        private ICommandHandler<AddProduct> addProductService;
+    
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
@@ -26,13 +26,13 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<GetCart> getCartService;
         private ICommandHandler<SearchWishlists> searchWishListsService;
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
-            ICommandHandler<SearchWishlists> searchWishListsService ) : base(SearchProductCategoriesService)
+            ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<SearchStores> searchStoresService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
-            //this.addProductService = addProductService;
+
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
-            //this.searchStoresService = searchStoresService;
+            this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
             this.searchWishListsService = searchWishListsService;
