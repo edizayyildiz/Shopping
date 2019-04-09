@@ -17,6 +17,7 @@ namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
+        private ICommandHandler<AddProduct> addProductService;
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
@@ -27,6 +28,7 @@ namespace Shopping.Web.Controllers
         
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
+            this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
@@ -62,11 +64,15 @@ namespace Shopping.Web.Controllers
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
         {
+            
             ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
             Result result = await searchProductsService.HandleAsync(searchProducts);
             ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
+            
+ 
+        
             return View(result.Value);
         }
         public IActionResult ProductsDetails()

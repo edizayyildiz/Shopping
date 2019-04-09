@@ -87,15 +87,15 @@
                                             <div class="product-info">
                                                 <div class="product-name"><a href="">@item.Name</a></div>
                                                 <span class="star-rating">
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                                    @for (var i = 1; i <= item.RatingsValue; i++)
+                                                    {
+                                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                                    }
+                                                   
                                                     <span class="review">5 Review(s)</span>
                                                 </span>
                                                 <div class="product-infomation">
-                                                    @item.ShortDescription
+                                                    @item.ShortDescription 
                                                 </div>
                                             </div>
                                             <div class="product-info-price">
@@ -725,6 +725,7 @@
             $('#pageSizeSelect').change(function () {
                 $('#pageSizeForm').submit();
             });
-        });
+    });
+
 </script>
 }
