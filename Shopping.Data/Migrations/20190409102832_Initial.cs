@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Shopping.Data.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -103,6 +103,28 @@ namespace Shopping.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Brands", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Carts",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<string>(nullable: true),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<string>(nullable: true),
+                    IpAddress = table.Column<string>(nullable: true),
+                    Culture = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedAt = table.Column<DateTime>(nullable: true),
+                    DeletedBy = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(maxLength: 100, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carts", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -413,7 +435,8 @@ namespace Shopping.Data.Migrations
                     ContactPhone = table.Column<string>(maxLength: 200, nullable: false),
                     ContactEmail = table.Column<string>(maxLength: 200, nullable: false),
                     Address = table.Column<string>(maxLength: 500, nullable: false),
-                    Description = table.Column<string>(maxLength: 400, nullable: false)
+                    Description = table.Column<string>(maxLength: 400, nullable: false),
+                    IsFeatured = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -754,6 +777,42 @@ namespace Shopping.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CartItems",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<string>(nullable: true),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<string>(nullable: true),
+                    IpAddress = table.Column<string>(nullable: true),
+                    Culture = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedAt = table.Column<DateTime>(nullable: true),
+                    DeletedBy = table.Column<string>(nullable: true),
+                    ProductId = table.Column<string>(nullable: true),
+                    CartId = table.Column<string>(nullable: true),
+                    Quantity = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CartItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CartItems_Carts_CartId",
+                        column: x => x.CartId,
+                        principalTable: "Carts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CartItems_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductColors",
                 columns: table => new
                 {
@@ -863,6 +922,36 @@ namespace Shopping.Data.Migrations
                         name: "FK_ProductQuestions_Stores_StoreId",
                         column: x => x.StoreId,
                         principalTable: "Stores",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RecentlyDisplayedProduct",
+                columns: table => new
+                {
+                    Id = table.Column<string>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedBy = table.Column<string>(nullable: true),
+                    UpdatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedBy = table.Column<string>(nullable: true),
+                    IpAddress = table.Column<string>(nullable: true),
+                    Culture = table.Column<string>(nullable: true),
+                    IsActive = table.Column<bool>(nullable: false),
+                    IsDeleted = table.Column<bool>(nullable: false),
+                    DeletedAt = table.Column<DateTime>(nullable: true),
+                    DeletedBy = table.Column<string>(nullable: true),
+                    ProductId = table.Column<string>(nullable: true),
+                    UserName = table.Column<string>(nullable: true),
+                    DisplayDate = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RecentlyDisplayedProduct", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RecentlyDisplayedProduct_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -1161,15 +1250,15 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Image", "IpAddress", "IsActive", "IsDeleted", "Name", "ShowInHome", "Slug", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "be084f87-b383-4939-a1db-97c9d16ce295", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3871), "username", null, null, null, "acer.jpg", null, true, false, "Acer", false, "acer", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3871), "username" },
-                    { "d228e627-feb9-4208-9a10-b3ac8dc866fa", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3858), "username", null, null, null, "sony.jpg", null, true, false, "Sony", false, "sony", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3858), "username" },
-                    { "109057a8-d4c0-40c5-bede-a238dcdf0245", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3849), "username", null, null, null, "asus.jpg", null, true, false, "Asus", false, "asus", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3854), "username" },
-                    { "45ee14ef-d408-47e3-b104-01a9e23c5def", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3785), "username", null, null, null, "samsung1.jpg", null, true, false, "Samsung", false, "samsung", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3785), "username" },
-                    { "ff23d5c6-d2b6-4687-a715-299ee0c5dd25", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3867), "username", null, null, null, "huawei.jpg", null, true, false, "Huawei", false, "huawei", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3867), "username" },
-                    { "6d85aacb-8f1b-4488-b5bd-5390b9cd76c6", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3773), "username", null, null, null, "hp1.jpg", null, true, false, "Hp", false, "hp", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3773), "username" },
-                    { "f3bf46ec-4135-4f13-b874-b6d0fea16ada", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3760), "username", null, null, null, "dell.jpg", null, true, false, "Dell", false, "dell", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3764), "username" },
-                    { "e8840d39-abf2-4577-bfa5-a92144107b09", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3319), "username", null, null, null, "apple1.jpg", null, true, false, "Apple", false, "apple", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3328), "username" },
-                    { "c047e1e6-01d1-47d9-8087-ad1b3400ad0e", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3781), "username", null, null, null, "lenovo1.jpg", null, true, false, "Lenovo", false, "lenovo", new DateTime(2019, 3, 29, 9, 43, 52, 244, DateTimeKind.Local).AddTicks(3781), "username" }
+                    { "be084f87-b383-4939-a1db-97c9d16ce295", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4654), "username", null, null, null, "acer.jpg", null, true, false, "Acer", false, "acer", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4654), "username" },
+                    { "d228e627-feb9-4208-9a10-b3ac8dc866fa", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4644), "username", null, null, null, "sony.jpg", null, true, false, "Sony", false, "sony", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4644), "username" },
+                    { "109057a8-d4c0-40c5-bede-a238dcdf0245", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4638), "username", null, null, null, "asus.jpg", null, true, false, "Asus", false, "asus", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4641), "username" },
+                    { "45ee14ef-d408-47e3-b104-01a9e23c5def", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4626), "username", null, null, null, "samsung1.jpg", null, true, false, "Samsung", false, "samsung", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4626), "username" },
+                    { "ff23d5c6-d2b6-4687-a715-299ee0c5dd25", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4651), "username", null, null, null, "huawei.jpg", null, true, false, "Huawei", false, "huawei", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4651), "username" },
+                    { "6d85aacb-8f1b-4488-b5bd-5390b9cd76c6", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4495), "username", null, null, null, "hp1.jpg", null, true, false, "Hp", false, "hp", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4495), "username" },
+                    { "f3bf46ec-4135-4f13-b874-b6d0fea16ada", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4476), "username", null, null, null, "dell.jpg", null, true, false, "Dell", false, "dell", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4480), "username" },
+                    { "e8840d39-abf2-4577-bfa5-a92144107b09", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(3951), "username", null, null, null, "apple1.jpg", null, true, false, "Apple", false, "apple", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(3963), "username" },
+                    { "c047e1e6-01d1-47d9-8087-ad1b3400ad0e", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4501), "username", null, null, null, "lenovo1.jpg", null, true, false, "Lenovo", false, "lenovo", new DateTime(2019, 4, 9, 13, 28, 31, 740, DateTimeKind.Local).AddTicks(4501), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1184,7 +1273,7 @@ namespace Shopping.Data.Migrations
             migrationBuilder.InsertData(
                 table: "ProductCategories",
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "Name", "ParentId", "Photo", "Slug", "UpdatedAt", "UpdatedBy" },
-                values: new object[] { "2d53d8ef-0f19-42ed-9126-e03a0a1af060", new DateTime(2019, 3, 29, 9, 43, 52, 238, DateTimeKind.Local).AddTicks(3888), "username", null, null, null, null, null, true, false, "Tüm Kategoriler", null, null, "tum-kategoriler", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(2031), "username" });
+                values: new object[] { "2d53d8ef-0f19-42ed-9126-e03a0a1af060", new DateTime(2019, 4, 9, 13, 28, 31, 732, DateTimeKind.Local).AddTicks(4765), "username", null, null, null, null, null, true, false, "Tüm Kategoriler", null, null, "tum-kategoriler", new DateTime(2019, 4, 9, 13, 28, 31, 733, DateTimeKind.Local).AddTicks(5956), "username" });
 
             migrationBuilder.InsertData(
                 table: "QuestionCategories",
@@ -1207,18 +1296,18 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "IpAddress", "IsActive", "IsDeleted", "Name", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "b5616904-9304-40ab-9488-5d4809021445", new DateTime(2019, 3, 29, 9, 43, 52, 240, DateTimeKind.Local).AddTicks(5814), "username", null, null, null, null, true, false, "Ana Kaydırıcı", new DateTime(2019, 3, 29, 9, 43, 52, 240, DateTimeKind.Local).AddTicks(5823), "username" },
-                    { "d1689024-2cff-420d-a2aa-141e93cbbff7", new DateTime(2019, 3, 29, 9, 43, 52, 240, DateTimeKind.Local).AddTicks(6186), "username", null, null, null, null, true, false, "Orta Kaydırıcı", new DateTime(2019, 3, 29, 9, 43, 52, 240, DateTimeKind.Local).AddTicks(6186), "username" }
+                    { "b5616904-9304-40ab-9488-5d4809021445", new DateTime(2019, 4, 9, 13, 28, 31, 735, DateTimeKind.Local).AddTicks(6777), "username", null, null, null, null, true, false, "Ana Kaydırıcı", new DateTime(2019, 4, 9, 13, 28, 31, 735, DateTimeKind.Local).AddTicks(6790), "username" },
+                    { "d1689024-2cff-420d-a2aa-141e93cbbff7", new DateTime(2019, 4, 9, 13, 28, 31, 735, DateTimeKind.Local).AddTicks(7374), "username", null, null, null, null, true, false, "Orta Kaydırıcı", new DateTime(2019, 4, 9, 13, 28, 31, 735, DateTimeKind.Local).AddTicks(7377), "username" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Stores",
-                columns: new[] { "Id", "Address", "ContactEmail", "ContactName", "ContactPhone", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "Logo", "Name", "Owner", "Slug", "UpdatedAt", "UpdatedBy" },
+                columns: new[] { "Id", "Address", "ContactEmail", "ContactName", "ContactPhone", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "IsFeatured", "Logo", "Name", "Owner", "Slug", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "5b843cf0-b7a5-475f-b22e-57054c54ba14", "Yeşilpınar Mah. Girne Cad. No:14 Daire:12", "karmaillegal57@gmail.com", "Emir Demirci", "05301564531", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "", null, false, false, "appstore1.jpg", "AppStore1", "emirdemirci721@gmail.com", "http://www.hepsiburada.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", "Üsküdar", "emir.dmrc57@gmail.com", "Murat Demirci", "05395675645", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "", null, false, false, "vatan.jpg", "Vatan Bilgisayar", "mdemirci01@outlook.com", "http://www.vatanbilgisayar.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { "f544e6dd-70c7-4c99-834e-8147e1bff9f1", "Eyüp", "edmrc57@gmail.com", "Yasin Demirci", "05678954567", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "Teknosa Herkes İçin Teknoloji", null, false, false, "teknosa.jpg", "Teknosa", "karmaillegal57@gmail.com", "http://www.teknosa.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { "5b843cf0-b7a5-475f-b22e-57054c54ba14", "Yeşilpınar Mah. Girne Cad. No:14 Daire:12", "karmaillegal57@gmail.com", "Emir Demirci", "05301564531", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "", null, false, false, false, "appstore1.jpg", "AppStore1", "emirdemirci721@gmail.com", "http://www.hepsiburada.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", "Üsküdar", "emir.dmrc57@gmail.com", "Murat Demirci", "05395675645", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "", null, false, false, false, "vatan.jpg", "Vatan Bilgisayar", "mdemirci01@outlook.com", "http://www.vatanbilgisayar.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
+                    { "f544e6dd-70c7-4c99-834e-8147e1bff9f1", "Eyüp", "edmrc57@gmail.com", "Yasin Demirci", "05678954567", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, null, null, null, "Teknosa Herkes İçin Teknoloji", null, false, false, true, "teknosa.jpg", "Teknosa", "karmaillegal57@gmail.com", "http://www.teknosa.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
                 });
 
             migrationBuilder.InsertData(
@@ -1235,16 +1324,16 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "Name", "ParentId", "Photo", "Slug", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b6", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7552), "username", null, null, null, null, null, true, false, "Elektronics", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "elektronics", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7556), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b9", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7548), "username", null, null, null, null, null, true, false, "Computers", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "computers", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7548), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b7", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7535), "username", null, null, null, null, null, true, false, "Beauty & Personal Care", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "beauty-personal-care", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7535), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b0", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7531), "username", null, null, null, null, null, true, false, "Baby", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "baby", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7531), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b8", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7539), "username", null, null, null, null, null, true, false, "Books", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "books", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7543), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b4", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7509), "username", null, null, null, null, null, true, false, "Arts & Crafts", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "arts-crafts", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7509), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b3", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7445), "username", null, null, null, null, null, true, false, "Kindle Store", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "kindle-store", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7445), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b2", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7407), "username", null, null, null, null, null, true, false, "Music, CDs & Vinyl", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "music-cds-vinly", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7411), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b1", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7107), "username", null, null, null, null, null, true, false, "Prime Video", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "prime-video", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7124), "username" },
-                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b5", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7522), "username", null, null, null, null, null, true, false, "Automotive", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "automotive", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7526), "username" }
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b6", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3687), "username", null, null, null, null, null, true, false, "Elektronics", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "elektronics", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3690), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b9", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3681), "username", null, null, null, null, null, true, false, "Computers", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "computers", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3681), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b7", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3659), "username", null, null, null, null, null, true, false, "Beauty & Personal Care", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "beauty-personal-care", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3662), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b0", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3650), "username", null, null, null, null, null, true, false, "Baby", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "baby", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3653), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b8", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3669), "username", null, null, null, null, null, true, false, "Books", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "books", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3669), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b4", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3619), "username", null, null, null, null, null, true, false, "Arts & Crafts", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "arts-crafts", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3619), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b3", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3603), "username", null, null, null, null, null, true, false, "Kindle Store", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "kindle-store", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3606), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b2", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3557), "username", null, null, null, null, null, true, false, "Music, CDs & Vinyl", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "music-cds-vinly", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3560), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b1", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3199), "username", null, null, null, null, null, true, false, "Prime Video", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "prime-video", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3218), "username" },
+                    { "6d8135c2-833f-42fc-900d-6eeeb1c607b5", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3638), "username", null, null, null, null, null, true, false, "Automotive", "2d53d8ef-0f19-42ed-9126-e03a0a1af060", null, "automotive", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3641), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1252,11 +1341,11 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "IpAddress", "IsActive", "IsDeleted", "Name", "Photo", "Position", "SliderId", "Style", "Text", "Title", "UpdatedAt", "UpdatedBy", "Url" },
                 values: new object[,]
                 {
-                    { "007f78d2-f4d5-413a-9a80-737bc6850d5d", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(778), "username", null, null, null, null, true, false, "Kampanyalı Ürünlerimiz", "waterandmountains.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Çeşit Çeşit Paketlerdeki Orjinal Hediyeler", "Hediye Paketli Ürünlerimiz", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(791), "username", "http://www.google.com.tr" },
-                    { "3a64713c-22b6-48ff-8d84-740dcefdbd37", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1193), "username", null, null, null, null, true, false, "Yurt Dışından Gelen Ürünler", "yurtdış.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Avrupa ve Asya'daki ülkelerdeki ürünler", "Kaliteli ve Uygun Fiyatlarla", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1193), "username", "http://www.apple.com.tr" },
-                    { "0c0d6d02-c99a-4537-9821-f2c90f21f451", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1206), "username", null, null, null, null, true, false, "Düğün Paketlerimiz", "aile.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Markaların Ürünleri Vitrinlerimizde", "Her Türlü Ev Eşyaları Uygun Fiyatlarla", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1206), "username", "http://www.evkur.com.tr" },
-                    { "cc3fc344-2141-40c5-be49-3b9c661d56b2", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1214), "username", null, null, null, null, true, false, "İndirimli Apple Ürünleri", "appleur.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Elektronik Cihazlar Vitrinlerimizde", "%40 İndirim ile Vitrinlerimizde", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1214), "username", "http://www.apple.com.tr" },
-                    { "072df9fd-ef97-40f4-a10e-5b0e7dc3f08c", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1219), "username", null, null, null, null, true, false, "2019 Model MacBook Air", "MacBookAir2019.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Kaçırmayın", "Şubat 2019'da Vitrinlerimizde", new DateTime(2019, 3, 29, 9, 43, 52, 242, DateTimeKind.Local).AddTicks(1219), "username", "http://www.apple.com.tr" }
+                    { "007f78d2-f4d5-413a-9a80-737bc6850d5d", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8377), "username", null, null, null, null, true, false, "Kampanyalı Ürünlerimiz", "waterandmountains.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Çeşit Çeşit Paketlerdeki Orjinal Hediyeler", "Hediye Paketli Ürünlerimiz", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8389), "username", "http://www.google.com.tr" },
+                    { "3a64713c-22b6-48ff-8d84-740dcefdbd37", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8912), "username", null, null, null, null, true, false, "Yurt Dışından Gelen Ürünler", "yurtdış.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Avrupa ve Asya'daki ülkelerdeki ürünler", "Kaliteli ve Uygun Fiyatlarla", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8915), "username", "http://www.apple.com.tr" },
+                    { "0c0d6d02-c99a-4537-9821-f2c90f21f451", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8924), "username", null, null, null, null, true, false, "Düğün Paketlerimiz", "aile.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Markaların Ürünleri Vitrinlerimizde", "Her Türlü Ev Eşyaları Uygun Fiyatlarla", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8924), "username", "http://www.evkur.com.tr" },
+                    { "cc3fc344-2141-40c5-be49-3b9c661d56b2", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8927), "username", null, null, null, null, true, false, "İndirimli Apple Ürünleri", "appleur.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Bütün Elektronik Cihazlar Vitrinlerimizde", "%40 İndirim ile Vitrinlerimizde", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8927), "username", "http://www.apple.com.tr" },
+                    { "072df9fd-ef97-40f4-a10e-5b0e7dc3f08c", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8931), "username", null, null, null, null, true, false, "2019 Model MacBook Air", "MacBookAir2019.jpg", 0, "b5616904-9304-40ab-9488-5d4809021445", null, "Kaçırmayın", "Şubat 2019'da Vitrinlerimizde", new DateTime(2019, 4, 9, 13, 28, 31, 737, DateTimeKind.Local).AddTicks(8934), "username", "http://www.apple.com.tr" }
                 });
 
             migrationBuilder.InsertData(
@@ -1283,9 +1372,9 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "Name", "ParentId", "Photo", "Slug", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "42729bdd-3160-41f8-b1a6-c68ead8e314d", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7560), "username", null, null, null, null, null, true, false, "Bilgisayar", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "bilgisayar", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7560), "username" },
-                    { "4b64df99-8909-4fb4-bc23-9a84e5063f27", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7573), "username", null, null, null, null, null, true, false, "Telefon", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "telefon", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7578), "username" },
-                    { "8da13d65-1efb-40ea-b88f-08b06d0776ab", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7582), "username", null, null, null, null, null, true, false, "Kulaklık", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "kulaklık", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7582), "username" }
+                    { "42729bdd-3160-41f8-b1a6-c68ead8e314d", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3700), "username", null, null, null, null, null, true, false, "Bilgisayar", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "bilgisayar", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3700), "username" },
+                    { "4b64df99-8909-4fb4-bc23-9a84e5063f27", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3728), "username", null, null, null, null, null, true, false, "Telefon", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "telefon", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3728), "username" },
+                    { "8da13d65-1efb-40ea-b88f-08b06d0776ab", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3737), "username", null, null, null, null, null, true, false, "Kulaklık", "6d8135c2-833f-42fc-900d-6eeeb1c607b6", null, "kulaklık", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3737), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1303,8 +1392,8 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Description", "IpAddress", "IsActive", "IsDeleted", "Name", "ParentId", "Photo", "Slug", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "ed515341-522e-4bfa-8f68-15c874fd77e9", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7565), "username", null, null, null, null, null, true, false, "Dizüstü Notebook", "42729bdd-3160-41f8-b1a6-c68ead8e314d", null, "dizustu-notebook", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7565), "username" },
-                    { "1f2f8408-9ad2-4908-b310-92dbdabe5979", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7569), "username", null, null, null, null, null, true, false, "All-In-One", "42729bdd-3160-41f8-b1a6-c68ead8e314d", null, "all-ın-one", new DateTime(2019, 3, 29, 9, 43, 52, 239, DateTimeKind.Local).AddTicks(7569), "username" }
+                    { "ed515341-522e-4bfa-8f68-15c874fd77e9", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3709), "username", null, null, null, null, null, true, false, "Dizüstü Notebook", "42729bdd-3160-41f8-b1a6-c68ead8e314d", null, "dizustu-notebook", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3709), "username" },
+                    { "1f2f8408-9ad2-4908-b310-92dbdabe5979", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3718), "username", null, null, null, null, null, true, false, "All-In-One", "42729bdd-3160-41f8-b1a6-c68ead8e314d", null, "all-ın-one", new DateTime(2019, 4, 9, 13, 28, 31, 734, DateTimeKind.Local).AddTicks(3718), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1312,17 +1401,17 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "AdditionalInformation", "AvailabilityCount", "BrandId", "CategoryId", "Condition", "Cost", "CreatedAt", "CreatedBy", "Culture", "Currency", "DeletedAt", "DeletedBy", "Description", "Discount", "IpAddress", "IsActive", "IsDeleted", "IsFeatured", "IsNew", "IsOnSale", "MetaDescription", "MetaKeywords", "MetaTitle", "Name", "NewPrice", "OldPrice", "RatingsCount", "RatingsValue", "ShortDescription", "Slug", "StoreId", "Tax", "UpdatedAt", "UpdatedBy", "Weight" },
                 values: new object[,]
                 {
-                    { "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", "MacBook Pro 2018 Silver | 512 GB-256 GB-128 GB SSD çeşitleri | 16 GB RAM DDR5 | Ayrıca Hediyelerimiz: Çoklu USB portları,Apple mouse,harici dvd sürücü | ", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8266), "username", null, 0, null, null, "Stokta 15 adet bulunan MacBook Pro 2018 çeşitli hediyeler ile toplam alımlarda %45 indirim ile vitrinimizde.", 0m, null, true, false, true, false, false, null, null, "Elektronik", "MacBook Pro 2018", 13500m, 15000m, 5, 4f, "MacBook Pro 2018 Silver 256 GB SSD ", "MacBook Pro 2018 Silver ", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8275), "username", null },
-                    { "7b4ff888-2e18-4490-b01a-76c4a7b3095b", "Hediyelerimiz bütün iMac ve Apple Pc'lerde geçerlidir.", 25, "e8840d39-abf2-4577-bfa5-a92144107b09", "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8814), "username", null, 0, null, null, "iMac Pro Uzay Grisi 256 GB SSD | 16 GB RAM DDR5 | İntel i7-9900 3.2 Ghz | Hediyelerimiz: Uzay Grisi Klavye-Fare, Usb Çoğaltıcı, Harici DVD Sürücü, JPL Bluetooth Hoparlör", 0m, null, true, false, true, false, false, null, null, "Elektronik", "iMac Pro Uzay Grisi", 25000m, 30000m, 5, 4f, "iMac Pro Uzay Grisi ", "imac pro uzay grisi", "f544e6dd-70c7-4c99-834e-8147e1bff9f1", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8818), "username", null },
-                    { "7fdad843-e55c-4003-8b6a-486344e6d8cb", "Pembe Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8874), "username", null, 0, null, null, "Pembe Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Pembe Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Pembe Yasin-i Şerif ve Sureler Kitabı", "Pembe Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8874), "username", null },
-                    { "cd9d729e-b245-4606-b480-4e90b94a3882", "Mavi Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8882), "username", null, 0, null, null, "Mavi Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Mavi Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Mavi Yasin-i Şerif ve Sureler Kitabı", "Mavi Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8882), "username", null },
-                    { "700fe299-bb99-47a1-acd5-d614016a374e", "Kırmızı Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8891), "username", null, 0, null, null, "Kırmızı Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Kırmızı Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Kırmızı Yasin-i Şerif ve Sureler Kitabı", "Kırmızı Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8891), "username", null },
-                    { "5e575e49-7724-4527-9ee9-15f4718c0778", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8972), "username", null, 0, null, null, "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 3m, 5m, 5, 4f, "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8972), "username", null },
-                    { "1db450c1-594b-4bed-b726-d4462a4d54f6", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8981), "username", null, 0, null, null, "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 89m, 0m, 5, 4f, "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8985), "username", null },
-                    { "48ffccbf-b72e-4328-a5eb-cf487863589c", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8993), "username", null, 0, null, null, "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 89m, 0m, 5, 4f, "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8993), "username", null },
-                    { "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", "Hediyelerimiz bütün iPhone modellerinde geçerlidir.", 25, "e8840d39-abf2-4577-bfa5-a92144107b09", "4b64df99-8909-4fb4-bc23-9a84e5063f27", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8835), "username", null, 0, null, null, "iPhone 6 S 64 GB Gümüş | Hediyelerimiz: Kulaklık, Orjinal Bataryalı Kılıf, İki Uçlu Usb Bellek ", 0m, null, true, false, false, false, true, null, null, "Elektronik", "iPhone 6 S 64 GB", 2750m, 2900m, 5, 4f, "iPhone 6 S 64 GB Gümüş", "iPhone 6 S 64 GB Gümüş", "5b843cf0-b7a5-475f-b22e-57054c54ba14", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8835), "username", null },
-                    { "4330ef04-db35-4358-936a-d4db324d4fed", "Piyasanın çok altında satıyoruz herkes kullansın diye.", 30, "45ee14ef-d408-47e3-b104-01a9e23c5def", "4b64df99-8909-4fb4-bc23-9a84e5063f27", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8848), "username", null, 0, null, null, "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", 0m, null, true, false, false, true, false, null, null, "Elektronik", "Samsung Galaxy Note 9 512 GB", 5200m, 0m, 5, 4f, "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", "Samsung Galaxy Note 9 Note 9 512 GB Okyanus Mavisi", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8848), "username", null },
-                    { "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", "Bütün AirPodslarda hediyelerimiz geçerlidir.", 30, "e8840d39-abf2-4577-bfa5-a92144107b09", "8da13d65-1efb-40ea-b88f-08b06d0776ab", 1, 0m, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8857), "username", null, 0, null, null, "Apple AirPods Kulaklık | Hediyelerimiz: Yedek Parçaları Orjinal, Yedek Şarjı", 0m, null, true, false, false, false, true, null, null, "Elektronik", "Apple AirPods Kulaklık ", 930m, 1000m, 5, 4f, "Apple AirPods Kulaklık", "apple airpods kulaklık", "f544e6dd-70c7-4c99-834e-8147e1bff9f1", 0f, new DateTime(2019, 3, 29, 9, 43, 52, 251, DateTimeKind.Local).AddTicks(8861), "username", null }
+                    { "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", "MacBook Pro 2018 Silver | 512 GB-256 GB-128 GB SSD çeşitleri | 16 GB RAM DDR5 | Ayrıca Hediyelerimiz: Çoklu USB portları,Apple mouse,harici dvd sürücü | ", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(6958), "username", null, 0, null, null, "Stokta 15 adet bulunan MacBook Pro 2018 çeşitli hediyeler ile toplam alımlarda %45 indirim ile vitrinimizde.", 0m, null, true, false, true, false, false, null, null, "Elektronik", "MacBook Pro 2018", 13500m, 15000m, 5, 4f, "MacBook Pro 2018 Silver 256 GB SSD ", "MacBook Pro 2018 Silver ", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(6971), "username", null },
+                    { "7b4ff888-2e18-4490-b01a-76c4a7b3095b", "Hediyelerimiz bütün iMac ve Apple Pc'lerde geçerlidir.", 25, "e8840d39-abf2-4577-bfa5-a92144107b09", "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7642), "username", null, 0, null, null, "iMac Pro Uzay Grisi 256 GB SSD | 16 GB RAM DDR5 | İntel i7-9900 3.2 Ghz | Hediyelerimiz: Uzay Grisi Klavye-Fare, Usb Çoğaltıcı, Harici DVD Sürücü, JPL Bluetooth Hoparlör", 0m, null, true, false, true, false, false, null, null, "Elektronik", "iMac Pro Uzay Grisi", 25000m, 30000m, 5, 4f, "iMac Pro Uzay Grisi ", "imac pro uzay grisi", "f544e6dd-70c7-4c99-834e-8147e1bff9f1", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7646), "username", null },
+                    { "7fdad843-e55c-4003-8b6a-486344e6d8cb", "Pembe Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7695), "username", null, 0, null, null, "Pembe Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Pembe Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Pembe Yasin-i Şerif ve Sureler Kitabı", "Pembe Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7698), "username", null },
+                    { "cd9d729e-b245-4606-b480-4e90b94a3882", "Mavi Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7720), "username", null, 0, null, null, "Mavi Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Mavi Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Mavi Yasin-i Şerif ve Sureler Kitabı", "Mavi Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7720), "username", null },
+                    { "700fe299-bb99-47a1-acd5-d614016a374e", "Kırmızı Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7729), "username", null, 0, null, null, "Kırmızı Yasin-i Şerif ve Sureler Kitabı, Tül Keseli Tesbih ", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", " Kırmızı Yasin-i Şerif ve Sureler Kitabı", 2m, 4m, 5, 4f, "Kırmızı Yasin-i Şerif ve Sureler Kitabı", "Kırmızı Yasin-i Şerif ve Sureler Kitabı", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7729), "username", null },
+                    { "5e575e49-7724-4527-9ee9-15f4718c0778", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7739), "username", null, 0, null, null, "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", 3m, 5m, 5, 4f, "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", "Kabe Desenli Yasin-i Şerif ve Tül Keseli Tespih Seti", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7739), "username", null },
+                    { "1db450c1-594b-4bed-b726-d4462a4d54f6", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7745), "username", null, 0, null, null, "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", 89m, 0m, 5, 4f, "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7748), "username", null },
+                    { "48ffccbf-b72e-4328-a5eb-cf487863589c", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 15, null, "42729bdd-3160-41f8-b1a6-c68ead8e314d", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7754), "username", null, 0, null, null, "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 0m, null, true, false, true, false, false, null, null, "Hediyelik Kitap", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", 89m, 0m, 5, 4f, "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7754), "username", null },
+                    { "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", "Hediyelerimiz bütün iPhone modellerinde geçerlidir.", 25, "e8840d39-abf2-4577-bfa5-a92144107b09", "4b64df99-8909-4fb4-bc23-9a84e5063f27", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7661), "username", null, 0, null, null, "iPhone 6 S 64 GB Gümüş | Hediyelerimiz: Kulaklık, Orjinal Bataryalı Kılıf, İki Uçlu Usb Bellek ", 0m, null, true, false, false, false, true, null, null, "Elektronik", "iPhone 6 S 64 GB", 2750m, 2900m, 5, 4f, "iPhone 6 S 64 GB Gümüş", "iPhone 6 S 64 GB Gümüş", "5b843cf0-b7a5-475f-b22e-57054c54ba14", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7661), "username", null },
+                    { "4330ef04-db35-4358-936a-d4db324d4fed", "Piyasanın çok altında satıyoruz herkes kullansın diye.", 30, "45ee14ef-d408-47e3-b104-01a9e23c5def", "4b64df99-8909-4fb4-bc23-9a84e5063f27", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7670), "username", null, 0, null, null, "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", 0m, null, true, false, false, true, false, null, null, "Elektronik", "Samsung Galaxy Note 9 512 GB", 5200m, 0m, 5, 4f, "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", "Samsung Galaxy Note 9 Note 9 512 GB Okyanus Mavisi", "6ad3fd8a-9b43-440d-bd83-fcf033101d9d", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7674), "username", null },
+                    { "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", "Bütün AirPodslarda hediyelerimiz geçerlidir.", 30, "e8840d39-abf2-4577-bfa5-a92144107b09", "8da13d65-1efb-40ea-b88f-08b06d0776ab", 1, 0m, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7683), "username", null, 0, null, null, "Apple AirPods Kulaklık | Hediyelerimiz: Yedek Parçaları Orjinal, Yedek Şarjı", 0m, null, true, false, false, false, true, null, null, "Elektronik", "Apple AirPods Kulaklık ", 930m, 1000m, 5, 4f, "Apple AirPods Kulaklık", "apple airpods kulaklık", "f544e6dd-70c7-4c99-834e-8147e1bff9f1", 0f, new DateTime(2019, 4, 9, 13, 28, 31, 748, DateTimeKind.Local).AddTicks(7683), "username", null }
                 });
 
             migrationBuilder.InsertData(
@@ -1342,17 +1431,17 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "Alt", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "IpAddress", "IsActive", "IsDeleted", "Large", "Medium", "Position", "ProductId", "Small", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "85dfb6e4-908d-45c1-b414-a488b6891197", "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2270), "username", null, null, null, null, true, false, "samsungnote9.jpg", "samsungnote9.jpg", 0, "4330ef04-db35-4358-936a-d4db324d4fed", "samsungnote9.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2270), "username" },
-                    { "12c5d0df-7ac8-4a6c-8f59-aa4037940c1b", "iPhone 6 S 64 GB Gümüş", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2266), "username", null, null, null, null, true, false, "iPhone664.jpg", "iPhone664.jpg", 0, "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", "iPhone664.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2266), "username" },
-                    { "c7e447b9-fcbe-43e7-a46c-1a578400fa8e", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2364), "username", null, null, null, null, true, false, "50adettesbihs.jpg", "50adettesbihs.jpg", 0, "48ffccbf-b72e-4328-a5eb-cf487863589c", "50adettesbihs.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2364), "username" },
-                    { "f9a0eaa5-2934-4097-8c09-551d3cf8b48b", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2304), "username", null, null, null, null, true, false, "50adettesbih.jpg", "50adettesbih.jpg", 0, "1db450c1-594b-4bed-b726-d4462a4d54f6", "50adettesbih.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2309), "username" },
-                    { "7778feda-520c-4157-a80e-0bee5ee57511", "Kabe Desenli Yasin ve Tül Keseli Tespih Seti", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2300), "username", null, null, null, null, true, false, "kurantesbih.jpg", "kurantesbih.jpg", 0, "5e575e49-7724-4527-9ee9-15f4718c0778", "kurantesbih.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2300), "username" },
-                    { "df2bd20c-176a-4392-a918-f0e8509c9161", "Yasin-i Şerif ve Bazı Sureler Kırmızı Kitap ", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2296), "username", null, null, null, null, true, false, "duakitabık.jpg", "duakitabık.jpg", 0, "700fe299-bb99-47a1-acd5-d614016a374e", "duakitabık.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2296), "username" },
-                    { "077e4e64-313e-4d4e-a340-5c84e0a3d748", "Yasin-i Şerif ve Bazı Sureler Mavi Kitap ", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2291), "username", null, null, null, null, true, false, "duakitabım.jpg", "duakitabım.jpg", 0, "cd9d729e-b245-4606-b480-4e90b94a3882", "duakitabım.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2291), "username" },
-                    { "54a82e8b-de71-4f99-9841-4431e78b7552", "Yasin-i Şerif ve Bazı Sureler Pembe Kitap ", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2287), "username", null, null, null, null, true, false, "duakitabıp.jpg", "duakitabıp.jpg", 0, "7fdad843-e55c-4003-8b6a-486344e6d8cb", "duakitabıp.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2287), "username" },
-                    { "cf363e7a-b99a-425f-8d07-50487081049b", "iMac Pro Uzay Grisi", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2253), "username", null, null, null, null, true, false, "iMacPro.jpg", "iMacPro.jpg", 0, "7b4ff888-2e18-4490-b01a-76c4a7b3095b", "iMacPro.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2257), "username" },
-                    { "3e4cc993-9f23-4bb7-a943-59c3cf7fc166", "MacBook Pro 2018 Silver ", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(1842), "username", null, null, null, null, true, false, "macBookPro2018.jpg", "macBookPro2018.jpg", 0, "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", "macBookPro2018.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(1851), "username" },
-                    { "d5266161-dff1-4c09-9a36-d84ac5cc3b1b", "Apple AirPods Kulaklık ", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2274), "username", null, null, null, null, true, false, "airpods.jpg", "airpods.jpg", 0, "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", "airpods.jpg", new DateTime(2019, 3, 29, 9, 43, 52, 254, DateTimeKind.Local).AddTicks(2274), "username" }
+                    { "85dfb6e4-908d-45c1-b414-a488b6891197", "Samsung Galaxy Note 9 512 GB Okyanus Mavisi", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(703), "username", null, null, null, null, true, false, "samsungnote9.jpg", "samsungnote9.jpg", 0, "4330ef04-db35-4358-936a-d4db324d4fed", "samsungnote9.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(703), "username" },
+                    { "12c5d0df-7ac8-4a6c-8f59-aa4037940c1b", "iPhone 6 S 64 GB Gümüş", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(687), "username", null, null, null, null, true, false, "iPhone664.jpg", "iPhone664.jpg", 0, "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", "iPhone664.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(690), "username" },
+                    { "c7e447b9-fcbe-43e7-a46c-1a578400fa8e", "50 Adet Siyah Tül Keseli Tespih ve Kadife Sunumluk", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(815), "username", null, null, null, null, true, false, "50adettesbihs.jpg", "50adettesbihs.jpg", 0, "48ffccbf-b72e-4328-a5eb-cf487863589c", "50adettesbihs.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(815), "username" },
+                    { "f9a0eaa5-2934-4097-8c09-551d3cf8b48b", "50 Adet Mor Tül Keseli Tespih ve Kadife Sunumluk", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(805), "username", null, null, null, null, true, false, "50adettesbih.jpg", "50adettesbih.jpg", 0, "1db450c1-594b-4bed-b726-d4462a4d54f6", "50adettesbih.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(808), "username" },
+                    { "7778feda-520c-4157-a80e-0bee5ee57511", "Kabe Desenli Yasin ve Tül Keseli Tespih Seti", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(796), "username", null, null, null, null, true, false, "kurantesbih.jpg", "kurantesbih.jpg", 0, "5e575e49-7724-4527-9ee9-15f4718c0778", "kurantesbih.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(799), "username" },
+                    { "df2bd20c-176a-4392-a918-f0e8509c9161", "Yasin-i Şerif ve Bazı Sureler Kırmızı Kitap ", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(790), "username", null, null, null, null, true, false, "duakitabık.jpg", "duakitabık.jpg", 0, "700fe299-bb99-47a1-acd5-d614016a374e", "duakitabık.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(793), "username" },
+                    { "077e4e64-313e-4d4e-a340-5c84e0a3d748", "Yasin-i Şerif ve Bazı Sureler Mavi Kitap ", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(783), "username", null, null, null, null, true, false, "duakitabım.jpg", "duakitabım.jpg", 0, "cd9d729e-b245-4606-b480-4e90b94a3882", "duakitabım.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(783), "username" },
+                    { "54a82e8b-de71-4f99-9841-4431e78b7552", "Yasin-i Şerif ve Bazı Sureler Pembe Kitap ", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(774), "username", null, null, null, null, true, false, "duakitabıp.jpg", "duakitabıp.jpg", 0, "7fdad843-e55c-4003-8b6a-486344e6d8cb", "duakitabıp.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(774), "username" },
+                    { "cf363e7a-b99a-425f-8d07-50487081049b", "iMac Pro Uzay Grisi", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(665), "username", null, null, null, null, true, false, "iMacPro.jpg", "iMacPro.jpg", 0, "7b4ff888-2e18-4490-b01a-76c4a7b3095b", "iMacPro.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(668), "username" },
+                    { "3e4cc993-9f23-4bb7-a943-59c3cf7fc166", "MacBook Pro 2018 Silver ", new DateTime(2019, 4, 9, 13, 28, 31, 751, DateTimeKind.Local).AddTicks(9850), "username", null, null, null, null, true, false, "macBookPro2018.jpg", "macBookPro2018.jpg", 0, "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", "macBookPro2018.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 751, DateTimeKind.Local).AddTicks(9869), "username" },
+                    { "d5266161-dff1-4c09-9a36-d84ac5cc3b1b", "Apple AirPods Kulaklık ", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(715), "username", null, null, null, null, true, false, "airpods.jpg", "airpods.jpg", 0, "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", "airpods.jpg", new DateTime(2019, 4, 9, 13, 28, 31, 752, DateTimeKind.Local).AddTicks(718), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1365,11 +1454,11 @@ namespace Shopping.Data.Migrations
                 columns: new[] { "Id", "ApprovedAt", "ApprovedBy", "Body", "CreatedAt", "CreatedBy", "Culture", "DeletedAt", "DeletedBy", "Email", "IpAddress", "IsActive", "IsApproved", "IsDeleted", "Name", "ProductId", "Rating", "UpdatedAt", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { "a19e279f-65b3-4b9d-b658-037c9b763aac", null, null, "Çok iyi bir notebook.", new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7670), "username", null, null, null, "cdemirci@outlook.com", null, true, false, false, "Cihan Demirci", "7b4ff888-2e18-4490-b01a-76c4a7b3095b", 0, new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7670), "username" },
-                    { "c35776e9-c002-4af9-8553-eb9e466b8910", null, null, "Çok iyi bir notebook.", new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7662), "username", null, null, null, "ydemirci@outlook.com", null, true, false, false, "Yasin Demirci", "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", 0, new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7662), "username" },
-                    { "86b27fee-aa1a-4552-9bcd-6c8100b11138", null, null, "Çok iyi bir telefon elimde şu an", new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7242), "username", null, null, null, "karmaillegal57@gmail.com", null, true, false, false, "Emir Demirci", "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", 0, new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7251), "username" },
-                    { "a93dffde-741e-45bc-8aab-8976e03c172d", null, null, "Çok iyi bir telefon elimde şu an", new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7645), "username", null, null, null, "mdemirci@outlook.com", null, true, false, false, "Murat Demirci", "4330ef04-db35-4358-936a-d4db324d4fed", 0, new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7645), "username" },
-                    { "ad673d9a-ff2d-4cb0-bcac-5587f08d2ffc", null, null, "Çok iyi bir kulaklık.", new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7675), "username", null, null, null, "medemirci@outlook.com", null, true, false, false, "Meryem Demirci", "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", 0, new DateTime(2019, 3, 29, 9, 43, 52, 255, DateTimeKind.Local).AddTicks(7675), "username" }
+                    { "a19e279f-65b3-4b9d-b658-037c9b763aac", null, null, "Çok iyi bir notebook.", new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3210), "username", null, null, null, "cdemirci@outlook.com", null, true, false, false, "Cihan Demirci", "7b4ff888-2e18-4490-b01a-76c4a7b3095b", 0, new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3213), "username" },
+                    { "c35776e9-c002-4af9-8553-eb9e466b8910", null, null, "Çok iyi bir notebook.", new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3203), "username", null, null, null, "ydemirci@outlook.com", null, true, false, false, "Yasin Demirci", "35f09f0a-4f59-4c28-8b09-bbc6b083aa2d", 0, new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3207), "username" },
+                    { "86b27fee-aa1a-4552-9bcd-6c8100b11138", null, null, "Çok iyi bir telefon elimde şu an", new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(2333), "username", null, null, null, "karmaillegal57@gmail.com", null, true, false, false, "Emir Demirci", "0ff69f0d-76e1-4af0-b33d-e7fdee3975d0", 0, new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(2351), "username" },
+                    { "a93dffde-741e-45bc-8aab-8976e03c172d", null, null, "Çok iyi bir telefon elimde şu an", new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3185), "username", null, null, null, "mdemirci@outlook.com", null, true, false, false, "Murat Demirci", "4330ef04-db35-4358-936a-d4db324d4fed", 0, new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3185), "username" },
+                    { "ad673d9a-ff2d-4cb0-bcac-5587f08d2ffc", null, null, "Çok iyi bir kulaklık.", new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3222), "username", null, null, null, "medemirci@outlook.com", null, true, false, false, "Meryem Demirci", "fe01d29b-f753-4b89-a6e8-a502de6cfbe1", 0, new DateTime(2019, 4, 9, 13, 28, 31, 755, DateTimeKind.Local).AddTicks(3222), "username" }
                 });
 
             migrationBuilder.InsertData(
@@ -1449,6 +1538,16 @@ namespace Shopping.Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartItems_CartId",
+                table: "CartItems",
+                column: "CartId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartItems_ProductId",
+                table: "CartItems",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_CountryId",
@@ -1581,6 +1680,11 @@ namespace Shopping.Data.Migrations
                 column: "StoreId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RecentlyDisplayedProduct_ProductId",
+                table: "RecentlyDisplayedProduct",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Reviews_ProductId",
                 table: "Reviews",
                 column: "ProductId");
@@ -1634,6 +1738,9 @@ namespace Shopping.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CartItems");
+
+            migrationBuilder.DropTable(
                 name: "Coupons");
 
             migrationBuilder.DropTable(
@@ -1661,6 +1768,9 @@ namespace Shopping.Data.Migrations
                 name: "ProductQuestions");
 
             migrationBuilder.DropTable(
+                name: "RecentlyDisplayedProduct");
+
+            migrationBuilder.DropTable(
                 name: "Reviews");
 
             migrationBuilder.DropTable(
@@ -1677,6 +1787,9 @@ namespace Shopping.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Carts");
 
             migrationBuilder.DropTable(
                 name: "Orders");
