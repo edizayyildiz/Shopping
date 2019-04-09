@@ -19,15 +19,18 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchSlides> searchSlidesService;
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchNewsletter> newsletterService;
-        public HomeController(ICommandHandler<SearchNewsletter> newsletterService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
+        private ICommandHandler<AddFeedback> feedbackService;
+        public HomeController(ICommandHandler<AddFeedback> feedbackService,ICommandHandler<SearchNewsletter> newsletterService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
         
         
+      
         {
             this.searchCountrysService = searchCountrysService;
             this.searchSlidesService = searchSlidesService;
             this.searchAdvertisementsService = searchAdvertisementsService;
             this.searchProductsService = searchProductsService;
             this.newsletterService = newsletterService;
+            this.feedbackService = feedbackService;
         }
         public async Task<IActionResult> Index()
         {
@@ -132,3 +135,49 @@ namespace Shopping.Web.Controllers
 
     }
 
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Contact(ICommandHandler<AddFeedback> feedbackService, string firstName,  string email,  string subject, string message) {
+           
+           
+            
+            //var fed = new Feedback();
+           
+            var addFeedback = new AddFeedback();
+            addFeedback.Name = firstName;
+            addFeedback.Email = email;
+            addFeedback.Subject = subject;
+            addFeedback.Message = message;
+            Result result = await feedbackService.HandleAsync(addFeedback);
+
+            System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
+            mailMessage.From = new System.Net.Mail.MailAddress("tanerakyil@gmail.com", "tano");
+            mailMessage.Subject = "İletişim Formu: " + firstName ;
+            mailMessage.To.Add("tanerakyil@gmail.com,tanerakyil@gmail.com");
+            string body;
+            body = "Ad: " + firstName + "<br />";
+           
+            body += "E-posta: " + email + "<br />";
+            body += "Depart: " + subject + "<br />";
+            body += "Mesaj: " + message + "<br />";
+            mailMessage.IsBodyHtml = true;
+            mailMessage.Body = body;
+
+
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com", 587);
+            smtp.Credentials = new System.Net.NetworkCredential("mail", "sifre");
+            smtp.EnableSsl = true;
+            smtp.Send(mailMessage);
+
+            ViewBag.Message = "Mesajınız gönderildi. Teşekkür ederiz.";
+            //TODO: Mail Gönderme işlemi yapılacak.
+            ViewBag.Message = "Form başarıyla iletildi,en kısa zamanda dönüş yapacağız.";
+
+
+            return RedirectToAction("Contact");
+        }
+    }
+}
