@@ -149,7 +149,7 @@
                                 <div class="block-content">
 
                                     <div class="categori-search  ">
-                                        <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option">
+                                        <select data-placeholder="Tüm Kategoriler" class="chosen-select categori-search-option" >
                                             <option value="">Tüm Kategoriler</option>
                                             @if (ViewBag.Categories != null)
                                             {
@@ -247,7 +247,7 @@
                 <div class="header-menu-nav menu-style-2">
                     <div class="container">
                         <div class="header-menu-nav-inner">
-                            <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat">
+                            <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat accordion-" >
                                 <h4 class="title active">
                                     <span class="btn-open-mobile home-page">
                                         <span></span>
@@ -432,12 +432,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="newsletter-form">
-                                <form id="newsletter-validate-detail" class="form subscribe">
+                                <form asp-controller="NewsletterSubscribtion" asp-action="Register" method="post">
+                                  
+                               
                                     <div class="control">
                                         <input type="email" placeholder="Mail adresinizi giriniz" id="newsletter" name="email" class="input-subscribe">
-                                        <button type="submit" title="subscribe" class="btn subscribe">
-                                            <span>Abone Ol</span>
-                                        </button>
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default"><span class="lnr lnr-arrow-right">Abone ol</span></button>
+                                        </div>
+
+
                                     </div>
                                 </form>
                             </div>
