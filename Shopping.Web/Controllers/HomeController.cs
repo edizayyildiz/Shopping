@@ -127,6 +127,12 @@ namespace Shopping.Web.Controllers
             return RedirectToAction("AddSubscribe");
 
         }
+        public async Task<IActionResult> ConfirmNewsletter(string confirmationCode)
+        {
+
+            return View();
+        }
+       
       
         }
 

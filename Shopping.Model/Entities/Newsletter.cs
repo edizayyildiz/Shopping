@@ -16,6 +16,8 @@ namespace Shopping.Model.Entities
         [Display(Name = "Onay tarihi")]
         public DateTime ConfirmationDate { get; set; }
 
+        public string ConfirmationCode { get; set; }
+
 
     }
 }
