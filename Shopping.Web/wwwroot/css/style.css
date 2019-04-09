@@ -26,11 +26,15 @@ REPONSIVE
 @import url(../js/fancybox/source/helpers/jquery.fancybox-thumbs.css);
 
 /* Body Styles */
-body { 
-  margin: 0px; 
-  padding: 0px; 
-  font-family: 'Open Sans', sans-serif; 
-  background-color: #fff;  
+.site-header{
+    line-height : 15px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fff;
 }
 
 
@@ -58,7 +62,7 @@ header.light blockquote { color:#000; }
 blockquote h2 { padding-right: 40px; margin: 0px; }
 header.dark blockquote a {color: orange; text-decoration: underline;}
 header.light blockquote a {text-decoration: underline;}
-header { min-height: 450px; }
+header { min-height: 200px; }
     header.dark {
         background-color: #31629f;
     }
@@ -147,7 +151,7 @@ ul.main-nav > li ul.sub-menu-lists > li > a {
 .ic.menu .line-last-child { margin-bottom: 0px;  }
 
 .sub-menu-head { margin: 10px 0; }
-.banners-area { margin-top: 20px; padding-top: 15px; }
+.banners-area { margin-top: 30px; padding-top: 15px; }
 
 
 @media only screen and (max-width:768px) {
@@ -378,6 +382,7 @@ ul.main-nav > li ul.sub-menu-lists > li > a {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
+    margin-top : 50px ;
 }
 
 .tablinks {
@@ -1337,12 +1342,11 @@ button, .button, input[type="submit"] {
 }
 
 .categori-search-option {
-    border: none;
-    width: 145px;
-    font-size: 13px;
+    /*width: 145px;
     height: 45px;
-    padding: 0 17px 0 24px;
-    color: #888;
+    padding: 0 17px 0 24px;*/
+    font-size: 13px;
+    
 }
 
     .categori-search-option:after {
@@ -1621,16 +1625,16 @@ button, .button, input[type="submit"] {
 }
 
     .header-menu-nav.menu-style-1 {
-        margin-top: -5px;
+        margin-top: 0px;
     }
 
 .header-nav > li,
 .header-nav .menu-item-has-children {
     display: inline-block;
-    padding: 0 17px;
+    /*padding: 0 17px;*/
     position: relative;
     /*height: 40px;*/
-    line-height: 40px;
+    /*line-height: 40px;*/
 }
 
     .header-nav .menu-item-has-children:nth-child(2) {
