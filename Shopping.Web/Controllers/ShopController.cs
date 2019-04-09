@@ -25,7 +25,8 @@ namespace Shopping.Web.Controllers
         private ICommandHandler<SearchCarts> searchCartService;
         private ICommandHandler<GetCart> getCartService;
         private ICommandHandler<SearchWishlists> searchWishListsService;
-        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
+        private readonly ICommandHandler<SearchOrders> searchOrdersService;
+        public ShopController(ICommandHandler<SearchOrders> searchOrdersService,ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService,
             ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<SearchStores> searchStoresService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
 
@@ -37,6 +38,7 @@ namespace Shopping.Web.Controllers
             this.getCartService = getCartService;
             this.searchWishListsService = searchWishListsService;
            
+            this.searchOrdersService = searchOrdersService;
         }
         public IActionResult Index()
         {
@@ -123,5 +125,19 @@ namespace Shopping.Web.Controllers
         }
 
 
+        public async Task<IActionResult> OrdersTracking()
+        {
+            //identity eklenmesi gerekiyor 
+            var searchOrder = new SearchOrders();
+            searchOrder.UserName = User.Identity.Name;
+            searchOrder.IsAdvancedSearch = true;
+             Result result = await searchOrdersService.HandleAsync(searchOrder);
+                return View(result.Value);
+            
+            //  searchOrder.IsPagedSearch = true;
+           
+
+
+        }
     }
 }
