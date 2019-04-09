@@ -28,11 +28,11 @@ namespace Shopping.Web.Controllers
         
         public ShopController(ICommandHandler<AddProduct>addProductService,ICommandHandler<SearchStores>searchStoresService,ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService)
         {
-            //this.addProductService = addProductService;
+            this.addProductService = addProductService;
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
-            //this.searchStoresService = searchStoresService;
+            this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.getCartService = getCartService;
         }
@@ -58,8 +58,11 @@ namespace Shopping.Web.Controllers
         }
 
         public async Task<IActionResult> Products(SearchProducts searchProducts)
-        {       
-            Result result = await searchProductsService.HandleAsync(searchProducts);
+        {
+            Result result;
+            searchProducts.IsAdvancedSearch = true;
+            ViewBag.CategoryId = searchProducts.CategoryId;
+            result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
@@ -68,6 +71,7 @@ namespace Shopping.Web.Controllers
             ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
+            ViewBag.CategoryId = searchProducts.CategoryId;
             Result result = await searchProductsService.HandleAsync(searchProducts);
             ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
             
