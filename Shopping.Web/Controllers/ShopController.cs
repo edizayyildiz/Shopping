@@ -62,7 +62,10 @@ namespace Shopping.Web.Controllers
 
         public async Task<IActionResult> Products(SearchProducts searchProducts)
         {
-            Result result = await searchProductsService.HandleAsync(searchProducts);
+            Result result;
+            searchProducts.IsAdvancedSearch = true;
+            ViewBag.CategoryId = searchProducts.CategoryId;
+            result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
@@ -71,6 +74,7 @@ namespace Shopping.Web.Controllers
             ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
+            ViewBag.CategoryId = searchProducts.CategoryId;
             Result result = await searchProductsService.HandleAsync(searchProducts);
             ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
 
