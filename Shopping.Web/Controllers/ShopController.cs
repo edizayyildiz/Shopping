@@ -17,7 +17,7 @@ namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
-        private ICommandHandler<AddProduct> addProductService;
+    
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
@@ -28,14 +28,18 @@ namespace Shopping.Web.Controllers
 
         public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<GetCart> getCartService, ICommandHandler<SearchCarts> searchCartService) : base(SearchProductCategoriesService, getCartService)
         {
-            //this.addProductService = addProductService;
+
             this.searchProductsService = searchProductsService;
             this.searchCitiesService = searchCitiesService;
             this.searchCountriesService = searchCountriesService;
-            //this.searchStoresService = searchStoresService;
+            this.searchStoresService = searchStoresService;
             this.searchCartService = searchCartService;
             this.searchWishListsService = searchWishListsService;
+            this.addWishListService = addWishListService;
+
+
            
+            this.searchOrdersService = searchOrdersService;
         }
         public IActionResult Index()
         {
@@ -104,23 +108,41 @@ namespace Shopping.Web.Controllers
             return View();
         }
         public async Task<IActionResult> WishList()
-
         {
-
             var searchWishlist = new SearchWishlists();
 
             //Result resultWishList = await searchWishListsService.HandleAsync(searchWishlist);      
 
             searchWishlist.UserName = "Mehmet";
 
-            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);
-            
+            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);            
 
             return View(resultGetWishList.Value);
+        }
 
-
+        public async Task<IActionResult> AddWishList(string productId)
+        {
+            var addWishList = new AddWishlist();            
+            addWishList.ProductId = productId;
+            addWishList.UserName =  User.Identity.Name;
+            Result resultAddWishList = await addWishListService.HandleAsync(addWishList);
+            return RedirectToAction("WishList");
         }
 
 
+        public async Task<IActionResult> OrdersTracking()
+        {
+            //identity eklenmesi gerekiyor 
+            var searchOrder = new SearchOrders();
+            searchOrder.UserName = User.Identity.Name;
+            searchOrder.IsAdvancedSearch = true;
+             Result result = await searchOrdersService.HandleAsync(searchOrder);
+                return View(result.Value);
+            
+            //  searchOrder.IsPagedSearch = true;
+           
+
+
+        }
     }
 }
