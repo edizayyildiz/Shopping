@@ -551,12 +551,16 @@
                         </div>
                         <div class="col-md-6">
                             <div class="newsletter-form">
-                                <form id="newsletter-validate-detail" class="form subscribe">
+                                <form asp-controller="NewsletterSubscribtion" asp-action="Register" method="post">
+                                  
+                               
                                     <div class="control">
                                         <input type="email" placeholder="Mail adresinizi giriniz" id="newsletter" name="email" class="input-subscribe">
-                                        <a href="@Url.Action("ContactsAsync")" class="btn btn-primary">Abone ol</a>
-                                        
-                                     
+                                        <div class="input-group-btn">
+                                            <button type="submit" class="btn btn-default"><span class="lnr lnr-arrow-right">Abone ol</span></button>
+                                        </div>
+
+
                                     </div>
                                 </form>
                             </div>

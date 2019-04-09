@@ -40,31 +40,27 @@ namespace Shopping.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         [HttpPost]
-        public async Task<IActionResult> NewsletterSubscribtion(Newsletter newsletter, string controllerName, string actionName, string firstName, string lastName, string email, string phone, string department, string message)
+        public async Task<IActionResult> NewsletterSubscribtion(string email)
         {
             var addNews = new AddNewsletter();
             var news = new SearchNewsletter();
             if (ModelState.IsValid)
             {
                 var getEmails = await newsletterService.HandleAsync(news);
-                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == newsletter.Email)==null) 
+                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == email)==null) 
                 {
                    await newsletterService.HandleAsync(addNews);
-                    return RedirectToAction(actionName, controllerName);
+                    
                 }
                 TempData["Message"] = "Bu E-Posta adresi sisteme kayıtlıdır.";
             }
             System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
             mailMessage.From = new System.Net.Mail.MailAddress("tanerakyil@gmail.com", "tano");
-            mailMessage.Subject = "İletişim Formu: " + firstName + " " + lastName;
+            
             mailMessage.To.Add("tanerakyil@gmail.com,tanerakyil@gmail.com");
-            string body;
-            body = "Ad: " + firstName + "<br />";
-            body = "Soyad: " + lastName + "<br />";
-            body += "Telefon: " + phone + "<br />";
-            body += "E-posta: " + email + "<br />";
-            body += "Depart: " + department + "<br />";
-            body += "Mesaj: " + message + "<br />";
+            
+           string body = "E-posta: " + email + "<br />";
+
             mailMessage.IsBodyHtml = true;
             mailMessage.Body = body;
 
@@ -75,33 +71,29 @@ namespace Shopping.Web.Controllers
             smtp.Send(mailMessage);
 
             ViewBag.Message = "Mesajınız gönderildi. Teşekkür ederiz.";
-            return  Redirect("/" + controllerName + "/" + actionName + "/#mc_embed_signup");
+            return  RedirectToAction("AddSubscribe");
         }
-        public async Task<IActionResult> NewsletterUnsubscribtion(Newsletter newsletter, string controllerName, string actionName, string firstName, string lastName, string email, string phone, string department, string message)
+        public async Task<IActionResult> NewsletterUnsubscribtion(string email)
         {
             var deleteNews = new DeleteNewsletter();
             var news = new SearchNewsletter();
             if (ModelState.IsValid)
             {
                 var getEmails = await newsletterService.HandleAsync(news);
-                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == newsletter.Email) != null)
+                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == email) != null)
                 {
                     await newsletterService.HandleAsync(deleteNews);
-                    return RedirectToAction(actionName, controllerName);
+
                 }
-                TempData["Message"] = "Bu E-Posta adresi silindi.";
+                TempData["Message"] = "Bu E-Posta adresi sisteme kayıtlıdır.";
             }
             System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
             mailMessage.From = new System.Net.Mail.MailAddress("tanerakyil@gmail.com", "tano");
-            mailMessage.Subject = "İletişim Formu: " + firstName + " " + lastName;
+
             mailMessage.To.Add("tanerakyil@gmail.com,tanerakyil@gmail.com");
-            string body;
-            body = "Ad: " + firstName + "<br />";
-            body = "Soyad: " + lastName + "<br />";
-            body += "Telefon: " + phone + "<br />";
-            body += "E-posta: " + email + "<br />";
-            body += "Depart: " + department + "<br />";
-            body += "Mesaj: " + message + "<br />";
+
+            string body = "E-posta: " + email + "<br />";
+
             mailMessage.IsBodyHtml = true;
             mailMessage.Body = body;
 
@@ -112,9 +104,8 @@ namespace Shopping.Web.Controllers
             smtp.Send(mailMessage);
 
             ViewBag.Message = "Mesajınız gönderildi. Teşekkür ederiz.";
-            return Redirect("/" + controllerName + "/" + actionName + "/#mc_embed_signup");
+            return RedirectToAction("AddSubscribe");
 
-        
         }
       
         }
