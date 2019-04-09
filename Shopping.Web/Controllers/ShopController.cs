@@ -17,16 +17,17 @@ namespace Shopping.Web.Controllers
 {
     public class ShopController : BaseController
     {
-    
+
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchCitys> searchCitiesService;
         private ICommandHandler<SearchCountrys> searchCountriesService;
         private ICommandHandler<SearchStores> searchStoresService;
         private ICommandHandler<SearchCarts> searchCartService;
-        //private ICommandHandler<GetCart> getCartService;
         private ICommandHandler<SearchWishlists> searchWishListsService;
+        private ICommandHandler<SearchOrders> searchOrdersService;
+        private ICommandHandler<AddWishlist> addWishListService;
 
-        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService,ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<GetCart> getCartService, ICommandHandler<SearchCarts> searchCartService) : base(SearchProductCategoriesService, getCartService)
+        public ShopController(ICommandHandler<SearchCountrys> searchCountriesService, ICommandHandler<SearchCitys> searchCitiesService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<SearchWishlists> searchWishListsService, ICommandHandler<GetCart> getCartService, ICommandHandler<SearchCarts> searchCartService, ICommandHandler<SearchOrders> searchOrdersService, ICommandHandler<AddWishlist> addWishListService, ICommandHandler<SearchStores> searchStoresService) : base(SearchProductCategoriesService, getCartService)
         {
 
             this.searchProductsService = searchProductsService;
@@ -36,9 +37,6 @@ namespace Shopping.Web.Controllers
             this.searchCartService = searchCartService;
             this.searchWishListsService = searchWishListsService;
             this.addWishListService = addWishListService;
-
-
-           
             this.searchOrdersService = searchOrdersService;
         }
         public IActionResult Index()
@@ -63,21 +61,21 @@ namespace Shopping.Web.Controllers
         }
 
         public async Task<IActionResult> Products(SearchProducts searchProducts)
-        {       
+        {
             Result result = await searchProductsService.HandleAsync(searchProducts);
             return View(result.Value);
         }
         public async Task<IActionResult> ProductsList(SearchProducts searchProducts)
         {
-            
+
             ViewBag.PageSize = searchProducts.PageSize;
             ViewBag.Page = searchProducts.PageNumber;
             searchProducts.IsPagedSearch = true;
             Result result = await searchProductsService.HandleAsync(searchProducts);
             ViewBag.PageCount = (double)(Math.Ceiling(((double)result.TotalRecordCount / (double)searchProducts.PageSize)));
-            
- 
-        
+
+
+
             return View(result.Value);
         }
         public IActionResult ProductsDetails()
@@ -115,16 +113,16 @@ namespace Shopping.Web.Controllers
 
             searchWishlist.UserName = "Mehmet";
 
-            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);            
+            Result resultGetWishList = await searchWishListsService.HandleAsync(searchWishlist);
 
             return View(resultGetWishList.Value);
         }
 
         public async Task<IActionResult> AddWishList(string productId)
         {
-            var addWishList = new AddWishlist();            
+            var addWishList = new AddWishlist();
             addWishList.ProductId = productId;
-            addWishList.UserName =  User.Identity.Name;
+            addWishList.UserName = User.Identity.Name;
             Result resultAddWishList = await addWishListService.HandleAsync(addWishList);
             return RedirectToAction("WishList");
         }
@@ -136,11 +134,11 @@ namespace Shopping.Web.Controllers
             var searchOrder = new SearchOrders();
             searchOrder.UserName = User.Identity.Name;
             searchOrder.IsAdvancedSearch = true;
-             Result result = await searchOrdersService.HandleAsync(searchOrder);
-                return View(result.Value);
-            
+            Result result = await searchOrdersService.HandleAsync(searchOrder);
+            return View(result.Value);
+
             //  searchOrder.IsPagedSearch = true;
-           
+
 
 
         }

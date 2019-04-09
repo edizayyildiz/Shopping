@@ -15,15 +15,15 @@ namespace Shopping.Web.Controllers
     public class HomeController : BaseController
     {
         private ICommandHandler<SearchAdvertisements> searchAdvertisementsService;
-        private  ICommandHandler<SearchCountrys> searchCountrysService;
+        private ICommandHandler<SearchCountrys> searchCountrysService;
         private ICommandHandler<SearchSlides> searchSlidesService;
         private ICommandHandler<SearchProducts> searchProductsService;
         private ICommandHandler<SearchNewsletter> newsletterService;
         private ICommandHandler<AddFeedback> feedbackService;
-        public HomeController(ICommandHandler<AddFeedback> feedbackService,ICommandHandler<SearchNewsletter> newsletterService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService,ICommandHandler<SearchCountrys> searchCountrysService,ICommandHandler<SearchProductCategories> SearchProductCategoriesService) : base(SearchProductCategoriesService)
-        
-        
-      
+        public HomeController(ICommandHandler<AddFeedback> feedbackService, ICommandHandler<SearchNewsletter> newsletterService, ICommandHandler<SearchProducts> searchProductsService, ICommandHandler<SearchAdvertisements> searchAdvertisementsService, ICommandHandler<SearchSlides> searchSlidesService, ICommandHandler<SearchCountrys> searchCountrysService, ICommandHandler<SearchProductCategories> SearchProductCategoriesService, ICommandHandler<GetCart> getCartService) : base(SearchProductCategoriesService, getCartService)
+
+
+
         {
             this.searchCountrysService = searchCountrysService;
             this.searchSlidesService = searchSlidesService;
@@ -70,19 +70,19 @@ namespace Shopping.Web.Controllers
             if (ModelState.IsValid)
             {
                 var getEmails = await newsletterService.HandleAsync(news);
-                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == email)==null) 
+                if (((IEnumerable<Newsletter>)getEmails.Value).FirstOrDefault(f => f.Email == email) == null)
                 {
-                   await newsletterService.HandleAsync(addNews);
-                    
+                    await newsletterService.HandleAsync(addNews);
+
                 }
                 TempData["Message"] = "Bu E-Posta adresi sisteme kayıtlıdır.";
             }
             System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
             mailMessage.From = new System.Net.Mail.MailAddress("tanerakyil@gmail.com", "tano");
-            
+
             mailMessage.To.Add("tanerakyil@gmail.com,tanerakyil@gmail.com");
-            
-           string body = "E-posta: " + email + "<br />";
+
+            string body = "E-posta: " + email + "<br />";
 
             mailMessage.IsBodyHtml = true;
             mailMessage.Body = body;
@@ -94,7 +94,7 @@ namespace Shopping.Web.Controllers
             smtp.Send(mailMessage);
 
             ViewBag.Message = "Mesajınız gönderildi. Teşekkür ederiz.";
-            return  RedirectToAction("AddSubscribe");
+            return RedirectToAction("AddSubscribe");
         }
         public async Task<IActionResult> NewsletterUnsubscribtion(string email)
         {
@@ -130,22 +130,20 @@ namespace Shopping.Web.Controllers
             return RedirectToAction("AddSubscribe");
 
         }
-      
-        }
 
-    }
 
         public IActionResult Contact()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Contact(ICommandHandler<AddFeedback> feedbackService, string firstName,  string email,  string subject, string message) {
-           
-           
-            
+        public async Task<IActionResult> Contact(ICommandHandler<AddFeedback> feedbackService, string firstName, string email, string subject, string message)
+        {
+
+
+
             //var fed = new Feedback();
-           
+
             var addFeedback = new AddFeedback();
             addFeedback.Name = firstName;
             addFeedback.Email = email;
@@ -155,11 +153,11 @@ namespace Shopping.Web.Controllers
 
             System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
             mailMessage.From = new System.Net.Mail.MailAddress("tanerakyil@gmail.com", "tano");
-            mailMessage.Subject = "İletişim Formu: " + firstName ;
+            mailMessage.Subject = "İletişim Formu: " + firstName;
             mailMessage.To.Add("tanerakyil@gmail.com,tanerakyil@gmail.com");
             string body;
             body = "Ad: " + firstName + "<br />";
-           
+
             body += "E-posta: " + email + "<br />";
             body += "Depart: " + subject + "<br />";
             body += "Mesaj: " + message + "<br />";
