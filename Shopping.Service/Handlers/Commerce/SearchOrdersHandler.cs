@@ -15,7 +15,7 @@ namespace Shopping.Service.Handlers
     {
         private readonly IRepository<Order> orderRepository;
         private readonly ApplicationIdentity identity;
-        public SearchOrdersHandler(IRepository<Order> orderRepository, ApplicationIdentity identity)
+        public SearchOrdersHandler(IRepository<Order> orderRepository)
         {
             this.orderRepository = orderRepository;
             this.identity=identity;
@@ -42,7 +42,7 @@ namespace Shopping.Service.Handlers
             bool desc = (command.SortOrder == "desc" ? true : false);
 
             // define the filter
-            string userName = identity.FullName;
+            string userName = command.UserName;
             Expression<Func<Order, bool>> where;
             if (command.IsAdvancedSearch)
             {
