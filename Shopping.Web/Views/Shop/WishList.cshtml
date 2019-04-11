@@ -3,10 +3,13 @@
 
     ViewData["Title"] = "WishList";
 }
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>Grid Categoris</title>
+    <title>Shopping Cart</title>
     <link rel="/stylesheet" type="text/css" href="css/animate.css">
     <link rel="/stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="/stylesheet" type="text/css" href="css/font-awesome.css">
@@ -18,739 +21,102 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,600i,700,700i" rel="/stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700" rel="/stylesheet">
 </head>
-    <!-- header-menu-bar -->
-            <div class="header-menu-bar header-sticky">
-                <div class="header-menu-nav menu-style-2">
-                    <div class="container">
-                        <div class="header-menu-nav-inner">
-                            <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat">
-                                <h4 class="title active">
-                                    <span class="btn-open-mobile home-page">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </span>
-                                    <span class="title-menu">All Departments</span>   
-                                </h4>
-                                <div class="vertical-menu-content" >
-                                    <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
-                                    <ul class="vertical-menu-list">
-                                        <li><a href="">Fashion Men’s</a></li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">Fashion Women’s</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Leather Jackets</a></li>
-                                                                        <li class="menu-item"><a href="#">Handbags</a></li>
-                                                                        <li class="menu-item"><a href="#">Shoes</a></li>
-                                                                        <li class="menu-item"><a href="#">Jewelrys</a></li>
-                                                                        <li class="menu-item"><a href="#">Clothings</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Accessories</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Hair Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-                                                                        <li class="menu-item"><a href="#">Hats</a></li>
-                                                                        <li class="menu-item"><a href="#">Tech Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Head Set</a></li>
-                                                                        <li class="menu-item"><a href="#">Software</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">Hand Bags</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Leather Jackets</a></li>
-                                                                        <li class="menu-item"><a href="#">Handbags</a></li>
-                                                                        <li class="menu-item"><a href="#">Shoes</a></li>
-                                                                        <li class="menu-item"><a href="#">Jewelrys</a></li>
-                                                                        <li class="menu-item"><a href="#">Clothings</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Accessories</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Hair Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-                                                                        <li class="menu-item"><a href="#">Hats</a></li>
-                                                                        <li class="menu-item"><a href="#">Tech Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Head Set</a></li>
-                                                                        <li class="menu-item"><a href="#">Software</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="">Accessories</a>
-                                        </li>
-                                        <li><a href="">Shoes</a></li>
-                                        <li class="menu-item-has-children arrow item-megamenu">
-                                            <a href="#" class="dropdown-toggle">Laptop & Computers</a>
-                                            <span class="toggle-submenu hidden-md"></span>
-                                            <div class="submenu parent-megamenu megamenu">
-                                                <div class="row">
-                                                    <div class="submenu-banner submenu-banner-menu-1">
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Laptop & computers</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Laptops, Desktops & Monitors</a></li>
-                                                                        <li class="menu-item"><a href="#">Printers & Ink</a></li>
-                                                                        <li class="menu-item"><a href="#">Computer Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Software</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook</a></li>
-                                                                        <li class="menu-item"><a href="#">Macbook Air</a></li>
-                                                                        <li class="menu-item"><a href="#">Laptop Pro</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <div class="dropdown-menu-info">
-                                                                <h6 class="dropdown-menu-title">Accessories</h6>
-                                                                <div class="dropdown-menu-content">
-                                                                    <ul class="menu">
-                                                                        <li class="menu-item"><a href="#">Accessories</a></li>
-                                                                        <li class="menu-item"><a href="#">Phone Batteries</a></li>
-                                                                        <li class="menu-item"><a href="#">Phone Charger</a></li>
-                                                                        <li class="menu-item"><a href="#">Phone Screen</a></li>
-                                                                        <li class="menu-item"><a href="#">Head Set</a></li>
-                                                                        <li class="menu-item"><a href="#">Software</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="">Game & Consoles</a></li>
-                                        <li><a href="">Headphone</a></li>
-                                        <li><a href="">Video Games & Consoles</a></li>
-                                        <li><a href="">Car Electronic & GDP</a></li>
-                                        <li><a href="">Virtual Reality</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="header-menu header-menu-resize">
-                                
-                    
-                            </div>
-                            <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
-                                <span class="btn-open-mobile home-page">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </span>
-                                <span class="title-menu-mobile">Main menu</span> 
-                            </span>
-                        </div>
-                    </div>
+<body class="page-product">
+    <div class="wrapper">
+        <form id="block-search-mobile" method="get" class="block-search-mobile">
+            <div class="form-content">
+                <div class="control">
+                    <a href="#" class="close-block-serach"><span class="icon fa fa-times"></span></a>
+                    <input type="text" name="search" placeholder="Search" class="input-subscribe">
+                    <button type="submit" class="btn search">
+                        <span><i class="fa fa-search" aria-hidden="true"></i></span>
+                    </button>
                 </div>
-            </div>          
+            </div>
+        </form>
+        <!-- HEADER -->
         <!-- MAIN -->
-        <main class="site-main product-list product-grid">
+        <main class="site-main shopping-cart">
             <div class="container">
                 <ol class="breadcrumb-page">
-                    <li><a href="#">Home </a></li>
-                    <li class="active"><a href="#"></a></li>
+                    <li><a href="@Url.Action("Index","Home")">Anasayfa </a></li>
+                    <li class="active"><a href="@Url.Action("WishList","Shop")">Favorilerim</a></li>
                 </ol>
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-9 col-sm-8 float-none float-right padding-left-5">
-                        <div class="main-content">
-                            <div class="promotion-banner style-3">
-                                <a href="" class="banner-img"><img src="/images/product/banner-product.jpg" alt="banner-product"></a>
+                    <div class="col-md-12">
+                        <form class="form-cart">
+                            <div class="table-cart">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="tb-image"></th>
+                                            <th class="tb-product">Ürün Adı</th>
+                                            <th class="tb-price">Ürün Fiyatı</th>
+                                            <th class="tb-qty">Adet</th>
+                                            <th class="tb-total">Toplam ücret</th>
+                                            <th class="tb-remove"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="tb-image"><a href="" class="item-photo"><img src="/image/cart1.jpg" alt="cart"></a></td>
+                                                <td class="tb-product">
+                                                    <div class="product-name"><a href="">@item.Name</a></div>
+                                                </td>
+                                                <td class="tb-price">
+                                                    <span class="price">@item.NewPrice TL</span>
+                                                </td>
+                                                <td class="tb-qty">
+                                                    <div class="quantity">
+                                                        <div class="buttons-added">
+                                                            <input type="text" value="@item.Quantity" title="Qty" class="input-text qty text" size="1">
+                                                            <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
+                                                            <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+
+                                                @{ 
+                                                    decimal totalPrice = item.Quantity * item.NewPrice;
+                                                }
+
+
+                                                <td class="tb-total">
+                                                    <span class="price">@totalPrice</span>
+                                                </td>
+                                                <td class="tb-remove">
+                                                    <a href="" class="action-remove"><span><i class="fa fa-times" aria-hidden="true"></i></span></a>
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="toolbar-products">
-                                <h4 class="title-product"></h4>
-                                <div class="toolbar-option">
-                                    <div class="toolbar-sort">
-                                        <select class="chosen-select sorter-options form-control">
-                                            <option selected="selected" value="position">En Çok Satanlar</option>
-                                            <option value="name">Ürün Adı</option>
-                                            <option value="price">Fiyatı</option>
-                                        </select>
-                                    </div>
-                                    <div class="toolbar-per">
-                                        <select class="chosen-select limiter-options form-control">
-                                            <option selected="selected" value="6">20/Sayfa</option>
-                                            <option value="15">15</option>
-                                            <option value="30">30</option>
-                                        </select>
-                                    </div>
-                                    <div class="modes">
-                                        <a href="grid-product.html" class="active modes-mode mode-grid" title="Grid">
-                                            <i class="flaticon-squares"></i>
-                                            <span>Yan Yana</span>
-                                        </a>
-                                        <a href="list-product.html" title="List" class="modes-mode mode-list">
-                                            <i class="flaticon-interface"></i>
-                                            <span>Liste</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            @foreach (var item in Model)
-                            {
-                                <div class="product-item style1 width-33 padding-0 col-md-3 col-sm-6 col-xs-6 equal-elem">
-                                    <div class="product-inner">
-                                        <div class="product-thumb">
-                                            <div class="thumb-inner">
-                                                <a href=""><img src="/images/product/p19.jpg" alt="p19"></a>
-                                            </div>
-                                            <span class="onsale">-50%</span>
-                                            <a href="" class="quick-view">İncele</a>
-                                        </div>
-                                        <div class="product-innfo">
-                                            <div class="product-name"><a href="">@item.Name</a></div>
-                                            <span class="price">
-                                                <ins>@item.NewPrice TL</ins>
-                                                <del>@item.OldPrice TL</del>
-                                            </span>
-                                            <span class="star-rating">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <span class="review">@item.RatingsValue Review(@item.RatingsCount)</span>
-                                            </span>
-                                            <div class="info-product">
-                                                <p>@item.Description</p>                                               
-                                            </div>
-                                            <div class="single-add-to-cart">
-                                                <a href="" class="btn-add-to-cart">Sepete Ekle</a>
-                                                <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i>Karşılaştır</a>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-
-
-                        </div>
-                            <div class="pagination">
-                                <ul class="nav-links">
-                                    <li class="active"><a href="">1</a></li>
-                                    <li><a href="">2</a></li>
-                                    <li><a href="">3</a></li>
-                                    <li class="back-next"><a href="">Next</a></li>
-                                </ul>
-                                <span class="show-resuilt">Showing 1-8 of 12 result</span>
-                            </div>
-                        </div>
+                            @*<div class="cart-actions">
+                                <button type="submit" class="btn-continue">
+                                    <span>Continue Shopping</span>
+                                </button>
+                                <button type="submit" class="btn-clean">
+                                    <span>Update Shopping Cart</span>
+                                </button>
+                                <button type="submit" class="btn-update">
+                                    <span>Clear Shopping Cart</span>
+                                </button>
+                            </div>*@
+                        </form>
                     </div>
-                    <div class="col-md-3 col-sm-4">
-                        <div class="col-sidebar">
-                            <div class="filter-options">
-                                <div class="block-title">Shop by</div>
-                                <div class="block-content">
-                                    <div class="filter-options-item filter-categori">
-                                        <div class="filter-options-title">Categories</div>
-                                        <div class="filter-options-content">
-                                            <ul>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Home Audio & Theater</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>TV & Video</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Camera, Photo & Video</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Cell Phones & Accessories</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Headphones</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Video Games</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Bluetooth & Wireless Speakers</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Gaming Console</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Computers & Tablets</label></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="filter-options-item filter-brand">
-                                        <div class="filter-options-title">Brand</div>
-                                        <div class="filter-options-content">
-                                            <ul>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Cameras</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Smartphone</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Printer & Ink</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Game & Consoles</label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Sound & Speaker</label></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="filter-options-item filter-price">
-                                        <div class="filter-options-title">Price</div>
-                                        <div class="filter-options-content">
-                                            <div class="price_slider_wrapper">
-                                                <div data-label-reasult="Price:" data-min="0" data-max="3000" data-unit="$" class="slider-range-price " data-value-min="85" data-value-max="2000">
-                                                    <span class="text-right">Filter</span>
-                                                </div>
-                                                <div class="price_slider_amount">
-                                                    <div class="price_label">
-                                                        Price: <span class="from">$85</span>-<span class="to">$2000</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="filter-options-item filter-size">
-                                        <div class="filter-options-title">Size</div>
-                                        <div class="filter-options-content">
-                                            <ul>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input">S</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input">M</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input">L</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input">XL</span></label></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="filter-options-item filter-color">
-                                        <div class="filter-options-title">Color</div>
-                                        <div class="filter-options-content">
-                                            <ul>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Red<span class="value">(217)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Black<span class="value">(79)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Grey<span class="value">(116)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>While<span class="value">(38)</span></label></li>
-                                            </ul>
-                                            <ul>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Yellow<span class="value">(179)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Blue<span class="value">(283)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Pink<span class="value">(29)</span></label></li>
-                                                <li><label class="inline" ><input type="checkbox"><span class="input"></span>Green<span class="value">(205)</span></label></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-banner-sidebar">
-                                <a href=""><img src="/images/product/banner-sidebar.jpg" alt="banner-sidebar"></a>
-                            </div>
-                            <div class="block-latest-roducts">
-                                <div class="block-title">Latest Products</div>
-                                <div class="block-latest-roducts-content">
-                                    <div class="owl-carousel nav-style2" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"600":{"items":1},"1000":{"items":1}}'>
-                                        <div class="owl-ones-row">
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p1.jpg" alt="p1"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Leather Chelsea Boots</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p2.jpg" alt="p2"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">2750 Cotu Classic Sneakers</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p3.jpg" alt="p3"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Thule Chasm Sport Duffel Bag</a></div>
-                                                        <span class="price price-dark">
-                                                                <ins>$229.00</ins>
-                                                            </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p4.jpg" alt="p4"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Pullover Hoodie - Mens</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="owl-ones-row">
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p1.jpg" alt="p1"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Leather Chelsea Boots</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p2.jpg" alt="p2"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">2750 Cotu Classic Sneakers</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p3.jpg" alt="p3"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Thule Chasm Sport Duffel Bag</a></div>
-                                                        <span class="price price-dark">
-                                                                <ins>$229.00</ins>
-                                                            </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                            <div class="product-item style1">
-                                                <div class="product-inner">
-                                                    <div class="product-thumb">
-                                                        <div class="thumb-inner">
-                                                            <a href=""><img src="/images/blog/p4.jpg" alt="p4"></a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-innfo">
-                                                        <div class="product-name"><a href="">Pullover Hoodie - Mens</a></div>
-                                                        <span class="price">
-                                                            <ins>$229.00</ins>
-                                                            <del>$259.00</del>
-                                                        </span>
-                                                        <span class="star-rating">
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                                            <span class="review">5 Review(s)</span>
-                                                        </span>
-                                                    </div>    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-            </div>
-           
-            <div class="block-recent-view">
-                <div class="container">
-                    <div class="title-of-section">You may be also interested</div>
-                    <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="0" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":3},"1000":{"items":6}}'>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r1.jpg" alt="r1"></a>
-                                    </div>
-                                    <span class="onsale">-50%</span>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo">
-                                    <div class="product-name"><a href="">Women Hats</a></div>
-                                    <span class="price">
-                                        <ins>$229.00</ins>
-                                        <del>$259.00</del>
-                                    </span>
-                                    <span class="star-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="review">5 Review(s)</span>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r2.jpg" alt="r2"></a>
-                                    </div>
-                                    <span class="onnew">new</span>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo"> 
-                                    <div class="product-name"><a href="">Basketball Sports Shoes</a></div>
-                                    <span class="price price-dark">
-                                        <ins>$229.00</ins>
-                                    </span>
-                                    <span class="star-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="review">5 Review(s)</span>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r3.jpg" alt="r3"></a>
-                                    </div>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo">
-                                    <div class="product-name"><a href="">Dark Green Prada Sneakers</a></div>
-                                    <span class="price price-dark">
-                                        <ins>$229.00</ins>
-                                    </span>
-                                    <span class="star-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="review">5 Review(s)</span>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r4.jpg" alt="r4"></a>
-                                    </div>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo">
-                                    <div class="product-name"><a href="">Clutches in Men's Bags for Men</a></div>
-                                    <span class="price price-dark">
-                                        <ins>$229.00</ins>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r5.jpg" alt="r5"></a>
-                                    </div>
-                                    <span class="onsale">-50%</span>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo">
-                                    <div class="product-name"><a href="">Parka With a Hood</a></div>
-                                    <span class="price">
-                                        <ins>$229.00</ins>
-                                        <del>$259.00</del>
-                                    </span>
-                                    <span class="star-rating">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <span class="review">5 Review(s)</span>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item style1">
-                            <div class="product-inner equal-elem">
-                                <div class="product-thumb">
-                                    <div class="thumb-inner">
-                                        <a href=""><img src="/images/home1/r6.jpg" alt="r6"></a>
-                                    </div>
-                                    <a href="" class="quick-view">Quick View</a>
-                                </div>
-                                <div class="product-innfo">
-                                    <div class="product-name"><a href="">Smartphone MTK6737 Quad Core.</a></div>
-                                    <span class="price price-dark">
-                                        <ins>$229.00</ins>
-                                    </span>
-                                    <div class="group-btn-hover style2">
-                                        <a href="" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                        <a href="" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                        <a href="" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="block-section-brand">
-                <div class="container">
-                    <div class="section-brand style1">
-                        <div class="owl-carousel nav-style3" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="2" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":4},"1000":{"items":6}}'>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                            <a href="" class="item-brand"><img src="/images/home1/brand1.jpg" alt="brand1"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main><!-- end MAIN -->
+            
+
+        </main>
+    </div>
+</body>
+
