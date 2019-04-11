@@ -135,22 +135,11 @@ namespace Shopping.Web.Controllers
         public IActionResult Contact()
         {
             return View();
-        public async Task<IActionResult> ConfirmNewsletter(string confirmationCode)
-        {
-
-            return View();
-        }
-       
-      
         }
         [HttpPost]
         public async Task<IActionResult> Contact(ICommandHandler<AddFeedback> feedbackService, string firstName, string email, string subject, string message)
         {
-
-
-
             //var fed = new Feedback();
-
             var addFeedback = new AddFeedback();
             addFeedback.Name = firstName;
             addFeedback.Email = email;
@@ -184,5 +173,11 @@ namespace Shopping.Web.Controllers
 
             return RedirectToAction("Contact");
         }
+        public IActionResult ConfirmNewsletter(string confirmationCode)
+        {
+
+            return View();
+        }
+       
     }
 }
