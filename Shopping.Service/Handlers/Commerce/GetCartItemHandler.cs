@@ -20,13 +20,16 @@ namespace Shopping.Service.Handlers.Commerce
         {
             Result result;
             // get the model from database
-            var model = cartItemRepository.Get(command.Id);
+            var model = cartItemRepository.Get(w => w.CartId == command.CartId, "Product");
 
             // if nothing found
             if (model == null)
             {
+                var c = new CartItem();
+                cartItemRepository.Insert(c);
+                var v = Mapper.Map<CartItemQuery>(c);
                 // return the not found result
-                result = new Result(false, command.Id, "Ürün bulunamadı.", true, null);
+                result = new Result(true, v, "Boş ürün döndürdü.", true, null);
                 return await Task.FromResult(result);
             }
             // map the model to query
